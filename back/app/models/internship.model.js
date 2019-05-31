@@ -15,4 +15,5 @@ module.exports = new BaseModel('Internship', {
   hasCompanyCar: Joi.boolean().required(),
   rating: Joi.number().required(),
   tuteur: Joi.string().required(),
+  comment: Joi.string().required(),
 });

@@ -1,58 +1,163 @@
 const sectors = {
-  SI: {
-    name: 'SI',
+  PEIP1: {
+    name: 'PEIP1',
     specialties: [
-      'specialtySI1',
-      'specialtySI2',
-      'specialtySI3',
+      'A',
+      'B'
     ],
   },
-  GE: {
-    name: 'GE',
+  PEIP2: {
+    name: 'PEIP2',
     specialties: [
-        'specialtyGE1',
-        'specialtyGE2',
-        'specialtyGE3',
+      'A',
+      'B',
     ],
   },
-  GB: {
-    name: 'GB',
+  SI3: {
+    name: 'SI3',
     specialties: [
-        'specialtyGB1',
-        'specialtyGB2',
-        'specialtyGB3',
+      'TASD',
+      'SSI',
     ],
   },
-  MAM: {
-    name: 'MAM',
+  SI4: {
+    name: 'SI4',
     specialties: [
-        'specialtyMAM1',
-        'specialtyMAM2',
-        'specialtyMAM3',
+      'AL',
+      'CASPAR',
+      'IAM',
+      'IHM',
+      'Web',
+      'IMAFA',
+      'SD'
     ],
   },
-  ELEC: {
-    name: 'ELEC',
+  SI5: {
+    name: 'SI5',
     specialties: [
-        'specialtyELEC1',
-        'specialtyELEC2',
-        'specialtyELEC3',
+      'AL',
+      'CASPAR',
+      'IAM',
+      'IHM',
+      'Web',
+      'IMAFA',
+      'SD'
     ],
   },
-  BAT: {
-    name: 'BAT',
+  GE3: {
+    name: 'GE3',
     specialties: [
-        'specialtyBAT1',
-        'specialtyBAT2',
-        'specialtyBAT3',
     ],
   },
-  IT2I: {
-    name: 'IT2I',
+  GE4: {
+    name: 'GE4',
     specialties: [
-        'specialtyIT2I1',
-        'specialtyIT2I2',
-        'specialtyIT2I3',
+    ],
+  },
+  GE5: {
+    name: 'GE5',
+    specialties: [
+    ],
+  },
+  GB3: {
+    name: 'GB3',
+    specialties: [
+    ],
+  },
+  GB4: {
+    name: 'GB4',
+    specialties: [
+        'PB',
+        'BIMB',
+        'TSSE',
+    ],
+  },
+  GB5: {
+    name: 'GB5',
+    specialties: [
+        'PB',
+        'BIMB',
+        'TSSE',
+    ],
+  },
+  MAM3: {
+    name: 'MAM3',
+    specialties: [
+    ],
+  },
+  MAM4: {
+    name: 'MAM4',
+    specialties: [
+        'MMP',
+        'EF',
+        'AADM',
+    ],
+  },
+  MAM5: {
+    name: 'MAM5',
+    specialties: [
+        'INUM',
+        'IMAFA',
+        'SD',
+    ],
+  },
+  ELEC3: {
+    name: 'ELEC3',
+    specialties: [
+    ],
+  },
+  ELEC4: {
+    name: 'ELEC4',
+    specialties: [
+        'CC',
+        'AS',
+        'Java',
+        'CLF',
+        'MCMOS',
+        'CEM',
+        'Robotique',
+        'ANT',
+        'CO&HF',
+        'TN',
+        'ATS',
+    ],
+  },
+  ELEC5: {
+    name: 'ELEC5',
+    specialties: [
+        'GSE',
+        'TR',
+        'CCS',
+    ],
+  },
+  BAT3: {
+    name: 'BAT3',
+    specialties: [
+    ],
+  },
+  BAT4: {
+    name: 'BAT4',
+    specialties: [
+    ],
+  },
+  BAT5: {
+    name: 'BAT5',
+    specialties: [
+    ],
+  },
+  ITII3: {
+    name: 'ITII3',
+    specialties: [
+      ],
+  },
+  ITII4: {
+    name: 'ITII4',
+    specialties: [
+      ],
+  },
+  ITII5: {
+    name: 'ITII5',
+    specialties: [
       ],
   },
 };

@@ -1,38 +1,92 @@
-.container{
-  width: 100%;
-  height: 100%;
+.company-page {
+  margin: 50px;
 }
 
-.header{
-  width: 100%;
-  margin-bottom: 10px;
-  font-size: 40px;
-  padding: 10px;
+.company-infos-td {
+width: 100%;
 }
 
-.main{
-  width: 100%;
-  height: 35%;
-  margin: 10px;
+.company-infos {
+margin: 20px;
+font-size: 14px;
+line-height: 130%
 }
 
-.left{
-  width: 50%;
-  height: 100%;
-  border: 1px solid #282828;
-  padding: 5px;
-  display: inline-block;
+.internship-array {
+margin: 20px;
 }
 
-.right{
-  width: 40%;
-  height: 100%;
-  display: inline-block;
+.tabulation {
+  margin-left: 30px;
 }
 
-.right img{
-  float: right;
-  width: 80%;
-  height: 80%;
+
+.company-image {
+  height: 300px;
+  width: 300px;
+  margin: 5px;      
 }
 
+td {
+vertical-align: top;
+}
+
+.company-page.form {
+text-align-last: right;
+}
+
+.custom-select {
+margin: 5px;    
+}
+
+.sizeArray {
+font-size: 14px;
+}
+
+.internshipTickets{
+  max-height:500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.internshipTicket{
+margin-top: 10px;
+}
+
+.legend {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 25px;
+}
+
+fieldset {
+  border-color: #3c3c3c;
+  border-width: 3px;
+  border-radius: 5px;
+}
+.custom-select {
+  margin: 5px;    
+  margin-right: 20px;
+  height: 35px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  font-size: 16px;
+}
+
+
+#style-3::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}

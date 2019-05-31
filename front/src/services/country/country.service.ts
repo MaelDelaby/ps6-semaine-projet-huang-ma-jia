@@ -33,10 +33,12 @@ export class CountryService {
   public getCountries() {
     this.http.get<Country[]>(this.countriesUrl).subscribe(value => {
       value.forEach(value2 => {
+        this.http.get<number>(this.internshipUrl + 'nbIntership?countryId=' + value2.id).subscribe(number =>
+        value2.nbIntership = number);
         this.http.get<number>(this.companiesUrl + 'companyNb?countryId=' + value2.id).subscribe(number =>
         value2.nbCompany = number);
-        this.http.get<number>(this.internshipUrl + 'nbIntership?countryId=' + value2.id).subscribe(number =>
-          value2.nbIntership = number);
+        this.http.get<number>(this.internshipUrl + 'averageRatingIntership?countryId=' + value2.id).subscribe(number =>
+        value2.averageRatingIntership = number);
       });
       this.countryList = value;
       this.countries$.next(value);

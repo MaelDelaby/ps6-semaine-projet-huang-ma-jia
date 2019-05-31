@@ -1,0 +1,95 @@
+<html>
+
+<body>
+
+<app-admin-navigation-bar></app-admin-navigation-bar>
+
+<h1 align="center">Ajouter un stage</h1>
+
+<div class="form-style-5">
+  <form>
+    <fieldset>
+      <legend><span class="number">1</span> Information générale du stage</legend>
+      <label for="job">Titre :</label>
+      <input type="text" name="field1" placeholder="Titre du stage">
+      <label for="job">Date début stage :</label>
+      <input type="date" name="field2" placeholder="">
+      <label for="job">Date fin stage :</label>
+      <input type="date" name="field2" placeholder="">
+
+      <label for="job">Rémunaration pendant le stage :</label>
+      <input type="radio" name="remunerationStage" value="oui" /> Oui
+      <input type="radio" name="remunerationStage" value="non" /> Non
+
+      <label for="job">Si rémunéré montant rémunération : (facultatif)</label>
+      <input type="number" name="field2" placeholder="">
+
+      <label for="job">Contrat renouvelé :</label>
+      <select id="job" name="field4">
+        <optgroup label="Informatique">
+          <option value="reading">Non</option>
+          <option value="fishkeeping">CDI</option>
+          <option value="reading">CDD</option>
+        </optgroup>
+      </select>
+
+
+      <legend><span class="number">2</span> Entreprise stage</legend>
+      <label for="job">Entreprise :</label>
+      <input type="text" name="field2" placeholder="Choix avec autocomplétion">
+      <label for="job">Tuteur :</label>
+      <input type="text" name="field2" placeholder="Nom du tuteur">
+      <label for="job">Voiture de fonction pendant le stage :</label>
+      <input type="radio" name="remunerationStage" value="oui" /> Oui
+      <input type="radio" name="remunerationStage" value="non" /> Non<br>
+
+      <legend><span class="number">3</span> Description : </legend>
+
+      <label for="job">Avis générale du stage :</label>
+      <form class="rating">
+        <label>
+          <input type="radio" name="stars" value="1" />
+          <span class="icon">★</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="2" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="3" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="4" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="5" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+        </label>
+      </form>
+      <label for="job">Description :</label>
+      <textarea name="field3" placeholder="Description du stage"></textarea>
+    </fieldset>
+    <input type="submit" value="Ajouter le stage" />
+  </form>
+</div>
+
+<div class="fatFooter">
+  <app-fat-footer></app-fat-footer>
+</div>
+
+</body>
+</html>
+
+

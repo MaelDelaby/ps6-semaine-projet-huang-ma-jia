@@ -1,0 +1,48 @@
+@import '../../../styles/card.scss';
+
+.company {
+  width: 99.5%;
+  background: white;
+  border-radius: 10px;  
+}
+
+.company:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+}
+
+.table{
+  width: 100%;
+}
+
+.icon {
+  margin-left: 10px;
+  height: 100px;
+  width: 100px;
+}
+
+.name{
+  font-size: 40px;
+  font-weight: bold;
+  min-width: 300px;
+}
+
+.nbStage{
+  text-align: right;
+  vertical-align: top;
+}
+
+.note{
+  text-align: right;
+  min-width: 230px;
+  width: 20%;
+}
+
+.secteur{
+  color: grey;
+  vertical-align: top;
+}
+
+.address{
+  font-size: 14px;
+}

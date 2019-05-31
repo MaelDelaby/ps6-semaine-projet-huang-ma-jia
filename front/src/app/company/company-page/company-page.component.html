@@ -1,27 +1,51 @@
-<div class="company">
-  <div class="header">
-    <span>Apple Iconsiam - Bangkok </span>
+<app-navigation-bar></app-navigation-bar>
+
+<div class="company-page" *ngIf="company != null">
+
+    <h1>{{company.name}}</h1>
+
+    <fieldset>
+        <legend>Information sur la company</legend>
+        <table>
+            <tr>
+                <td class="company-infos-td ">
+                    <div class="company-infos">
+                        Secteur : {{company.activitySector}}<br>
+                        Adresse : {{company.address}}<br>
+                        Nombre d'employés : {{company.employeesNumber}} personnes<br>
+                        Date de création : {{company.creationDate}}<br>
+                        Opportinité d'embauche dans l'entreprise : <a href="{{company.hiringOpportunities}}" target="_blank">{{company.hiringOpportunities}}</a><br>
+                        <br>
+                        {{company.description}}
+                    </div>
+                </td>
+                <td>
+                    <img class="company-image" src={{company.iconImage}} [height]="300"/>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Liste des stages précédemments effectués par des étudiants</legend>
+        <div class="internship-array">
+            Trié par :
+            <select class="custom-select" (change)="internshipListSortChange($event.target.value)">
+                <option *ngFor="let sort of sortArray">
+                        {{sort}}
+                </option>
+            </select>
+
+            <br>
+
+            <div class="internshipTickets" id="style-3">
+                <div class="internshipTicket" *ngFor="let internship of internshipList">
+                    <app-internship-ticket [internship]="internship"></app-internship-ticket>
+                </div>
+            </div>
+        </div>
+    </fieldset>
   </div>
-  <div class="main">
-    <div class="left">
-      <span>Address: 299 Charoen Nakhon Rd, Khwaeng Khlong Ton Sai, Khet Khlong San</span>
-      <p>Krung Thep Maha Nakhon 10600, Thailand</p>
-      <span>nombre d'employee: 2000</span>
-      <p>***************************</p>
-      <p>***************************</p>
-      <p>***************************</p>
-    </div>
-    <div class="right">
-        <img src="http://static.asiawebdirect.com/m/bangkok/portals/bangkok-com/homepage/pagePropertiesOgImage/bangkok.jpg.jpg" alt="image">
-    </div>
-  </div>
-  <!--<div class="search">-->
-    <!--<span><input type="text">&nbsp;&nbsp;&nbsp;</span>-->
-    <!--<span><input type="checkbox" name="category" value="A ete reconduit CDD/CDI">A ete reconduit CDD/CDI &nbsp;&nbsp;&nbsp;</span>-->
-    <!--<span><input type="checkbox" name="category" value="Voiture de fonction">Voiture de fonction&nbsp;&nbsp;&nbsp;</span>-->
-    <!--<span><input type="button" name="comfirm" value="verifier" id="confirm_button">&nbsp;&nbsp;&nbsp;</span>-->
-    <!--<span style="display: inline-block; float: right; margin-right: 50px">9 resultats</span>-->
-  <!--</div>-->
-  <app-search-form></app-search-form>
-  <app-internship-list></app-internship-list>
-</div>
+<app-fat-footer></app-fat-footer>

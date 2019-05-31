@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-widht, initial-scale=1.0">
+</head>
+<body>
+  <fieldset>
+    <legend class="legend">Information sur le pays</legend>
+
+    <div class="filter">
+      <input class="research" type="research" (change)="researchChange($event.target.value)" placeholder="Rechercher">
+
+      <div class="dropdown">
+        <button class="dropbtn">Trier par : {{this.selectedSort}}</button>
+        <div class="dropdown-content">
+          <option (click)="selectASort('Alphabétique A-Z')">Alphabétique A-Z</option>
+          <option (click)="selectASort('Alphabétique Z-A')">Alphabétique Z-A</option>
+          <option (click)="selectASort('Note moyenne des stages')">Note moyenne des stages</option>
+          <option (click)="selectASort('Cout de la vie croissant')">Cout de la vie croissant</option>
+          <option (click)="selectASort('Facilité des démarches')">Facilité des démarches</option>
+          <option (click)="selectASort('Nombre de stage')">Nombre de stage</option>
+          <option (click)="selectASort('Nombre d\'entreprise')">Nombre d'entreprise</option>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="country-list">
+      <div class="country" *ngFor="let countryTicket of countryTicketListVisible">
+        <app-country-ticket [ticket]="countryTicket" (clickEventTicket)="onClick($event)"></app-country-ticket>
+      </div>
+    </div>
+
+  </fieldset>
+
+</body>
+
+

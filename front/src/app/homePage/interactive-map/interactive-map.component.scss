@@ -1,0 +1,20 @@
+// You can apply style directly to a component
+
+
+.mapWorld {
+  fill: #e3e3e3;
+  stroke-width: 1px;
+  stroke: #d2d2d2;
+}
+
+.mapWorld path.CN, path.FR, path.TH, path.US {
+  fill: #1a707d;
+  stroke: #186470;
+  cursor:pointer;
+}
+
+.mapWorld path.CN:hover, path.FR:hover, path.TH:hover, path.US:hover{
+  fill: #18565d;
+  stroke: #0b2e32;
+  cursor:pointer;
+}

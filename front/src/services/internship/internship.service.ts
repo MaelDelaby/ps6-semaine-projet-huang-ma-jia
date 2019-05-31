@@ -1,61 +1,39 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Internship} from '../../models/internship';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Company} from '../../models/company';
-import {FormGroup} from "@angular/forms";
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class InternshipService {
   private internshipList: Internship[] = [];
-  private internshipFiltered: Internship[];
-  private searchTerms = new Subject<Internship>();
   public internships$: BehaviorSubject<Internship[]> = new BehaviorSubject(this.internshipList);
+  public companyId: number = null;
 
-  private internshipUrl = 'http://localhost:9428/api/internships/';
-  private companyId: number = null;
+  private internshipsUrl = 'http://localhost:9428/api/internships/';
 
   constructor(private http: HttpClient) {
-    this.loadInternships(this.internshipUrl)
+    this.loadInternships(this.internshipsUrl);
   }
 
-  // Internshipfilter() {
-  //   this.loadInternships(URL);
-  //   return this.internshipFiltered;
-  // }
-
   loadInternships(URL): void {
-    this.http.get<Internship[]>(URL).subscribe( internships => {
-      this.internshipFiltered = internships;
+  }
+
+  public setCompanyId(id: number) {
+    this.companyId = id;
+    this.http.get<Internship[]>(this.internshipsUrl + '?companyId=' + id).subscribe(internships => {
+      this.internshipList = internships;
       this.internships$.next(internships);
     });
   }
 
-  public setCompanyId(id : number) {
-    this.companyId = id;
-    this.http.get<Internship[]>(this.internshipUrl + "?company=" + id).subscribe(value => {
-      this.internshipList = value;
-      this.internships$.next(value);
-    });
-  }
-
-  filterInternships(contractRenewed= null, hasCompanyCar= null) {
-    this.http.get<Internship[]>(this.internshipUrl + 'search/?contract=' + contractRenewed + '&hasCompanyCar=' + hasCompanyCar).subscribe(value => {
-      this.internshipList = value;
-      this.internships$.next(value);
-    });
-  }
-
-  formChange(searchForm: FormGroup) {
-    this.http.get<Internship[]>(this.internshipUrl + '?companyId=' + this.companyId
-    + (searchForm.getRawValue().contractRenewed ? ('&contractRenewed=' + searchForm.getRawValue().contractRenewed) : '')
-    + (searchForm.getRawValue().hasCompanyCar ? ('&hasCompanyCar=' + searchForm.getRawValue().hasCompanyCar) : '')
-    ).subscribe(value => {
-      this.internshipList = value;
-      this.internships$.next(value);
+  public formChange(form: FormGroup) {
+    this.http.get<Internship[]>(this.internshipsUrl + '?companyId=' + this.companyId
+    ).subscribe(internships => {
+      this.internshipList = internships;
+      this.internships$.next(internships);
     });
   }
 }

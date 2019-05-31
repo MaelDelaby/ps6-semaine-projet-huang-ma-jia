@@ -1,0 +1,1 @@
+export { CompanySearchPageComponent } from './company-search-page.component';

@@ -1,0 +1,71 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="company-search-page">
+    <h2>Quels sont tes critères</h2>
+
+    <form class="country-page-form" [formGroup]="countryPageForm" (change)="formChange()">
+
+        A propos de toi :
+
+        <select class="custom-select" [formControlName]="'sector'" (change)="sectorChange($event.target.value)">
+            <option>- Filière -</option>
+            <option *ngFor="let sector of sectorArray">
+                    {{sector}}
+            </option>
+        </select>
+
+        <select class="custom-select" [formControlName]="'specialty'">
+            <option>- Spécialité -</option>
+            <option *ngFor="let specialty of specialtyArray">
+                    {{specialty}}
+            </option>
+        </select>
+
+        <br>
+        A propos de l'entreprise :
+
+        <select class="custom-select" [formControlName]="'continent'">
+            <option>- Continent -</option>
+            <option *ngFor="let continent of continentArray">
+                    {{continent}}
+            </option>
+        </select>
+
+        <select class="custom-select" [formControlName]="'activitySector'">
+            <option>- Secteur d'activité -</option>
+            <option *ngFor="let activitySector of activitySectorArray">
+                    {{activitySector}}
+            </option>
+        </select>
+
+        Taille de l'entreprise :
+        <div class="sizeArray" *ngFor="let size of sizeArray">
+            <input type="checkbox" [formControlName]="size.id">{{size.str}}
+        </div>
+
+    </form>
+
+    <div class="resultNb">
+        {{resultNb}} entreprises
+    </div>
+
+    <fieldset>
+        <legend>Liste des entreprises où des étudiants on fait leur stage</legend>
+        <div class="company-array">
+            <input type="text" class="research" (change)="researchChange($event.target.value)" placeholder="Rechercher">
+
+            Trié par :
+            <select class="custom-select" (change)="companyListSortChange($event.target.value)">
+                <option *ngFor="let sort of sortArray">
+                        {{sort}}
+                </option>
+            </select>
+            <div class="companyTickets" id="style-3">
+                <div class="companyTicket" *ngFor="let company of companyListVisible">
+                    <app-company-ticket [company]="company" [countryExist]=true (clickEvent)="companyClick($event)"></app-company-ticket>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<app-fat-footer></app-fat-footer>

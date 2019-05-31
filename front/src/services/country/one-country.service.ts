@@ -13,7 +13,6 @@ export class OneCountryService {
    * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
    */
 
-  //private countryList: Country[] = []; A remettre quand le back marche
   private country: Country;
 
   private countriesUrl = 'http://localhost:9428/api/countries/';

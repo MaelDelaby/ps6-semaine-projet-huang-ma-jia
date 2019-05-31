@@ -1,0 +1,21 @@
+<div class="country" (click)="onClick(ticket.id)" (mouseenter) ="mouseEnter() "  (mouseleave) ="mouseLeave()">
+  <div class="country-image">
+    <img src={{ticket.flagPath}}/>
+  </div>
+
+  <div class="content">
+    <h3>{{ticket.name}}</h3>
+    <div class="hover-content">
+      <h4>Informations sur le pays</h4>
+      Nombre de stage fait dans ce pays : {{ticket.nbIntership}}<br>
+      Nombre d'entreprise dans le pays : {{ticket.nbCompany}}<br>
+      Facilité des démarches :
+      <i *ngFor="let item of this.visaStudentFullStarsArray" class="fas fa-star"></i>
+      <i *ngFor="let item of this.visaStudentEmptyStarsArray" class="far fa-star"></i><br>
+      Note moyenne des stages : <i *ngFor="let item of this.ratingFullStarsArray" class="fas fa-star"></i>
+                                <i *ngIf="this.existHalfStar === true" class="fas fa-star-half-alt"></i>
+                                <i *ngFor="let item of this.ratingEmptyStarsArray" class="far fa-star"></i><br>
+      Cout de la vie : <i *ngFor="let item of this.costOfLivingDollarArray" class="fas fa-dollar-sign"></i>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<html>
+
+<body>
+  <app-navigation-bar></app-navigation-bar>
+
+  <div class="title">
+    <h1>Dans quel pays veux tu partir pour faire ton stage?</h1>
+  </div>
+
+  <div class="mapWorld">
+    <app-map-world
+      (clickEvent)="onClick($event)"
+      [countryTicketList]="this.countryTicketList"></app-map-world>
+  </div>
+
+  <div class="button_cont" align="center">
+    <a class="example_e" onclick="window.location.href = 'http://localhost:4200/companies-search';" target="_blank" >Je ne sais pas dans quel pays je veux faire mon stage</a>
+  </div>
+
+  <div class="countryList">
+    <app-country-ticket-list
+      (clickEventList)="onClick($event)"
+      [countryTicketListVisible]="this.countryTicketList"
+      [countryTicketList]="this.countryTicketList"></app-country-ticket-list>
+  </div>
+
+  <div class="fatFooter">
+    <app-fat-footer></app-fat-footer>
+  </div>
+</body>
+</html>
+
+
+

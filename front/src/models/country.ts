@@ -5,10 +5,14 @@ export interface Country {
     photoPath?: string;
     information?: string;
     someInformation?: string;
-    visaDifficulty?: number;
-    visaInformation?: string;
+    visaStudentDifficulty?: number;
+    visaStudentInformation?: string;
+    visaWorkerDifficulty?: number;
+    visaWorkerInformation?: string;
     hiringOpportunities?: string;
     continent?: string;
+    costOfLiving?: number;
     nbIntership?: number;
     nbCompany?: number;
+    averageRatingIntership?: number;
 }

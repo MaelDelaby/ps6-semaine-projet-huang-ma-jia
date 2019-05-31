@@ -1,8 +1,0 @@
-<div class="moreInformation"*ngIf="ticket != null">
-  <h2 data-ng-init=init()>Informations sur le pays</h2>
-  Nombre d'étudiant partis dans ce pays : {{ticket.nbIntership}}<br>
-  Nombre d'entreprise dans le pays : {{ticket.nbCompany}}<br>
-  Facilité des démarches :
-  <i *ngFor="let item of this.visaFullStarsArray" class="fas fa-star"></i>
-  <i *ngFor="let item of this.visaEmptyStarsArray" class="far fa-star"></i><br>
-</div>

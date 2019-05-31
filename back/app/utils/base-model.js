@@ -41,11 +41,22 @@ module.exports = class BaseModel {
     return this.items;
   }
 
+  /* Country */
+  getWithCountryFilter(query){
+    let countries = this.items;
+
+    if (query.continent != null){
+      countries.filter(country => country.continent === query.continent)
+    }
+
+    return countries;
+  }
+
   /* Company */
   getWithCompanyFilter(query) {
     let companies = this.items;
 
-    if (query.countryId !== 'null') {
+    if (query.countryId != null) {
       companies = companies.filter(company => company.countryId == query.countryId);
     }
 
@@ -64,25 +75,20 @@ module.exports = class BaseModel {
     if (query.continent && query.continent !== 'all') {
       const { Country } = require('../models');
       companies = companies.filter(
-        i => Country.getByContinent(i.countryId, query.continent).length != 0,
+        company => Country.items
+          .find(country => company.countryId == country.id)
+          .continent == query.continent,
       );
     }
-    if (query.secteur && query.secteur !== 'all') {
-      companies = companies.filter(
-        i => i.secteur.includes(query.secteur),
-      );
-    }
-    if (query.size && query.size !== 'all') {
-      companies = this.getByTaile(query.size);
-    }
+
     if (query.size1 && query.size2 && query.size3) {
       if (query.size1 == 'false'){
         companies = companies.filter(company => !(company.employeesNumber <= 49));
       }
-      if (query.size1 == 'false'){
+      if (query.size2 == 'false'){
         companies = companies.filter(company => !(company.employeesNumber >= 50 && company.employeesNumber <= 499));
       }
-      if (query.size1 == 'false'){
+      if (query.size3 == 'false'){
         companies = companies.filter(company => !(company.employeesNumber >= 500));
       }
     }
@@ -91,30 +97,34 @@ module.exports = class BaseModel {
       companies = companies.filter(company => company.activitySector == query.activitySector);
     }
 
-    this.addRating();//a mettre ailleurs
+    //Add rating
+    const { Internship } = require('../models');
+
+    companies.forEach(company => {
+      company.rating = Internship.getRating(company.id);
+    });
+
+    //Add internshipNb
+    companies.forEach(company => company.internshipNb = Internship.getInternshipsNb({companyId: company.id}));
 
     return companies;
   }
 
   /* Internship */
-  getWithInternFilter(query) {
+  getWithInternshipFilter(query) {
     let internships = this.items;
 
-    if (query.companyId !== 'null') {
+    if (query.companyId != null) {
       internships = internships.filter(internship => internship.companyId == query.companyId);
     }
 
-    if (query.hasCompanyCar) {
+    if (query.hasCompanyCar != null) {
       internships = internships.filter(internship => internship.hasCompanyCar == true);
-    }else{
-      internships = internships.filter(internship => internship.hasCompanyCar == false);
     }
 
-    if (query.contractRenewed) {
+    if (query.contractRenewed != null) {
       internships = internships.filter(internship => internship.contractRenewed != '');
     }
-
-    this.addRating();
 
     return internships;
   }
@@ -127,27 +137,64 @@ module.exports = class BaseModel {
     return [...new Set(activitySectors)];
   }
 
-  addRating(){
-    this.items.forEach(company => {
-      const { Internship } = require('../models');
-
-      company.rating = Internship.getRating(company.id);
-    });
-  }
-
   /* Company */
   getNumberCompanyByCountryId(query){
-    console.log(query);
     let companies = this.items;
 
-    if (query.countryId !== null) {
+    if (query.countryId != null) {
       companies = companies.filter(company => company.countryId == query.countryId);
     }
-
     return companies.length;
   }
 
   /* Internship */
+  getInternshipsNb(query){
+    if (query.countryId != null) {
+      const { Company } = require('../models' );
+      
+      let sum = 0;
+
+      Company.items.filter(company => company.countryId == query.countryId)
+        .forEach(company => {
+          sum += this.getInternshipsNb({companyId: company.id});
+      })
+
+      return sum;
+    }
+
+    if (query.companyId != null) {
+      return this.items.filter(intership => intership.companyId == query.companyId).length;
+    }
+  }
+
+  getAverageRatingIntershipByCountryId(query){
+
+    if (query.countryId != null) {
+      const { Company } = require('../models' );
+
+      let average = 0;
+      let nbIntership = this.getInternshipsNb(query)
+
+      if (nbIntership === null){
+        return 0;
+      }
+      else {
+        Company.items.filter(company => company.countryId == query.countryId).forEach(company => {
+          average += this.getAverageRatingIntershipByCountryId({companyId: company.id});
+      })
+        return average/nbIntership;
+      }
+    }
+
+    if (query.companyId != null) {
+      let buf = 0;
+
+      this.items.filter(intership => intership.companyId == query.companyId).forEach(intership => {
+        buf += intership.rating;
+      })
+      return buf;
+    }
+  }
 
   getWithIntershipFilter(query) {
     const { Student } = require('../models');
@@ -173,14 +220,29 @@ module.exports = class BaseModel {
   /* Student */
 
   getWithStudentFilter(query) {
-    return this.items.filter(student =>
-      (query.sector == null || query.sector == student.sector)
-      && (query.specialty == null || query.specialty == student.specialty));
-  }
+    let students = this.items;
 
-  getByContinent(countryID, continent) {
-    const countries = this.items.filter(i => countryID === i.id && i.continent === continent);
-    return countries;
+    if (query.countryId != null){
+      const { Internship, Company } = require('../models');
+
+      students = students.filter(student => 
+        Internship.items.find(internship => 
+          internship.studentId == student.id && 
+          Company.items.find(company => 
+            company.countryId == query.countryId && 
+            company.id == internship.companyId
+          ) != null
+        ) != null);
+    }
+
+    if (query.sector != null){
+      students = students.filter(student => query.sector == student.sector);
+      if (query.specialty != null){
+        students = students.filter(student => query.specialty == student.specialty);
+      }
+    }
+
+    return students
   }
 
   /* partnerHousing */
@@ -196,25 +258,10 @@ module.exports = class BaseModel {
     return items;
   }
 
-  /* internships */
-  getNumberIntershipByCountryId(query){
-    var companies = [];
-    var intership = [];
-    var step;
-
-    if (query.countryId !== null) {
-      companies = companies.filter(company => company.countryId == query.countryId);
-      for (step = 0; step<companies.length; step++) {
-        intership.addAll(intership.filter(intership => intership.companyId == companies[step].companyId));
-      }
-    }
-    return intership.length;
-  }
-
   /* Ticket */
 
   getById(id) {
-    const item = this.items.find(i => i.id === id);
+    const item = this.items.find(i => i.id == id);
     if (!item) throw new NotFoundError(`Cannot get ${this.name} id=${id} : not found`);
     return item;
   }
@@ -240,41 +287,6 @@ module.exports = class BaseModel {
     return countries;
   }
 
-  getBySector(secteur) {
-    if (secteur === 'all') {
-      return this.items;
-    }
-    const companies = this.items.filter(i => i.secteur === secteur);
-    return companies;
-  }
-
-  getByTaile(taile) {
-    if (taile === 'all') {
-      return this.items;
-    }
-    let lowerbound;
-    let higherbound;
-    switch (taile) {
-      case '1-50': {
-        lowerbound = 1;
-        higherbound = 50;
-        break;
-      }
-      case '51-300': {
-        lowerbound = 51;
-        higherbound = 300;
-        break;
-      }
-      default: {
-        lowerbound = 301;
-        higherbound = 100000;
-      }
-    }
-    const companies = this.items.filter(i => (lowerbound < i.employeesNumber)
-      && (i.employeesNumber < higherbound));
-    return companies;
-  }
-
   create(obj = {}) {
     const item = Object.assign({}, obj, { id: Date.now() });
     const { error } = Joi.validate(item, this.schema);
@@ -284,9 +296,8 @@ module.exports = class BaseModel {
     return item;
   }
 
-  createStudent(obj = {}) {
-    const item = Object.assign({}, obj);
-    console.log(obj);
+  createCountry(obj = {}) {
+    const item = obj;
     const { error } = Joi.validate(item, this.schema);
     if (error) throw new ValidationError(`Create Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error);
     this.items.push(item);

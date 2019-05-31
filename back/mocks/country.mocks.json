@@ -1,27 +1,17 @@
 [
   {
-    "id": "TH",
-    "name": "Thaïlande",
-    "flagPath": "http://flagpedia.net/data/flags/ultra/th.png",
-    "photoPath": "https://www.lonelyplanet.fr/sites/lonelyplanet/files/media/article/image/fotolia_117988727_subscription_monthly_m.jpg",
-    "information": " La Thaïlande, en forme longue le royaume de Thaïlande, en thaï Prathet Thaï2, ประเทศไทย ou Ratcha Anachak Thai, ราชอาณาจักรไทย, est un pays d’Asie du Sud-Est. Avant 1939, il s’appelait le royaume de Siam. Il est bordé à l’ouest et au nord-ouest par la Birmanie, au sud par la Malaisie, à l’est par le Cambodge et au nord-est par le Laos",
-    "someInformation": "Très beau pays",
-    "visaDifficulty": 3,
-    "visaInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
-    "hiringOpportunities": "Aucune",
-    "continent": "Asie"
-  },
-  {
-  "id": "US",
-  "name": "USA",
-  "flagPath": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png",
-  "photoPath": "https://cdn.officiel-des-vacances.com/files/styles/product_580x360/public/bend_meander.jpg?itok=tfaPtv_D",
-  "information": "Gigantesque pays très urbanisé, 1er puissance économique du monde contenant les villes de St Fransisco et New York",
-  "someInformation": "Gigantesque pays très urbanisé",
-  "visaDifficulty": 4,
-  "visaInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
-  "hiringOpportunities": "Plein",
-  "continent": "Amérique du Nord"
+    "id": "CN",
+    "name": "Chine",
+    "flagPath": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People's_Republic_of_China.svg/1280px-Flag_of_the_People's_Republic_of_China.svg.png",
+    "photoPath": "https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2018.2F03.2F21.2F5b19b4c6-f7e2-41cc-9485-1b6d13c71ac4.2Ejpeg/750x375/background-color/ffffff/quality/70/routes-de-la-soie-le-piege-de-la-dette-guette-les-amis-de-la-chine-1305177.jpg",
+    "information": "Gigantesque pays très urbanisé, 1er puissance économique du monde contenant les villes de St Fransisco et New York",
+    "someInformation": "Gigantesque pays très urbanisé",
+    "visaStudentDifficulty": 4,
+    "visaStudentInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
+    "visaWorkerDifficulty": 3,
+    "visaWorkerInformation": "https://www.rapidevisa.fr/Visa2/Thailande.html",
+    "continent": "Asie",
+    "costOfLiving": 1
   },
   {
     "id": "FR",
@@ -30,21 +20,39 @@
     "photoPath": "https://www.parisinfo.com/var/otcp/sites/images/media/1.-photos/02.-sites-culturels-630-x-405/tour-eiffel-trocadero-630x405-c-thinkstock/37221-1-fre-FR/Tour-Eiffel-Trocadero-630x405-C-Thinkstock.jpg",
     "information": "Gigantesque pays très urbanisé, 1er puissance économique du monde contenant les villes de St Fransisco et New York",
     "someInformation": "Gigantesque pays très urbanisé",
-    "visaDifficulty": 4,
-    "visaInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
-    "hiringOpportunities": "Plein",
-    "continent": "Amérique du Nord"
+    "visaStudentDifficulty": 4,
+    "visaStudentInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
+    "visaWorkerDifficulty": 3,
+    "visaWorkerInformation": "https://www.rapidevisa.fr/Visa2/Thailande.html",
+    "continent": "Europe",
+    "costOfLiving": 2
   },
   {
-    "id": "CN",
-    "name": "Chine",
-    "flagPath": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People's_Republic_of_China.svg/1280px-Flag_of_the_People's_Republic_of_China.svg.png",
-  "photoPath": "https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2018.2F03.2F21.2F5b19b4c6-f7e2-41cc-9485-1b6d13c71ac4.2Ejpeg/750x375/background-color/ffffff/quality/70/routes-de-la-soie-le-piege-de-la-dette-guette-les-amis-de-la-chine-1305177.jpg",
+    "id": "US",
+    "name": "USA",
+    "flagPath": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png",
+    "photoPath": "https://cdn.officiel-des-vacances.com/files/styles/product_580x360/public/bend_meander.jpg?itok=tfaPtv_D",
     "information": "Gigantesque pays très urbanisé, 1er puissance économique du monde contenant les villes de St Fransisco et New York",
     "someInformation": "Gigantesque pays très urbanisé",
-    "visaDifficulty": 4,
-    "visaInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
-    "hiringOpportunities": "Plein",
-    "continent": "Amérique du Nord"
+    "visaStudentDifficulty": 4,
+    "visaStudentInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
+    "visaWorkerDifficulty": 3,
+    "visaWorkerInformation": "https://www.rapidevisa.fr/Visa2/Thailande.html",
+    "continent": "Amérique du Nord",
+    "costOfLiving": 3
+  },
+  {
+    "id": "TH",
+    "name": "Thaïlande",
+    "flagPath": "http://flagpedia.net/data/flags/ultra/th.png",
+    "photoPath": "https://www.lonelyplanet.fr/sites/lonelyplanet/files/media/article/image/fotolia_117988727_subscription_monthly_m.jpg",
+    "information": " La Thaïlande, en forme longue le royaume de Thaïlande, en thaï Prathet Thaï2, ประเทศไทย ou Ratcha Anachak Thai, ราชอาณาจักรไทย, est un pays d’Asie du Sud-Est. Avant 1939, il s’appelait le royaume de Siam. Il est bordé à l’ouest et au nord-ouest par la Birmanie, au sud par la Malaisie, à l’est par le Cambodge et au nord-est par le Laos",
+    "someInformation": "Très beau pays",
+    "visaStudentDifficulty": 4,
+    "visaStudentInformation": "https://www.rapidevisa.fr/Visa/Thailande.html",
+    "visaWorkerDifficulty": 3,
+    "visaWorkerInformation": "https://www.rapidevisa.fr/Visa2/Thailande.html",
+    "continent": "Asie",
+    "costOfLiving": 1
   }
 ]

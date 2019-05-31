@@ -1,7 +1,9 @@
+<app-navigation-bar></app-navigation-bar>
+
 <div class="country-page" *ngIf="country != null">
 
     <h1>{{country.name}}</h1>
-    
+
     <fieldset>
         <legend>Information sur le pays</legend>
         <table>
@@ -10,19 +12,28 @@
                     <div class="country-infos">
                         {{country.information}}<br>
                         <br>
-                        Démarche pour avoir un visa :<br>
+                      Cout de la vie : <i *ngFor="let item of this.costOfLivingDollarArray" class="fas fa-dollar-sign"></i>
+                      <br>
+                        Démarche pour avoir un visa étudiant :<br>
                         <div class="tabulation">
                             - Facilité :
-                                <i *ngFor="let item of visaFullStarsArray" class="fas fa-star"></i>
-                                <i *ngFor="let item of visaEmptyStarsArray" class="far fa-star"></i><br>
+                                <i *ngFor="let item of visaStudentFullStarsArray" class="fas fa-star"></i>
+                                <i *ngFor="let item of visaStudentEmptyStarsArray" class="far fa-star"></i><br>
                             - Informations :
-                                <a href="{{country.visaInformation}}" target="_blank">{{country.visaInformation}}</a>
+                                <a href="{{country.visaStudentInformation}}" target="_blank">{{country.visaStudentInformation}}</a>
+                        </div><br>
+                        Démarche pour avoir un visa de travail :<br>
+                        <div class="tabulation">
+                            - Facilité :
+                                <i *ngFor="let item of visaWorkerFullStarsArray" class="fas fa-star"></i>
+                                <i *ngFor="let item of visaWorkerEmptyStarsArray" class="far fa-star"></i><br>
+                            - Informations :
+                                <a href="{{country.visaWorkerInformation}}" target="_blank">{{country.visaWorkerInformation}}</a>
                         </div><br>
                         Logements partenaires :
                         <div class="tabulation" *ngFor="let partnerHousing of partnerHousingList">
                             - {{partnerHousing.name}} : <a href="{{partnerHousing.webSite}}" target="_blank">{{partnerHousing.webSite}}</a>
                         </div><br>
-                        Opportinité d'embauche dans le pays : {{country.hiringOpportunities}}
                     </div>
                 </td>
                 <td>
@@ -62,18 +73,66 @@
                     </option>
                 </select>
 
-                <div class="sizeArray" *ngFor="let size of sizeArray" style="display:inline;">
+                Taille de l'entreprise :
+
+                <div class="sizeArray" *ngFor="let size of sizeArray">
                     <input type="checkbox" [formControlName]="size.id">{{size.str}}
                 </div>
+
             </form>
 
-            <br>
-            
-            
-            <div *ngFor="let company of companyList">
-                <app-company-search [company]="company"></app-company-search>
+            <input class="research" type="search" (change)="researchChange($event.target.value)" placeholder="Rechercher">
+
+            Trié par :
+            <select class="custom-select" (change)="companyListSortChange($event.target.value)">
+                <option *ngFor="let sort of sortArray">
+                        {{sort}}
+                </option>
+            </select>
+
+            <div class="resultNb">
+                {{companyResultNb}} entreprises
+            </div>
+
+            <div class="companyTickets" id="style-3">
+                <div class="companyTicket" *ngFor="let company of companyListVisible">
+                    <app-company-ticket [company]="company" [countryExist]=false (clickEvent)="companyClick($event)"></app-company-ticket>
+                </div>
             </div>
         </div>
     </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Liste des étudiants ayant fait un stage dans ce pays</legend>
+        <div class="student-array">
+
+            <form class="student-page-form" [formGroup]="studentPageForm" (change)="studentFormChange()">
+                <input class="research" type="search" (change)="studentResearchChange($event.target.value)" placeholder="Rechercher">
+
+                <select class="custom-select" [formControlName]="'sector'" (change)="sectorChange($event.target.value)">
+                    <option>- Filière -</option>
+                    <option *ngFor="let sector of sectorArray">
+                            {{sector}}
+                    </option>
+                </select>
+
+                <select class="custom-select" [formControlName]="'specialty'">
+                    <option>- Spécialité -</option>
+                    <option *ngFor="let specialty of specialtyArray">
+                            {{specialty}}
+                    </option>
+                </select>
+            </form>
+
+            <div class="student-list" id="style-3">
+                <div class="student" *ngFor="let student of studentListVisible">
+                    <app-student-ticket [student]="student"></app-student-ticket>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
   </div>
-  
+<app-fat-footer></app-fat-footer>

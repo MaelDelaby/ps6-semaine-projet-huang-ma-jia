@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+.country-list
+{
+  margin: 0;
+  padding: 0;
+  min-width: 400px;
+  display: list-item;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.country-list
+{
+  position: relative;
+  width: 100%;
+  margin: 25px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 20px;
+}
+
+.filter
+{
+
+  position: relative;
+  float: right;
+  width: auto;
+  margin: 15px;
+}
+
+.research
+{
+  margin-right: 20px;
+  height: 35px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+
+}
+
+.dropbtn {
+  border-radius: 5px;
+  border: solid;
+  width: 300px;
+  border-width: 1px;
+  background-color: #3c3c3c;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.dropdown-content {
+  cursor:pointer;
+  width: 300px;
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  font-size: 14px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content option {
+
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content option:hover {background-color: #e5e5e5
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #8a8a8a;
+}
+
+.legend {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 25px;
+}
+
+fieldset {
+  border-color: #3c3c3c;
+  border-width: 3px;
+  border-radius: 5px;
+}

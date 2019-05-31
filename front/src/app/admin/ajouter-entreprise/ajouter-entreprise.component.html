@@ -1,0 +1,55 @@
+<html>
+
+<body>
+
+<app-admin-navigation-bar></app-admin-navigation-bar>
+
+<h1 align="center">Ajouter une entreprise</h1>
+
+<div class="form-style-5">
+  <form [formGroup]="addCompanyPageForm" >
+    <fieldset>
+      <legend><span class="number">1</span> Information générale de l'entreprise</legend>
+      <label for="name">*Nom :</label>
+      <input type="text" id="name" placeholder="Nom de l'entreprise" [formControlName]="'name'">
+      <label for="logo">Logo :</label>
+      <input type="image" id="logo" placeholder="Logo de l'entreprise" [formControlName]="'iconImage'">
+      <label for="creationDate">Date de création :</label>
+      <input type="date" id="creationDate" placeholder="Date de création de l'entreprise" [formControlName]="'creationDate'">
+      <label for="employesNb">Nombre d'employé :</label>
+      <input type="number" id="employesNb" placeholder="Nombre d'employé de l'entreprise dans la monde" [formControlName]="'employesNb'">
+      <label for="activitySecteur">Secteur d'activité :</label>
+      <select id="activitySecteur" [formControlName]="'activitySector'">
+        <option *ngFor="let activitySector of activitySectorArray">
+                {{activitySector}}
+        </option>
+      </select>
+
+
+      <legend><span class="number">2</span> Localisation de l'entreprise</legend>
+      <label for="country">*Pays :</label>
+      <select id="country" [formControlName]="'countryId'">
+        <optgroup label="{{continent}}" *ngFor="let continent of continentArray">
+          <option value="reading" *ngFor="let country of countryArray[continent]">
+              {{country.name}}
+          </option>
+        </optgroup>
+      </select>
+      <label for="address">Adresse :</label>
+      <input type="email" id="address" placeholder="Adresse de l'entreprise" [formControlName]="'address'">
+
+      <legend><span class="number">3</span> Description : </legend>
+      <textarea name="field3" placeholder="Description de l'entreprise" [formControlName]="'description'"></textarea>
+    </fieldset>
+    <p>* champ obligatoire</p>
+    <p style="color: darkred" *ngIf="formError == true">Veuillez remplir tout les champs obligatoires</p>
+    <input type="submit" class="addCompany" value="Ajouter l'entreprise" (click)="addCompany()"/>
+  </form>
+</div>
+
+<div class="fatFooter">
+  <app-fat-footer></app-fat-footer>
+</div>
+
+</body>
+</html>

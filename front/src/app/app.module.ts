@@ -2,47 +2,59 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CountryPageComponent } from './countries';
-import { CountryTicketListComponent, CountryTicketComponent} from './tickets';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {AppRoutingModule} from './app.AppRoutingModule';
 
-import {CountryService} from '../services/country/country.service';
 import {ActivitySectorService} from '../services/activitySector/activitySector.service';
+import {CountryService} from '../services/country/country.service';
 import {OneCountryService} from '../services/country/one-country.service';
 import {CompanySizeService} from '../services/companySize/companySize.service';
+import {CompanyService} from '../services/company/company.service';
+import {OneCompanyService} from '../services/company/one-company.service';
+import {InternshipService} from '../services/internship/internship.service';
+import {PartnerHousingService} from '../services/partnerHousing/partnerHousing.service';
+import {SectorService} from '../services/sector/sector.service';
+import {SpecialtyService} from '../services/specialty/specialty.service';
+import {OneStudentService} from '../services/student/one-student.service';
+import {ContinentService} from '../services/continent/continent.service';
+import {StudentService} from '../services/student/student.service';
 
-import {SearchCompanyPageComponent} from './search-companies/search-company-page';
-import {SearchCompanyComponent} from './search-companies/search-company';
-import {SearchCompanyFormComponent} from './search-companies/search-company-form';
-import {SearchCompanyListComponent} from './search-companies/search-company-list';
-import {AppRoutingModule} from './app.AppRoutingModule';
-import {InternshipComponent} from './company/internship';
-import {InternshipListComponent} from './company/internship-list';
-import {CompanyPageComponent} from './company/company-page';
-import { SearchFormComponent } from './company/search-form/search-form.component';
-import { InteractiveMapComponent} from './tickets/interactive-map/interactive-map.component';
-import { HomePageComponent} from './tickets/home-page/home-page.component';
-import { CardInformationComponent } from './tickets/card-information/card-information.component';
+import {CompanyTicketComponent, CompanyPageComponent} from './company';
+import {StudentTicketComponent} from './students';
+import {CountryPageComponent} from './countries';
+import {InternshipTicketComponent} from './internships';
+import {CompanySearchPageComponent} from './company-search';
+import {HomePageComponent, CardInformationComponent, CountryTicketComponent, CountryTicketListComponent} from './homePage';
+import {InteractiveMapComponent} from './homePage';
+import {ContactPageComponent} from './contactPage';
+import {NavigationBarComponent, FatFooterComponent} from './top-bottom-bar';
+import {AdminHomePageComponent, AdminNavigationBarComponent, AjouterEntreprisePageComponent, AjouterPaysPageComponent} from './admin';
+import {AjouterStagePageComponent} from './admin';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CountryPageComponent,
-    SearchCompanyComponent,
-    SearchCompanyFormComponent,
-    SearchCompanyListComponent,
-    SearchCompanyPageComponent,
-    InternshipComponent,
-    InternshipListComponent,
+    CompanyTicketComponent,
+    InternshipTicketComponent,
     CompanyPageComponent,
-    CountryTicketListComponent,
-    CountryTicketComponent,
-    CompanyPageComponent,
-    SearchFormComponent,
     InteractiveMapComponent,
     HomePageComponent,
-    CardInformationComponent
+    CardInformationComponent,
+    CountryTicketComponent,
+    CountryTicketListComponent,
+    CompanySearchPageComponent,
+    NavigationBarComponent,
+    FatFooterComponent,
+    StudentTicketComponent,
+    AdminHomePageComponent,
+    AdminNavigationBarComponent,
+    AjouterEntreprisePageComponent,
+    AjouterPaysPageComponent,
+    AjouterStagePageComponent,
+    ContactPageComponent,
   ],
   imports: [
     HttpClientModule,
@@ -52,7 +64,21 @@ import { CardInformationComponent } from './tickets/card-information/card-inform
     AppRoutingModule// , // Import all dependencies
     // AppRoutingModule
   ],
-  providers: [CountryService, OneCountryService, ActivitySectorService, CompanySizeService], // All the services need to be provided
+  providers: [
+    ActivitySectorService,
+    CountryService,
+    OneCountryService,
+    CompanySizeService,
+    CompanyService,
+    OneCompanyService,
+    InternshipService,
+    PartnerHousingService,
+    SectorService,
+    SpecialtyService,
+    OneStudentService,
+    ContinentService,
+    StudentService
+  ], // All the services need to be provided
   bootstrap: [AppComponent]
 })
 export class AppModule {

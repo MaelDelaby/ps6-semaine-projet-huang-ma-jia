@@ -1,44 +1,133 @@
-  .country-page {
-      margin: 50px;
-  }
+.country-page {
+    margin: 50px;
+}
 
-  .country-infos-td {
-    width: 100%;
-  }
+.country-infos-td {
+  width: 100%;
+}
 
-  .country-infos {
-    margin: 20px;
-    font-size: 14px;
-    line-height: 130%
-  }
+.country-infos {
+  margin: 20px;
+  font-size: 14px;
+  line-height: 130%
+}
 
-  .company-array {
-    margin: 20px;
-  }
+.company-array {
+  margin: 20px;
+}
 
-  .tabulation {
-      margin-left: 30px;
-  }
-  
+.student-array {
+  margin: 20px;
+}
 
-  .country-image {
-      height: 300px;
-      width: 300px;
-      margin: 5px;      
-  }
+.tabulation {
+    margin-left: 30px;
+}
 
-  td {
-    vertical-align: top;
-  }
 
-  .country-page.form {
-    text-align-last: right;
-  }
+.country-image {
+    height: 300px;
+    width: 300px;
+    margin: 5px;   
+    border-radius: 10px;  
+}
 
-  .custom-select {
-    margin: 5px;    
-  }
+td {
+  vertical-align: top;
+}
 
-  .sizeArray {
-    font-size: 14px;
-  }
+.country-page.form {
+  text-align-last: right;
+}
+
+.student-page.form {
+  text-align-last: right;
+}
+
+.custom-select {
+  margin: 5px;    
+  margin-right: 20px;
+  height: 35px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  font-size: 16px;
+}
+
+
+.sizeArray {
+  font-size: 14px;
+  display:inline;
+}
+
+.companyTickets{
+  max-height:450px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.companyTicket{
+  margin-top: 10px;
+}
+
+.legend {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 25px;
+}
+
+fieldset {
+  border-color: #3c3c3c;
+  border-width: 3px;
+  border-radius: 5px;
+}
+
+.research
+{
+  margin-right: 20px;
+  height: 35px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  font-size: 16px;
+}
+
+.resultNb{
+  text-align: right;
+  font-size: 28px;
+}
+
+#style-3::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
+.student-list
+{
+  margin: 0;
+  padding: 0;
+  min-width: 400px;
+  display: list-item;
+  font-family: 'Work Sans', sans-serif;
+  position: relative;
+  width: 100%;
+  margin: 25px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 20px;
+  max-height:500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

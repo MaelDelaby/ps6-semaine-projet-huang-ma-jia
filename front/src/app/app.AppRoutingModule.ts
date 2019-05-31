@@ -1,17 +1,25 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CountryPageComponent} from './countries/country-page';
-import {SearchCompanyPageComponent} from './search-companies/search-company-page';
 import {CompanyPageComponent} from './company/company-page';
-import {HomePageComponent} from './tickets/home-page/home-page.component';
+import {CompanySearchPageComponent} from './company-search/company-search-page/company-search-page.component';
+import {HomePageComponent} from './homePage/home-page';
+import {AdminHomePageComponent} from './admin';
+import {AjouterEntreprisePageComponent, AjouterPaysPageComponent, AjouterStagePageComponent} from './admin';
+import {ContactPageComponent} from './contactPage/contact-page.component';
 
 // import {UserListComponent} from './users/user-list/user-list.component';
 
 const routes: Routes = [
-  {path: 'search-companies', component: SearchCompanyPageComponent},
+  {path: 'companies-search', component: CompanySearchPageComponent},
   {path: 'company', component: CompanyPageComponent},
   {path: 'country', component: CountryPageComponent},
-  {path: 'homePage', component: HomePageComponent}
+  {path: 'homePage', component: HomePageComponent},
+  {path: 'contactPage', component: ContactPageComponent},
+  {path: 'adminHomePage', component: AjouterStagePageComponent},
+  {path: 'adminAjouterPays', component: AjouterPaysPageComponent},
+  {path: 'adminAjouterEntreprise', component: AjouterEntreprisePageComponent},
+  {path: 'adminAjouterStage', component: AjouterStagePageComponent},
     // {path: 'users', component: UserListComponent}
 ];
 @NgModule({

@@ -4,8 +4,8 @@ import {Student} from './student';
 export interface Internship {
   id?: number;
   name?: string;
-  student?: Student;
-  company: Company;
+  studentId?: number;
+  companyId: number;
   startDate?: Date;
   endDate?: Date;
   period?: String;
@@ -15,4 +15,5 @@ export interface Internship {
   hasCompanyCar?: Boolean;
   rating?: number;
   tuteur?: String;
+  comment?: String;
 }

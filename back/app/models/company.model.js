@@ -10,8 +10,7 @@ module.exports = new BaseModel('Company', {
   rating: Joi.number().required(),
   employeesNumber: Joi.number().required(),
   creationDate: Joi.string().required(),
-  opportunity: Joi.number().required(),
-  internshipType: Joi.string().required(),
-  secteur: Joi.string().required(),
   activitySector: Joi.string().required(),
+  hiringOpportunities: Joi.string().required(),
+  description: Joi.string().required(),
 });

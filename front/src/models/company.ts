@@ -3,11 +3,13 @@ export interface Company {
   id?: number;
   name?: string;
   iconImage?: string;
-  countryId?: Country;
+  countryId?: string;
   address?: string;
   rating?: number;
   employeesNumber?: number;
   creationDate?: Date;
-  opportunity?: number;
-  internshipType?: string;
+  activitySector?: string;
+  internshipNb?: number;
+  hiringOpportunities?: string;
+  description?: string;
 }
