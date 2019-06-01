@@ -16,10 +16,6 @@ export class CompanyService {
   private companiesUrl = 'http://localhost:9428/api/companies/';
 
   constructor(private http: HttpClient) {
-    this.http.get<Company[]>(this.companiesUrl).subscribe( companies => {
-      this.companyList = companies;
-      this.companies$.next(companies);
-    });
   }
 
   public setCountryId(id: number) {
@@ -56,9 +52,6 @@ export class CompanyService {
     this.http.post(this.companiesUrl, company, httpOptionsBase).subscribe(
       (_ticket) => {
         this.getCompany();
-      },
-      (error) => {
-        console.log('Erreur ! : ' + error);
       }
     );
   }

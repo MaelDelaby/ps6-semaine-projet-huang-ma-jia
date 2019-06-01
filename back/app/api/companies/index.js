@@ -8,6 +8,7 @@ router.get('/:companyId', (req, res) => res.status(200).json(Company.getById(req
 
 router.post('/', (req, res) => {
     try {
+        console.log(req.body);
         const company = Company.create(req.body);
         res.status(201).json(company);
     } catch (err) {

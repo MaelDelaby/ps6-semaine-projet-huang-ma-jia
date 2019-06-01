@@ -15,10 +15,6 @@ export class InternshipService {
   private internshipsUrl = 'http://localhost:9428/api/internships/';
 
   constructor(private http: HttpClient) {
-    this.loadInternships(this.internshipsUrl);
-  }
-
-  loadInternships(URL): void {
   }
 
   public setCompanyId(id: number) {

@@ -61,30 +61,6 @@ export class CompanySearchPageComponent implements OnInit {
     this.sortBy = 'Note moyenne';
     this.resultNb = 0;
 
-    //List
-    this.companyListVisible = [];
-    this.companyService.companies$.subscribe((companies) => {
-        this.companyList = companies;
-        this.filterWithResearch();
-    });
-
-    //Form
-    this.sectorService.sectors$.subscribe((sectors) => {
-      this.sectorArray = sectors;
-    });
-    this.specialtyService.specialties$.subscribe((specialties) => {
-      this.specialtyArray = specialties;
-    });
-    this.continentService.continents$.subscribe((continents) => {
-      this.continentArray = continents;
-    });
-    this.activitySectorService.activitySectors$.subscribe((activitySectors) => {
-      this.activitySectorArray = activitySectors;
-    });
-    this.companySizeService.companySizes$.subscribe((companySizes) => {
-      this.sizeArray = companySizes;
-    });
-
     this.countryPageForm = this.formBuilder.group({
       sector: [''],
       specialty: [''],
@@ -104,6 +80,31 @@ export class CompanySearchPageComponent implements OnInit {
       size1: true,
       size2: true,
       size3: true
+    });
+
+    //List
+    this.companyListVisible = [];
+    this.companyService.companies$.subscribe((companies) => {
+        this.companyList = companies;
+        this.filterWithResearch();
+    });
+    this.formChange();
+
+    //Form
+    this.sectorService.sectors$.subscribe((sectors) => {
+      this.sectorArray = sectors;
+    });
+    this.specialtyService.specialties$.subscribe((specialties) => {
+      this.specialtyArray = specialties;
+    });
+    this.continentService.continents$.subscribe((continents) => {
+      this.continentArray = continents;
+    });
+    this.activitySectorService.activitySectors$.subscribe((activitySectors) => {
+      this.activitySectorArray = activitySectors;
+    });
+    this.companySizeService.companySizes$.subscribe((companySizes) => {
+      this.sizeArray = companySizes;
     });
   }
 

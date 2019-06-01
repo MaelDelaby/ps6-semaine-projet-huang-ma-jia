@@ -32,7 +32,6 @@ import {NavigationBarComponent, FatFooterComponent} from './top-bottom-bar';
 import {AdminHomePageComponent, AdminNavigationBarComponent, AjouterEntreprisePageComponent, AjouterPaysPageComponent} from './admin';
 import {AjouterStagePageComponent} from './admin';
 
-
 @NgModule({
   declarations: [
     AppComponent,

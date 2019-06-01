@@ -13,24 +13,26 @@
       <label for="name">*Nom :</label>
       <input type="text" id="name" placeholder="Nom de l'entreprise" [formControlName]="'name'">
       <label for="logo">Logo :</label>
-      <input type="image" id="logo" placeholder="Logo de l'entreprise" [formControlName]="'iconImage'">
+      <input type="text" id="logo" placeholder="URL du logo de l'entreprise" [formControlName]="'iconImage'">
       <label for="creationDate">Date de création :</label>
       <input type="date" id="creationDate" placeholder="Date de création de l'entreprise" [formControlName]="'creationDate'">
-      <label for="employesNb">Nombre d'employé :</label>
-      <input type="number" id="employesNb" placeholder="Nombre d'employé de l'entreprise dans la monde" [formControlName]="'employesNb'">
+      <label for="employeesNumber">Nombre d'employé :</label>
+      <input type="number" id="employeesNumber" placeholder="Nombre d'employé de l'entreprise dans la monde" [formControlName]="'employeesNumber'">
       <label for="activitySecteur">Secteur d'activité :</label>
       <select id="activitySecteur" [formControlName]="'activitySector'">
         <option *ngFor="let activitySector of activitySectorArray">
                 {{activitySector}}
         </option>
       </select>
+      <label for="hiringOpportunities">Propositions d'emploies :</label>
+      <input type="text" id="hiringOpportunities" placeholder="Site pour les propositions d'emploies" [formControlName]="'hiringOpportunities'">
 
 
       <legend><span class="number">2</span> Localisation de l'entreprise</legend>
       <label for="country">*Pays :</label>
       <select id="country" [formControlName]="'countryId'">
         <optgroup label="{{continent}}" *ngFor="let continent of continentArray">
-          <option value="reading" *ngFor="let country of countryArray[continent]">
+          <option value="{{country.id}}" *ngFor="let country of countryArray[continent]">
               {{country.name}}
           </option>
         </optgroup>

@@ -49,23 +49,24 @@ export class AjouterEntreprisePageComponent implements OnInit {
       name: [''],
       iconImage: [''],
       creationDate: [''],
-      employesNb: [''],
+      employeesNumber: [''],
       activitySector: [''],
       countryId: [''],
       address: [''],
-      description: ['']
+      description: [''],
+      hiringOpportunities: ['']
     });
 
     this.addCompanyPageForm.setValue({
       name: '',
       iconImage: '',
       creationDate: '',
-      employesNb: '',
+      employeesNumber: '',
       activitySector: '',
       countryId: '',
       address: '',
-      description: ''
-
+      description: '',
+      hiringOpportunities: ''
     });
 
     this.formError = false;
@@ -84,5 +85,4 @@ export class AjouterEntreprisePageComponent implements OnInit {
 
     this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
   }
-  
 }

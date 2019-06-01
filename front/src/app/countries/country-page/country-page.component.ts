@@ -82,6 +82,35 @@ export class CountryPageComponent implements OnInit {
     this.sortBy = 'Note moyenne';
     this.companyResultNb = 0;
 
+    this.countryPageForm = this.formBuilder.group({
+      sector: [''],
+      specialty: [''],
+      activitySector: [''],
+      size1: [''],
+      size2: [''],
+      size3: ['']
+    });
+
+    this.studentPageForm = this.formBuilder.group({
+      sector: [''],
+      specialty: ['']
+    });
+
+
+    this.countryPageForm.setValue({
+      sector: '- Filière -',
+      specialty: '- Spécialité -',
+      activitySector: '- Secteur d\'activité -',
+      size1: true,
+      size2: true,
+      size3: true
+    });
+
+    this.studentPageForm.setValue({
+      sector: '- Filière -',
+      specialty: '- Spécialité -'
+    });
+
     //Route
     this.route.queryParams.subscribe(params => {
       this.oneCountryService.setCountryId(params['id']);
@@ -136,35 +165,6 @@ export class CountryPageComponent implements OnInit {
       /*for (let companySize of companySizes){
         this.countryPageForm.addControl(companySize.id, null);
       }*/
-    });
-
-    this.countryPageForm = this.formBuilder.group({
-      sector: [''],
-      specialty: [''],
-      activitySector: [''],
-      size1: [''],
-      size2: [''],
-      size3: ['']
-    });
-
-    this.studentPageForm = this.formBuilder.group({
-      sector: [''],
-      specialty: ['']
-    });
-
-
-    this.countryPageForm.setValue({
-      sector: '- Filière -',
-      specialty: '- Spécialité -',
-      activitySector: '- Secteur d\'activité -',
-      size1: true,
-      size2: true,
-      size3: true
-    });
-
-    this.studentPageForm.setValue({
-      sector: '- Filière -',
-      specialty: '- Spécialité -'
     });
   }
 
