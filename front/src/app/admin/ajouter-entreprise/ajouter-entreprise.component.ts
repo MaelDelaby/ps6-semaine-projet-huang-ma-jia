@@ -73,9 +73,9 @@ export class AjouterEntreprisePageComponent implements OnInit {
         return;
     }
     this.formError = false;
-    this.emptyCompanyPageForm();
     this.formSaved = true;
     this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
+    this.emptyCompanyPageForm();
   }
 
   emptyCompanyPageForm(){
