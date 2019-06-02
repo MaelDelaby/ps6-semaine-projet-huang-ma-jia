@@ -24,7 +24,7 @@ export class CompanyService {
   }
 
   public getCompany(){
-    this.http.get<Company[]>(this.companiesUrl + '?countryId=' + this.countryId).subscribe(companies => {
+    this.http.get<Company[]>(this.companiesUrl + (this.countryId != null ? '?countryId=' + this.countryId : '')).subscribe(companies => {
       this.companyList = companies;
       this.companies$.next(companies);
     });

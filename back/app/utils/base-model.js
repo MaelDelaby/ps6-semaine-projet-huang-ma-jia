@@ -130,12 +130,12 @@ module.exports = class BaseModel {
   }
 
 
-  getActivitySectors(){
+  /*getActivitySectors(){
     let activitySectors = [];
     this.items.every(company => activitySectors.push(company.activitySector));
 
     return [...new Set(activitySectors)];
-  }
+  }*/
 
   /* Company */
   getNumberCompanyByCountryId(query){

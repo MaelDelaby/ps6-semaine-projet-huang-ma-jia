@@ -13,7 +13,7 @@ export interface Internship {
   salary?: String;
   residence?: String;
   hasCompanyCar?: Boolean;
-  rating?: number;
   tuteur?: String;
+  rating?: number;
   comment?: String;
 }

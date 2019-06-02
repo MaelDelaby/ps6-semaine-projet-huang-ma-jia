@@ -7,46 +7,51 @@
 <h1 align="center">Ajouter un stage</h1>
 
 <div class="form-style-5">
-  <form>
+  <form [formGroup]="addInternshipPageForm" >
     <fieldset>
       <legend><span class="number">1</span> Information générale du stage</legend>
-      <label for="job">Titre :</label>
-      <input type="text" name="field1" placeholder="Titre du stage">
-      <label for="job">Date début stage :</label>
-      <input type="date" name="field2" placeholder="">
-      <label for="job">Date fin stage :</label>
-      <input type="date" name="field2" placeholder="">
+      <label for="studentId">* Identifiant de l'étudiant :</label>
+      <input type="text" name="studentId" [formControlName]="'studentId'" disabled>
+      <label for="name">* Titre :</label>
+      <input type="text" name="name" placeholder="Titre du stage" [formControlName]="'name'">
+      <label for="startDate">* Date début stage :</label>
+      <input type="date" name="startDate" placeholder="" [formControlName]="'startDate'">
+      <label for="endDate">* Date fin stage :</label>
+      <input type="date" name="endDate" placeholder="" [formControlName]="'endDate'">
+      <label for="period">* Durée :</label>
+      <input type="text" name="period" placeholder="Durée sous forme de mots" [formControlName]="'period'">
 
-      <label for="job">Rémunaration pendant le stage :</label>
+      <!--<label for="remunerationStage">Rémunaration pendant le stage :</label>
       <input type="radio" name="remunerationStage" value="oui" /> Oui
-      <input type="radio" name="remunerationStage" value="non" /> Non
+      <input type="radio" name="remunerationStage" value="non" /> Non-->
 
-      <label for="job">Si rémunéré montant rémunération : (facultatif)</label>
-      <input type="number" name="field2" placeholder="">
+      <label for="salary">Si rémunéré montant rémunération :</label>
+      <input type="number" name="salary" placeholder="" [formControlName]="'salary'">
 
-      <label for="job">Contrat renouvelé :</label>
-      <select id="job" name="field4">
-        <optgroup label="Informatique">
-          <option value="reading">Non</option>
-          <option value="fishkeeping">CDI</option>
-          <option value="reading">CDD</option>
-        </optgroup>
+      <label for="contractRenewed">* Contrat renouvelé :</label>
+      <select name="contractRenewed" [formControlName]="'contractRenewed'">
+        <option value="Non">Non</option>
+        <option value="CDI">CDI</option>
+        <option value="CDD">CDD</option>
       </select>
 
-
       <legend><span class="number">2</span> Entreprise stage</legend>
-      <label for="job">Entreprise :</label>
-      <input type="text" name="field2" placeholder="Choix avec autocomplétion">
-      <label for="job">Tuteur :</label>
-      <input type="text" name="field2" placeholder="Nom du tuteur">
-      <label for="job">Voiture de fonction pendant le stage :</label>
-      <input type="radio" name="remunerationStage" value="oui" /> Oui
-      <input type="radio" name="remunerationStage" value="non" /> Non<br>
+      <label for="companyId">* Entreprise :</label>
+      <select id="companyId" [formControlName]="'companyId'">
+        <option *ngFor="let company of companyArray" value="{{company.id}}">
+                {{company.name}}
+        </option>
+      </select>
+      <label for="tuteur">Tuteur :</label>
+      <input type="text" name="tuteur" placeholder="Nom du tuteur" [formControlName]="'tuteur'">
+      <label for="hasCompanyCar">* Voiture de fonction pendant le stage :</label>
+      <input type="radio" name="hasCompanyCar" value="true" [formControlName]="'hasCompanyCar'"/> Oui
+      <input type="radio" name="hasCompanyCar" value="false" [formControlName]="'hasCompanyCar'"/> Non<br>
 
-      <legend><span class="number">3</span> Description : </legend>
+      <legend><span class="number">3</span> Avis : </legend>
 
-      <label for="job">Avis générale du stage :</label>
-      <form class="rating">
+      <label for="rating">* Note :</label>
+      <form class="rating" name="rating">
         <label>
           <input type="radio" name="stars" value="1" />
           <span class="icon">★</span>
@@ -78,10 +83,12 @@
           <span class="icon">★</span>
         </label>
       </form>
-      <label for="job">Description :</label>
-      <textarea name="field3" placeholder="Description du stage"></textarea>
+      <label for="comment">* Avis :</label>
+      <textarea name="comment" placeholder="Votre avis" [formControlName]="'comment'"></textarea>
     </fieldset>
-    <input type="submit" value="Ajouter le stage" />
+    <p>* champ obligatoire</p>
+    <p style="color: darkred" *ngIf="formError == true">Veuillez remplir tout les champs obligatoires</p>
+    <input type="submit" class="addButton" value="Ajouter le stage"  (click)="addInternship()"/>
   </form>
 </div>
 

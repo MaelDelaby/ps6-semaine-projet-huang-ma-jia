@@ -6,7 +6,7 @@ router.get('/', (req, res) => res.status(200).json(Internship.getWithInternshipF
 router.get('/nbIntership', (req, res) => res.status(200).json(Internship.getInternshipsNb(req.query)));
 router.get('/averageRatingIntership', (req, res) => res.status(200).json(Internship.getAverageRatingIntershipByCountryId(req.query)));
 
-router.put('/', (req, res) => {
+router.post('/', (req, res) => {
     try {
         const internship = Internship.create(req.body);
         res.status(201).json(internship);

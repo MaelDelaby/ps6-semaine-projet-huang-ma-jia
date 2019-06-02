@@ -3,6 +3,7 @@ import {Internship} from '../../models/internship';
 import {BehaviorSubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
+import { httpOptionsBase, serverUrl } from '../../configs/server.config';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,16 @@ export class InternshipService {
   constructor(private http: HttpClient) {
   }
 
-  public setCompanyId(id: number) {
-    this.companyId = id;
-    this.http.get<Internship[]>(this.internshipsUrl + '?companyId=' + id).subscribe(internships => {
+  public getInternship(){
+    this.http.get<Internship[]>(this.internshipsUrl + '?companyId=' + this.companyId).subscribe(internships => {
       this.internshipList = internships;
       this.internships$.next(internships);
-    });
+    });  
+  }
+
+  public setCompanyId(id: number) {
+    this.companyId = id;
+    this.getInternship();
   }
 
   public formChange(form: FormGroup) {
@@ -31,5 +36,12 @@ export class InternshipService {
       this.internshipList = internships;
       this.internships$.next(internships);
     });
+  }
+
+  public addInternship(internship: Internship){
+    console.log(internship);
+    this.http.post(this.internshipsUrl, internship, httpOptionsBase).subscribe(
+      (_ticket) => {}
+    );
   }
 }
