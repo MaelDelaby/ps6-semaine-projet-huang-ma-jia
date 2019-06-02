@@ -6,7 +6,6 @@ import { ContinentService } from 'src/services/continent/continent.service';
 import { CountryService } from 'src/services/country/country.service';
 import { CompanyService } from 'src/services/company/company.service';
 import { Company } from 'src/models/company';
-import { debug } from 'util';
 
 @Component({
   selector: 'app-ajouter-entreprise-page',
@@ -15,13 +14,14 @@ import { debug } from 'util';
 })
 export class AjouterEntreprisePageComponent implements OnInit {
 
-  public addCompanyPageForm: FormGroup
+  public addCompanyPageForm: FormGroup;
 
-  public activitySectorArray: any[]
-  public continentArray: any[]
-  public countryArray: any[][]
+  public activitySectorArray: any[];
+  public continentArray: any[];
+  public countryArray: any[][];
 
-  public formError: boolean
+  public formError: boolean;
+  public formSaved: boolean;
 
   constructor(public formBuilder: FormBuilder,
     public continentService: ContinentService,
@@ -56,7 +56,29 @@ export class AjouterEntreprisePageComponent implements OnInit {
       description: [''],
       hiringOpportunities: ['']
     });
+    this.emptyCompanyPageForm();
+    this.formError = false;
+    this.formSaved = false;
+  }
 
+  ngOnInit() {
+
+  }
+
+  addCompany(){
+    if (this.addCompanyPageForm.getRawValue().name == "" ||
+      this.addCompanyPageForm.getRawValue().country == ""){
+        this.formError = true;
+        this.formSaved = false;
+        return;
+    }
+    this.formError = false;
+    this.emptyCompanyPageForm();
+    this.formSaved = true;
+    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
+  }
+
+  emptyCompanyPageForm(){
     this.addCompanyPageForm.setValue({
       name: '',
       iconImage: '',
@@ -68,21 +90,5 @@ export class AjouterEntreprisePageComponent implements OnInit {
       description: '',
       hiringOpportunities: ''
     });
-
-    this.formError = false;
-  }
-
-  ngOnInit() {
-
-  }
-
-  addCompany(){
-    if (this.addCompanyPageForm.getRawValue().name == "" ||
-      this.addCompanyPageForm.getRawValue().country == ""){
-        this.formError = true;
-        return;
-    }
-
-    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
   }
 }
