@@ -20,18 +20,27 @@ import {OneStudentService} from '../services/student/one-student.service';
 import {ContinentService} from '../services/continent/continent.service';
 import {StudentService} from '../services/student/student.service';
 
-import {CompanyTicketComponent, CompanyPageComponent} from './company';
-import {StudentTicketComponent} from './students';
-import {CountryPageComponent} from './countries';
-import {InternshipTicketComponent} from './internships';
-import {CompanySearchPageComponent} from './company-search';
-import {HomePageComponent, CardInformationComponent, CountryTicketComponent, CountryTicketListComponent} from './homePage';
-import {InteractiveMapComponent} from './homePage';
-import {ContactPageComponent} from './contactPage';
-import {NavigationBarComponent, FatFooterComponent} from './top-bottom-bar';
-import {AdminHomePageComponent, AdminNavigationBarComponent, AjouterEntreprisePageComponent, AjouterPaysPageComponent} from './admin';
-import {AjouterStagePageComponent} from './admin';
+import {CompanyTicketComponent, 
+  CompanyPageComponent,
+  StudentTicketComponent, 
+  CountryPageComponent,
+  InternshipTicketComponent,
+  CompanySearchPageComponent,
+  HomePageComponent,
+  CardInformationComponent,
+  CountryTicketComponent,
+  CountryTicketListComponent,
+  InteractiveMapComponent,
+  ContactPageComponent,
+  NavigationBarComponent} from './front-office';
+import {FatFooterComponent} from './fat-footer';
+import {AdminHomePageComponent, 
+  AdminNavigationBarComponent, 
+  AjouterEntreprisePageComponent, 
+  AjouterPaysPageComponent,
+  AjouterStagePageComponent} from './back-office';
 
+  
 @NgModule({
   declarations: [
     AppComponent,
