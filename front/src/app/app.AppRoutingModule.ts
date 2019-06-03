@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'companies-search', component: CompanySearchPageComponent},
   {path: 'company', component: CompanyPageComponent},
   {path: 'country', component: CountryPageComponent},
+  {path: '', component: HomePageComponent},
   {path: 'homePage', component: HomePageComponent},
   {path: 'contactPage', component: ContactPageComponent},
   {path: 'adminHomePage', component: AjouterStagePageComponent},

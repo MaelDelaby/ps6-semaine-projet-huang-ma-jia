@@ -26,7 +26,7 @@ import {CountryPageComponent} from './countries';
 import {InternshipTicketComponent} from './internships';
 import {CompanySearchPageComponent} from './company-search';
 import {HomePageComponent, CardInformationComponent, CountryTicketComponent, CountryTicketListComponent} from './homePage';
-import {InteractiveMapComponent} from './homePage';
+import {InteractiveMapComponent, BottomArrowComponent} from './homePage';
 import {ContactPageComponent} from './contactPage';
 import {NavigationBarComponent, FatFooterComponent} from './top-bottom-bar';
 import {AdminHomePageComponent, AdminNavigationBarComponent, AjouterEntreprisePageComponent, AjouterPaysPageComponent} from './admin';
@@ -54,6 +54,7 @@ import {AjouterStagePageComponent} from './admin';
     AjouterPaysPageComponent,
     AjouterStagePageComponent,
     ContactPageComponent,
+    BottomArrowComponent,
   ],
   imports: [
     HttpClientModule,
