@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminNavigationBarComponent } from './navigation-bar.component';
+import { UserHomePageComponent } from './home-page.component';
 import {describe, expect} from '@angular/core/testing/src/testing_internal';
 
-describe('AdminNavigationBarComponent', () => {
-  let component: AdminNavigationBarComponent;
-  let fixture: ComponentFixture<AdminNavigationBarComponent>;
+describe('AdminHomePageComponent', () => {
+  let component: UserHomePageComponent;
+  let fixture: ComponentFixture<UserHomePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminNavigationBarComponent ]
+      declarations: [ UserHomePageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminNavigationBarComponent);
+    fixture = TestBed.createComponent(UserHomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

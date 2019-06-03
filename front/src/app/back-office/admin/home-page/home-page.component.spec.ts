@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminHomePageComponent } from './admin-home-page.component';
+import { AdminHomePageComponent } from './home-page.component';
 import {describe, expect} from '@angular/core/testing/src/testing_internal';
 
 describe('AdminHomePageComponent', () => {

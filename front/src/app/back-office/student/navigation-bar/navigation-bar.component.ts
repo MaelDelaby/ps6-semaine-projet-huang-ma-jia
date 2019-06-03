@@ -3,11 +3,11 @@ import { User } from 'src/models/user';
 import { getUser, deleteCookie } from 'src/app/cookies'
 
 @Component({
-  selector: 'app-admin-navigation-bar',
+  selector: 'app-student-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss']
 })
-export class AdminNavigationBarComponent implements OnInit {
+export class StudentNavigationBarComponent implements OnInit {
 
   public user: User;
 
@@ -15,14 +15,14 @@ export class AdminNavigationBarComponent implements OnInit {
     this.user = getUser();
     if (this.user == null){
       window.location.href = 'http://localhost:4200/homePage';
-    } else if (this.user.isAdmin == false) {
-      window.location.href = 'http://localhost:4200/studentHomePage';
+    } else if (this.user.isAdmin == true) {
+      window.location.href = 'http://localhost:4200/adminHomePage';
     }
   }
 
   ngOnInit() {
   }
-
+  
   public deconnection(){
     deleteCookie();
     window.location.href = 'http://localhost:4200/homePage';

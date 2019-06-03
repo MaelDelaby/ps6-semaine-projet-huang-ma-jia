@@ -1,1 +1,1 @@
-export { AdminHomePageComponent } from './admin-home-page.component';
+export { AdminHomePageComponent } from './home-page.component';

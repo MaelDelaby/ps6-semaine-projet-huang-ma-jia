@@ -4,7 +4,7 @@ import { Internship } from 'src/models/internship';
 import { Company } from 'src/models/company';
 import { InternshipService } from 'src/services/internship/internship.service';
 import { CompanyService } from 'src/services/company/company.service';
-import { getUserId } from 'src/app/cookies'
+import { getUser } from 'src/app/cookies'
 
 @Component({
   selector: 'app-ajouter-stage-page',
@@ -42,7 +42,7 @@ export class AjouterStagePageComponent implements OnInit {
     });
 
     this.addInternshipPageForm.setValue({
-      studentId: getUserId(),
+      studentId: getUser().id,
       companyId: '',
       name: '',
       startDate: '',

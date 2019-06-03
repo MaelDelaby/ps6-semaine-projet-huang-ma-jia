@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/models/user';
 import { UserService } from 'src/services/user/user.service';
-import { setUserId } from 'src/app/cookies'
+import { setUser } from 'src/app/cookies'
 
 @Component({
   selector: 'app-connection-page',
@@ -24,11 +24,11 @@ export class ConnectionPageComponent implements OnInit {
     });
 
     this.connectionPageForm = this.formBuilder.group({
-      studentId: ['']
+      userId: ['']
     });
 
     this.connectionPageForm.setValue({
-      studentId: ''
+      userId: ''
     });
 
     this.formError = false;
@@ -38,6 +38,7 @@ export class ConnectionPageComponent implements OnInit {
   }
 
   connection(){
+    console.log(this.userArray);
     let user = this.userArray.find(user => user.id == this.connectionPageForm.getRawValue().userId);
 
     if (user == null){
@@ -45,10 +46,12 @@ export class ConnectionPageComponent implements OnInit {
         return;
     }
 
-    setUserId(user.id);
+    setUser(user);
 
     if (user.isAdmin){
-
+      window.location.href = 'http://localhost:4200/adminHomePage';
+    } else {
+      window.location.href = 'http://localhost:4200/studentHomePage';
     }
   }
 }

@@ -1,5 +1,5 @@
 <header>
-  <div class="navigationBar">
+  <div class="navigationBar" *ngIf="user != null">
     <a href="http://localhost:4200/adminHomePage">
       <img src="assets/img/polystageLogoWhite.PNG" alt="Polystage" class="logo">
     </a>
@@ -11,6 +11,7 @@
         <li><a href="http://localhost:4200/adminAjouterStage">Ajouter stage</a></li>
         <li><a href="http://localhost:4200/adminAjouterEntreprise">Ajouter entreprise</a></li>
         <li><a href="http://localhost:4200/homePage">Deconnexion</a></li>
+        <li><a (click)='deconnection()'>Deconnexion</a></li>
       </ul>
     </nav>
   </div>

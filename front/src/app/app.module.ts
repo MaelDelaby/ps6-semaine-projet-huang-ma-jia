@@ -38,6 +38,8 @@ import {CompanyTicketComponent,
 import {FatFooterComponent} from './fat-footer';
 import {AdminHomePageComponent, 
   AdminNavigationBarComponent, 
+  StudentHomePageComponent,
+  StudentNavigationBarComponent,
   AjouterEntreprisePageComponent, 
   AjouterPaysPageComponent,
   AjouterStagePageComponent} from './back-office';
@@ -66,6 +68,8 @@ import {AdminHomePageComponent,
     ContactPageComponent,
     BottomArrowComponent,
     ConnectionPageComponent,
+    StudentHomePageComponent,
+    StudentNavigationBarComponent
   ],
   imports: [
     HttpClientModule,

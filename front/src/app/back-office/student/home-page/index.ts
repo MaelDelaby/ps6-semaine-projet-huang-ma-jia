@@ -1,0 +1,1 @@
+export { StudentHomePageComponent } from './home-page.component';

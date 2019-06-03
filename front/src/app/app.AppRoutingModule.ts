@@ -7,6 +7,7 @@ import {HomePageComponent,
   ContactPageComponent,
   ConnectionPageComponent} from './front-office';
 import {AdminHomePageComponent, 
+  StudentHomePageComponent,
   AjouterEntreprisePageComponent, 
   AjouterPaysPageComponent, 
   AjouterStagePageComponent} from './back-office';
@@ -20,11 +21,14 @@ const routes: Routes = [
   {path: 'company', component: CompanyPageComponent},
   {path: 'companies-search', component: CompanySearchPageComponent},
   {path: 'contactPage', component: ContactPageComponent},
-  {path: 'adminHomePage', component: AdminHomePageComponent},
-  {path: 'adminAjouterEntreprise', component: AjouterEntreprisePageComponent},
-  {path: 'adminAjouterPays', component: AjouterPaysPageComponent},
-  {path: 'adminAjouterStage', component: AjouterStagePageComponent},
+  
   {path: 'connection', component: ConnectionPageComponent},
+
+  {path: 'adminHomePage', component: AdminHomePageComponent},
+  {path: 'studentHomePage', component: StudentHomePageComponent},
+  {path: 'ajouterPays', component: AjouterPaysPageComponent},
+  {path: 'ajouterEntreprise', component: AjouterEntreprisePageComponent},
+  {path: 'ajouterStage', component: AjouterStagePageComponent},
     // {path: 'users', component: UserListComponent}
 ];
 @NgModule({
