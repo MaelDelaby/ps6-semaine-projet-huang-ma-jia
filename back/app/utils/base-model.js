@@ -180,18 +180,17 @@ module.exports = class BaseModel {
       }
       else {
         Company.items.filter(company => company.countryId == query.countryId).forEach(company => {
-          average += this.getAverageRatingIntershipByCountryId({companyId: company.id});
+          average += parseInt(this.getAverageRatingIntershipByCountryId({companyId: company.id}), 10);
       })
         return average/nbIntership;
       }
     }
-
     if (query.companyId != null) {
       let buf = 0;
 
       this.items.filter(intership => intership.companyId == query.companyId).forEach(intership => {
         buf += intership.rating;
-      })
+    })
       return buf;
     }
   }
