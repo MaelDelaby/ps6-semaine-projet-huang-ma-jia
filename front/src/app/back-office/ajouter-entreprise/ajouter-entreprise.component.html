@@ -45,6 +45,7 @@
     </fieldset>
     <p>* champ obligatoire</p>
     <p style="color: darkred" *ngIf="formError == true">Veuillez remplir tout les champs obligatoires</p>
+    <p style="color: lightseagreen" *ngIf="formSaved == true">L'entreprise a bien été ajouté</p>
     <input type="submit" class="addButton" value="Ajouter l'entreprise" (click)="addCompany()"/>
   </form>
 </div>

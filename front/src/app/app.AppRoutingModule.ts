@@ -13,6 +13,7 @@ import {AdminHomePageComponent,
 // import {UserListComponent} from './users/user-list/user-list.component';
 
 const routes: Routes = [
+  {path: '', component: HomePageComponent},
   {path: 'homePage', component: HomePageComponent},
   {path: 'country', component: CountryPageComponent},
   {path: 'company', component: CompanyPageComponent},

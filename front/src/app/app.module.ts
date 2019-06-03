@@ -32,7 +32,8 @@ import {CompanyTicketComponent,
   CountryTicketListComponent,
   InteractiveMapComponent,
   ContactPageComponent,
-  NavigationBarComponent} from './front-office';
+  NavigationBarComponent,
+  BottomArrowComponent} from './front-office';
 import {FatFooterComponent} from './fat-footer';
 import {AdminHomePageComponent, 
   AdminNavigationBarComponent, 
@@ -63,6 +64,7 @@ import {AdminHomePageComponent,
     AjouterPaysPageComponent,
     AjouterStagePageComponent,
     ContactPageComponent,
+    BottomArrowComponent,
   ],
   imports: [
     HttpClientModule,

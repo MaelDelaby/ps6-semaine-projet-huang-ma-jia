@@ -26,16 +26,16 @@ export class InteractiveMapComponent implements OnInit {
 
   }
 
-  mouseMove(id: string) {
+  mouseMove(event: MouseEvent, id: string) {
     if (this.countrySelected !== null && this.countrySelected.id === id) {
       this.xPosition = event.clientX;
       this.yPosition = event.clientY;
     } else {
-      this.mouseEnter(id);
+      this.mouseEnter(event, id);
     }
   }
 
-  mouseEnter(id: string) {
+  mouseEnter(event: MouseEvent, id: string) {
     if (this.countrySelected === null || this.countrySelected.id !== id) {
       for (let i = 0; i < this.countryTicketList.length; i++) {
         if (this.countryTicketList[i].id === id) {
