@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Internship } from 'src/models/internship';
 
-import { OneStudentService } from 'src/services/student/one-student.service';
-import { Student } from 'src/models/student';
+import { OneUserService } from 'src/services/user/one-user.service';
+import { User } from 'src/models/user';
 
 @Component({
   selector: 'app-internship-ticket',
@@ -21,17 +21,17 @@ export class InternshipTicketComponent implements OnInit {
   public ratingFullStarsArray: any[]
   public ratingEmptyStarsArray: any[]
   public existHalfStar: boolean
-  public student: Student;
+  public student: User;
 
-  constructor(public oneStudentService: OneStudentService) {
-    this.oneStudentService.student$.subscribe((student) => {
-      if (student && student.id == this.internship.studentId)
-        this.student = student;
+  constructor(public oneUserService: OneUserService) {
+    this.oneUserService.user$.subscribe((user) => {
+      if (user && user.id == this.internship.studentId)
+        this.student = user;
     });
   }
 
   ngOnInit() {
-    this.oneStudentService.setStudentId(this.internship.studentId);
+    this.oneUserService.setUserId(this.internship.studentId);
     this.ratingFullStarsArray = Array(Math.trunc(this.internship.rating));
     this.ratingEmptyStarsArray = Array(Math.trunc(5 - this.internship.rating));
     this.existHalfStar = (5 != (Math.trunc(5 - this.internship.rating) + Math.trunc(this.internship.rating)));

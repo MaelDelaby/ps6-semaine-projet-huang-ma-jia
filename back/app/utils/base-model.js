@@ -197,13 +197,13 @@ module.exports = class BaseModel {
   }
 
   getWithIntershipFilter(query) {
-    const { Student } = require('../models');
+    const { User } = require('../models');
 
     return this.items.filter(
       internship =>
         (query.companyId == null || internship.companyId == query.companyId)
-        && (query.sector == null || Student.items.find(student => student.id == internship.studentId).sector == query.sector)
-        && (query.specialty == null || Student.items.find(student => student.id == internship.studentId).specialty == query.specialty)
+        && (query.sector == null || User.items.find(student => student.id == internship.studentId).sector == query.sector)
+        && (query.specialty == null || User.items.find(student => student.id == internship.studentId).specialty == query.specialty)
     );
   }
 
@@ -217,17 +217,17 @@ module.exports = class BaseModel {
     return sum / internships.length;
   }
 
-  /* Student */
+  /* User */
 
-  getWithStudentFilter(query) {
-    let students = this.items;
+  getWithUserFilter(query) {
+    let users = this.items;
 
     if (query.countryId != null){
       const { Internship, Company } = require('../models');
 
-      students = students.filter(student => 
+      users = users.filter(user => 
         Internship.items.find(internship => 
-          internship.studentId == student.id && 
+          internship.studentId == user.id && 
           Company.items.find(company => 
             company.countryId == query.countryId && 
             company.id == internship.companyId
@@ -236,13 +236,13 @@ module.exports = class BaseModel {
     }
 
     if (query.sector != null){
-      students = students.filter(student => query.sector == student.sector);
+      users = users.filter(user => query.sector == user.sector);
       if (query.specialty != null){
-        students = students.filter(student => query.specialty == student.specialty);
+        users = users.filter(user => query.specialty == user.specialty);
       }
     }
 
-    return students
+    return users
   }
 
   /* partnerHousing */

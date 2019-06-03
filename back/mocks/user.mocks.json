@@ -6,7 +6,8 @@
     "phoneNb": "+336 56 89 74 12",
     "profilePicture": "https://randomuser.me/api/portraits/men/49.jpg",
     "sector": "SI3",
-    "specialty": "TASD"
+    "specialty": "TASD",
+    "isAdmin": false
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "phoneNb": "06 56 89 78 45",
     "profilePicture": "https://randomuser.me/api/portraits/men/42.jpg",
     "sector": "SI3",
-    "specialty": "SSI"
+    "specialty": "SSI",
+    "isAdmin": false
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "phoneNb": "06 52 52 35 98",
     "profilePicture": "https://randomuser.me/api/portraits/women/23.jpg",
     "sector": "MAM3",
-    "specialty": ""
+    "specialty": "",
+    "isAdmin": false
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "phoneNb": "06 95 45 78 41",
     "profilePicture": "https://randomuser.me/api/portraits/women/24.jpg",
     "sector": "GE3",
-    "specialty": ""
+    "specialty": "",
+    "isAdmin": false
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "phoneNb": "06 35 19 46 17",
     "profilePicture": "https://randomuser.me/api/portraits/men/29.jpg",
     "sector": "ELEC5",
-    "specialty": "CCS"
+    "specialty": "CCS",
+    "isAdmin": false
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "phoneNb": "07 83 80 64 91",
     "profilePicture": "https://randomuser.me/api/portraits/men/29.jpg",
     "sector": "ELEC5",
-    "specialty": "CCS"
+    "specialty": "CCS",
+    "isAdmin": false
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "phoneNb": "07 83 80 64 91",
     "profilePicture": "https://randomuser.me/api/portraits/men/1.jpg",
     "sector": "SI5",
-    "specialty": "CASPAR"
+    "specialty": "CASPAR",
+    "isAdmin": false
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "phoneNb": "07 83 80 64 91",
     "profilePicture": "https://randomuser.me/api/portraits/men/2.jpg",
     "sector": "SI5",
-    "specialty": "CASPAR"
+    "specialty": "CASPAR",
+    "isAdmin": false
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "phoneNb": "07 83 80 64 91",
     "profilePicture": "https://randomuser.me/api/portraits/men/3.jpg",
     "sector": "MAM4",
-    "specialty": "AADM"
+    "specialty": "AADM",
+    "isAdmin": false
   },
   {
     "id": 10,
@@ -86,7 +95,8 @@
     "lastName": "JEANNOT",
     "phoneNb": "07 83 80 64 91",
     "profilePicture": "https://randomuser.me/api/portraits/men/4.jpg",
-    "sector": "MAM4",
-    "specialty": "EF"
+    "sector": "",
+    "specialty": "",
+    "isAdmin": true
   }
 ]

@@ -1,4 +1,4 @@
-export interface Student {
+export interface User {
   id?: number;
   lastName?: string;
   firstName?: string;
@@ -6,4 +6,5 @@ export interface Student {
   profilePicture?: string;
   sector?: string;
   specialty?: string;
+  isAdmin?: boolean;
 }

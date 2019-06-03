@@ -4,14 +4,13 @@ import { Internship } from 'src/models/internship';
 import { Company } from 'src/models/company';
 import { InternshipService } from 'src/services/internship/internship.service';
 import { CompanyService } from 'src/services/company/company.service';
+import { getUserId } from 'src/app/cookies'
 
 @Component({
   selector: 'app-ajouter-stage-page',
   templateUrl: './ajouter-stage.component.html',
   styleUrls: ['../styleForms.scss']})
 export class AjouterStagePageComponent implements OnInit {
-
-  public studentId: number
 
   public addInternshipPageForm: FormGroup
 
@@ -22,8 +21,6 @@ export class AjouterStagePageComponent implements OnInit {
   constructor(public formBuilder: FormBuilder,
     public internshipService: InternshipService,
     public companyService: CompanyService) {
-    this.studentId = 1;
-
     this.companyService.companies$.subscribe((companies) => {
       this.companyArray = companies;
     });
@@ -45,7 +42,7 @@ export class AjouterStagePageComponent implements OnInit {
     });
 
     this.addInternshipPageForm.setValue({
-      studentId: this.studentId,
+      studentId: getUserId(),
       companyId: '',
       name: '',
       startDate: '',

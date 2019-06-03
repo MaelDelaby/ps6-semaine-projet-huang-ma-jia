@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const CountryRouter = require('./countries');
-const StudentRouter = require('./students');
+const UserRouter = require('./users');
 const CompanyRouter = require('./companies');
 const PartnerHousingRouter = require('./partnersHousings');
 const InternshipRouter = require('./internships');
@@ -13,7 +13,7 @@ const ContinentRouter  = require('./continents');
 const router = new Router();
 router.get('/status', (req, res) => res.status(200).json('ok'));
 router.use('/countries', CountryRouter);
-router.use('/students', StudentRouter);
+router.use('/users', UserRouter);
 router.use('/companies', CompanyRouter);
 router.use('/partnersHousings', PartnerHousingRouter);
 router.use('/internships', InternshipRouter);

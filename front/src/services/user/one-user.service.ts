@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs/index';
 import {HttpClient} from '@angular/common/http';
-import {Student} from '../../models/student';
+import {User} from '../../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class OneStudentService {
+export class OneUserService {
   /**
    * Services Documentation:
    * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
    */
 
-  private student: Student;
+  private user: User;
 
-  private studentsUrl = 'http://localhost:9428/api/students/';
+  private usersUrl = 'http://localhost:9428/api/users/';
 
   /**
    * Observable which contains the list of the country.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
-  public student$: BehaviorSubject<Student> = new BehaviorSubject(this.student);
+  public user$: BehaviorSubject<User> = new BehaviorSubject(this.user);
 
   constructor(
     private http: HttpClient) {
      }
 
-  public setStudentId(id : number) {
-    this.http.get<Student>(this.studentsUrl+id).subscribe(value => {
-      this.student = value;
-      this.student$.next(value);
+  public setUserId(id : number) {
+    this.http.get<User>(this.usersUrl+id).subscribe(value => {
+      this.user = value;
+      this.user$.next(value);
     });
   }
 }

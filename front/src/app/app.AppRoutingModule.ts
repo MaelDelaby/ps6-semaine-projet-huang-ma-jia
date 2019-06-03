@@ -4,7 +4,8 @@ import {HomePageComponent,
   CountryPageComponent, 
   CompanyPageComponent, 
   CompanySearchPageComponent, 
-  ContactPageComponent} from './front-office';
+  ContactPageComponent,
+  ConnectionPageComponent} from './front-office';
 import {AdminHomePageComponent, 
   AjouterEntreprisePageComponent, 
   AjouterPaysPageComponent, 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'adminAjouterEntreprise', component: AjouterEntreprisePageComponent},
   {path: 'adminAjouterPays', component: AjouterPaysPageComponent},
   {path: 'adminAjouterStage', component: AjouterStagePageComponent},
+  {path: 'connection', component: ConnectionPageComponent},
     // {path: 'users', component: UserListComponent}
 ];
 @NgModule({
@@ -31,6 +33,5 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule {
-
 
 }

@@ -6,3 +6,4 @@ export { HomePageComponent, InteractiveMapComponent, CardInformationComponent, B
 export { InternshipTicketComponent } from './internships';
 export { NavigationBarComponent } from './navigation-bar';
 export { StudentTicketComponent } from './students';
+export { ConnectionPageComponent } from './connection-page';

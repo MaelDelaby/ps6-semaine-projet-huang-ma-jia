@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { OneCountryService } from 'src/services/country/one-country.service';
 import { PartnerHousingService } from 'src/services/partnerHousing/partnerHousing.service';
 import { CompanyService } from 'src/services/company/company.service';
-import { StudentService } from 'src/services/student/student.service';
+import { UserService } from 'src/services/user/user.service';
 import { SectorService } from 'src/services/sector/sector.service';
 import { SpecialtyService } from 'src/services/specialty/specialty.service';
 import { ActivitySectorService } from 'src/services/activitySector/activitySector.service';
@@ -20,7 +20,7 @@ import { CompanySizeService } from 'src/services/companySize/companySize.service
 import { Country } from 'src/models/country';
 import { PartnerHousing } from 'src/models/partnerHousing';
 import { Company } from 'src/models/company';
-import { Student } from 'src/models/student';
+import { User } from 'src/models/user';
 
 @Component({
   selector: 'app-country-page',
@@ -44,8 +44,8 @@ export class CountryPageComponent implements OnInit {
   public companyList: Company[]
   public companyListVisible: Company[]
 
-  public studentList: Student[]
-  public studentListVisible: Student[]
+  public studentList: User[]
+  public studentListVisible: User[]
 
   //Form
   public countryPageForm: FormGroup
@@ -69,7 +69,7 @@ export class CountryPageComponent implements OnInit {
     public specialtyService: SpecialtyService,
     public activitySectorService: ActivitySectorService,
     public companySizeService: CompanySizeService,
-    public studentService: StudentService,
+    public userService: UserService,
     private route: ActivatedRoute) {
 
     this.sectorArray = [];
@@ -116,7 +116,7 @@ export class CountryPageComponent implements OnInit {
       this.oneCountryService.setCountryId(params['id']);
       this.partnerHousingService.setCountryId(params['id']);
       this.companyService.setCountryId(params['id']);
-      this.studentService.setCountryId(params['id']);
+      this.userService.setCountryId(params['id']);
     });
 
     //Info
@@ -142,8 +142,8 @@ export class CountryPageComponent implements OnInit {
         this.filterWithResearch();
     });
     this.studentListVisible = [];
-    this.studentService.students$.subscribe((students) => {
-        this.studentList = students;
+    this.userService.users$.subscribe((users) => {
+        this.studentList = users;
         this.studentFilterWithResearch();
     });
 
@@ -186,7 +186,7 @@ export class CountryPageComponent implements OnInit {
   }
 
   studentFormChange(){
-    this.studentService.formChange(this.studentPageForm);
+    this.userService.formChange(this.studentPageForm);
   }
 
   researchChange(value){

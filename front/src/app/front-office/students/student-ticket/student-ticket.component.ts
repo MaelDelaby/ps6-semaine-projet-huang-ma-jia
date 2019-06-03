@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Student} from 'src/models/student';
+import { User} from 'src/models/user';
 
 @Component({
   selector: 'app-student-ticket',
@@ -13,7 +13,7 @@ export class StudentTicketComponent implements OnInit {
    * More information: https://angular.io/guide/component-interaction
    */
   @Input()
-  student: Student;
+  student: User;
 
 
   constructor() {

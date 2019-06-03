@@ -16,9 +16,9 @@ import {InternshipService} from '../services/internship/internship.service';
 import {PartnerHousingService} from '../services/partnerHousing/partnerHousing.service';
 import {SectorService} from '../services/sector/sector.service';
 import {SpecialtyService} from '../services/specialty/specialty.service';
-import {OneStudentService} from '../services/student/one-student.service';
+import {OneUserService} from '../services/user/one-user.service';
 import {ContinentService} from '../services/continent/continent.service';
-import {StudentService} from '../services/student/student.service';
+import {UserService} from '../services/user/user.service';
 
 import {CompanyTicketComponent, 
   CompanyPageComponent,
@@ -33,14 +33,14 @@ import {CompanyTicketComponent,
   InteractiveMapComponent,
   ContactPageComponent,
   NavigationBarComponent,
-  BottomArrowComponent} from './front-office';
+  BottomArrowComponent,
+  ConnectionPageComponent} from './front-office';
 import {FatFooterComponent} from './fat-footer';
 import {AdminHomePageComponent, 
   AdminNavigationBarComponent, 
   AjouterEntreprisePageComponent, 
   AjouterPaysPageComponent,
   AjouterStagePageComponent} from './back-office';
-
   
 @NgModule({
   declarations: [
@@ -65,6 +65,7 @@ import {AdminHomePageComponent,
     AjouterStagePageComponent,
     ContactPageComponent,
     BottomArrowComponent,
+    ConnectionPageComponent,
   ],
   imports: [
     HttpClientModule,
@@ -85,9 +86,9 @@ import {AdminHomePageComponent,
     PartnerHousingService,
     SectorService,
     SpecialtyService,
-    OneStudentService,
+    OneUserService,
     ContinentService,
-    StudentService
+    UserService
   ], // All the services need to be provided
   bootstrap: [AppComponent]
 })

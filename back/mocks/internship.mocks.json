@@ -135,21 +135,6 @@
     "comment": "Aliquam lobortis venenatis urna vitae ullamcorper. Morbi leo purus, congue et tellus eu, varius consectetur purus. Donec feugiat tellus id hendrerit laoreet. Mauris vel turpis accumsan, placerat nunc id, lacinia tellus. Nunc nulla nisi, porttitor aliquet sollicitudin vitae, facilisis a urna. Integer ornare, nibh nec semper rhoncus, elit lorem vestibulum metus, tristique congue lacus est at mi. Vivamus eu orci at mi viverra maximus. Ut eget fermentum ex. Morbi sagittis urna ut justo accumsan lobortis."
   },
   {
-    "id": 10,
-    "name": "Technicien",
-    "studentId": 10,
-    "companyId": 5,
-    "startDate": "2019-6-1",
-    "endDate": "2019-6-2",
-    "period": "2 jours",
-    "contractRenewed": "none",
-    "salary": "Moyenne",
-    "hasCompanyCar": true,
-    "rating": 4,
-    "tuteur": "Jiazen Liu",
-    "comment": "Aliquam lobortis venenatis urna vitae ullamcorper. Morbi leo purus, congue et tellus eu, varius consectetur purus. Donec feugiat tellus id hendrerit laoreet. Mauris vel turpis accumsan, placerat nunc id, lacinia tellus. Nunc nulla nisi, porttitor aliquet sollicitudin vitae, facilisis a urna. Integer ornare, nibh nec semper rhoncus, elit lorem vestibulum metus, tristique congue lacus est at mi. Vivamus eu orci at mi viverra maximus. Ut eget fermentum ex. Morbi sagittis urna ut justo accumsan lobortis."
-  },
-  {
     "studentId": 1,
     "companyId": "1559412354836",
     "name": "caca",
