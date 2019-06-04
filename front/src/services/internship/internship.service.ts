@@ -13,13 +13,13 @@ export class InternshipService {
   public internships$: BehaviorSubject<Internship[]> = new BehaviorSubject(this.internshipList);
   public companyId: number = null;
 
-  private internshipsUrl = 'http://localhost:9428/api/internships/';
+  private internshipsUrl = 'http://localhost:9428/api/internships/?validate=true';
 
   constructor(private http: HttpClient) {
   }
 
   public getInternship(){
-    this.http.get<Internship[]>(this.internshipsUrl + '?companyId=' + this.companyId).subscribe(internships => {
+    this.http.get<Internship[]>(this.internshipsUrl + '&companyId=' + this.companyId).subscribe(internships => {
       this.internshipList = internships;
       this.internships$.next(internships);
     });  
@@ -31,7 +31,7 @@ export class InternshipService {
   }
 
   public formChange(form: FormGroup) {
-    this.http.get<Internship[]>(this.internshipsUrl + '?companyId=' + this.companyId
+    this.http.get<Internship[]>(this.internshipsUrl + '&companyId=' + this.companyId
     ).subscribe(internships => {
       this.internshipList = internships;
       this.internships$.next(internships);

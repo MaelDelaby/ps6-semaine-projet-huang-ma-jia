@@ -13,7 +13,7 @@ export class CompanyService {
   public companies$: BehaviorSubject<Company[]> = new BehaviorSubject(this.companyList);
   public countryId: number = null;
 
-  private companiesUrl = 'http://localhost:9428/api/companies/';
+  private companiesUrl = 'http://localhost:9428/api/companies/?validate=true';
 
   constructor(private http: HttpClient) {
   }
@@ -24,15 +24,15 @@ export class CompanyService {
   }
 
   public getCompany(){
-    this.http.get<Company[]>(this.companiesUrl + (this.countryId != null ? '?countryId=' + this.countryId : '')).subscribe(companies => {
+    this.http.get<Company[]>(this.companiesUrl + (this.countryId != null ? '&countryId=' + this.countryId : '')).subscribe(companies => {
       this.companyList = companies;
       this.companies$.next(companies);
     });
   }
 
   public formChange(form: FormGroup) {
-    this.http.get<Company[]>(this.companiesUrl + '?' 
-      + (this.countryId != null ? 'countryId=' + this.countryId : '')
+    this.http.get<Company[]>(this.companiesUrl 
+      + (this.countryId != null ? '&countryId=' + this.countryId : '')
       + (form.getRawValue().sector != '- Filière -' ? ('&sector=' + form.getRawValue().sector) : '')
       + (form.getRawValue().specialty != '- Spécialité -' ? ('&specialty=' + form.getRawValue().specialty) : '')
       + (form.getRawValue().continent && form.getRawValue().continent != '- Continent -' ? ('&continent=' + form.getRawValue().continent) : '')
