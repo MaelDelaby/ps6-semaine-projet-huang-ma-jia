@@ -45,10 +45,11 @@ export class AdminHomePageComponent implements OnInit {
   }
 
   public pushButtonAccept(){
-
+    this.requestService.accept();
   }
 
   public pushButtonReject(){
-    
+    console.log("coucou");
+    this.requestService.reject();
   }
 }

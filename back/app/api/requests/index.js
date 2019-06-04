@@ -20,6 +20,9 @@ router.put('/reject', (req, res) => {
     try {
         let request = Request.items[0];
         Request.items.splice(0,1);
+
+        Request.save();
+
         if (request.companyId != 0){
             const { Company } = require('../../models');
             let i = 0;
@@ -30,7 +33,9 @@ router.put('/reject', (req, res) => {
                 }
                 ++i;
             }
+            Company.save();
         }
+
         if (request.internshipId != 0){
             const { Internship } = require('../../models');
             let i = 0;
@@ -41,6 +46,7 @@ router.put('/reject', (req, res) => {
                 }
                 ++i;
             }
+            Internship.save();
         }
         res.status(201).json(request);
     } catch (err) {
