@@ -1,0 +1,21 @@
+@import 'src/styles/card.scss';
+
+.internship {
+  display:inline-block;
+  width: 99.5%;
+  background: white;
+  border-radius: 10px;
+}
+
+.comment {
+  font-size: 14px;
+  margin-right: 30px;
+  width: 100%;
+}
+
+.name{
+  font-size: 40px;
+  font-weight: bold;
+  min-width: 230px;
+  width: 20%;
+}
