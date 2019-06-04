@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "askerId": 0,
+    "receiverId": 1,
+    "beginningDate": "2019-06-04 10:00",
+    "duration": "00:05",
+    "reason": "raison"
+  },
+  {
+    "id": 1,
+    "askerId": 1,
+    "receiverId": 0,
+    "beginningDate": "2019-06-04 10:05",
+    "duration": "00:05",
+    "reason": "raison"
+  }
+]

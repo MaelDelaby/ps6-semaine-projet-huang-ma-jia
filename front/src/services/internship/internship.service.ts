@@ -40,7 +40,8 @@ export class InternshipService {
 
   public addInternship(internship: Internship){
     this.http.post(this.internshipsUrl, internship, httpOptionsBase).subscribe(
-      (_ticket) => {}
+      (_ticket) => {
+      }
     );
   }
 }

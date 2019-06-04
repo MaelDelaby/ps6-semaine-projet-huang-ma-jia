@@ -10,6 +10,8 @@ const CompanySizeRouter = require('./companySizes');
 const ActivitySectorsRouter  = require('./activitySectors');
 const ContinentRouter  = require('./continents');
 const RequestRouter  = require('./requests');
+const AppointmentRouter  = require('./appointment');
+const AvailabilityTimeSlotRouter  = require('./availabilityTimeSlot');
 
 const router = new Router();
 router.get('/status', (req, res) => res.status(200).json('ok'));
@@ -24,5 +26,6 @@ router.use('/companySizes', CompanySizeRouter);
 router.use('/activitySectors', ActivitySectorsRouter);
 router.use('/continents', ContinentRouter);
 router.use('/requests', RequestRouter);
-
+router.use('/appointment', AppointmentRouter);
+router.use('/availabilityTimeSlot', AvailabilityTimeSlotRouter);
 module.exports = router;

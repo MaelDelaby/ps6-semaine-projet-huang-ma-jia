@@ -196,8 +196,7 @@ module.exports = class BaseModel {
     }
   }
 
-  getAverageRatinginternshipByCountryId(query){
-
+  getAverageRatingIntershipByCountryId(query){
     if (query.countryId) {
       const { Company } = require('../models' );
 
@@ -364,5 +363,29 @@ module.exports = class BaseModel {
     if (objIndex === -1) throw new NotFoundError(`Cannot delete ${this.name} id=${id} : not found`);
     this.items = this.items.filter(item => item.id !== id);
     this.save();
+  }
+
+  /*Appointment*/
+  getByReceiverId(receiverId) {
+    const items = this.items.filter(appointment => appointment.receiverId == receiverId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
+
+  getByAskerId(askerId) {
+    const items = this.items.filter(appointment => appointment.askerId == askerId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
+
+  /*AvailabilityTimeSlot*/
+  getAvailabilityTimeSlotByReceiverId(receiverId) {
+    const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.receiverId == receiverId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
+
+  getAvailabilityTimeSlot() {
+    return this.items;
   }
 };
