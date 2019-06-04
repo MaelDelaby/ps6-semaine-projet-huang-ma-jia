@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { getUser } from 'src/app/cookies'
 
 import { ActivitySectorService } from '../../../services/activitySector/activitySector.service';
 import { ContinentService } from 'src/services/continent/continent.service';
 import { CountryService } from 'src/services/country/country.service';
 import { CompanyService } from 'src/services/company/company.service';
 import { Company } from 'src/models/company';
+
 
 @Component({
   selector: 'app-ajouter-entreprise-page',
@@ -74,7 +76,12 @@ export class AjouterEntreprisePageComponent implements OnInit {
     }
     this.formError = false;
     this.formSaved = true;
-    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
+
+    let company = this.addCompanyPageForm.getRawValue() as Company;
+    company.requestDate = new Date().toLocaleDateString();
+    company.requestStudentId = getUser().id;
+
+    this.companyService.addCompany(company);
     this.emptyCompanyPageForm();
   }
 

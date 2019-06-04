@@ -64,7 +64,7 @@ module.exports = class BaseModel {
       const { Internship } = require('../models');
 
       companies = companies.filter(
-        company => Internship.getWithIntershipFilter({
+        company => Internship.getWithinternshipFilter({
               'companyId': company.id,
               'sector': query.sector,
               'specialty': query.specialty
@@ -97,6 +97,14 @@ module.exports = class BaseModel {
       companies = companies.filter(company => company.activitySector == query.activitySector);
     }
 
+        if (query.validate){
+      if (query.validate.equals("true")){
+        internships = internships.filter(internship => internship.requestDate == "validate")
+      } else {
+        internships = internships.filter(internship => internship.requestDate != "validate")
+      }
+    }
+
     //Add rating
     const { Internship } = require('../models');
 
@@ -114,21 +122,38 @@ module.exports = class BaseModel {
   getWithInternshipFilter(query) {
     let internships = this.items;
 
-    if (query.companyId != null) {
+    if (query.sector) {
+      const { User } = require('../models');
+      internships = internships.filter(internship => User.items.find(student => student.id == internship.studentId).sector == query.sector);
+    }
+
+    if (query.sector) {
+      const { User } = require('../models');
+      internships = internships.filter(internship => User.items.find(student => student.id == internship.studentId).specialty == query.specialty);
+    }
+
+    if (query.companyId) {
       internships = internships.filter(internship => internship.companyId == query.companyId);
     }
 
-    if (query.hasCompanyCar != null) {
+    if (query.hasCompanyCar) {
       internships = internships.filter(internship => internship.hasCompanyCar == true);
     }
 
-    if (query.contractRenewed != null) {
+    if (query.contractRenewed) {
       internships = internships.filter(internship => internship.contractRenewed != '');
+    }
+
+    if (query.validate){
+      if (query.validate.equals("true")){
+        internships = internships.filter(internship => internship.requestDate == "validate")
+      } else {
+        internships = internships.filter(internship => internship.requestDate != "validate")
+      }
     }
 
     return internships;
   }
-
 
   /*getActivitySectors(){
     let activitySectors = [];
@@ -141,7 +166,7 @@ module.exports = class BaseModel {
   getNumberCompanyByCountryId(query){
     let companies = this.items;
 
-    if (query.countryId != null) {
+    if (query.countryId) {
       companies = companies.filter(company => company.countryId == query.countryId);
     }
     return companies.length;
@@ -149,7 +174,7 @@ module.exports = class BaseModel {
 
   /* Internship */
   getInternshipsNb(query){
-    if (query.countryId != null) {
+    if (query.countryId) {
       const { Company } = require('../models' );
       
       let sum = 0;
@@ -162,49 +187,38 @@ module.exports = class BaseModel {
       return sum;
     }
 
-    if (query.companyId != null) {
-      return this.items.filter(intership => intership.companyId == query.companyId).length;
+    if (query.companyId) {
+      return this.items.filter(internship => internship.companyId == query.companyId).length;
     }
   }
 
-  getAverageRatingIntershipByCountryId(query){
+  getAverageRatinginternshipByCountryId(query){
 
-    if (query.countryId != null) {
+    if (query.countryId) {
       const { Company } = require('../models' );
 
       let average = 0;
-      let nbIntership = this.getInternshipsNb(query)
+      let nbinternship = this.getInternshipsNb(query)
 
-      if (nbIntership === null){
+      if (nbinternship === null){
         return 0;
       }
       else {
         Company.items.filter(company => company.countryId == query.countryId).forEach(company => {
-          average += this.getAverageRatingIntershipByCountryId({companyId: company.id});
+          average += this.getAverageRatinginternshipByCountryId({companyId: company.id});
       })
-        return average/nbIntership;
+        return average/nbinternship;
       }
     }
 
-    if (query.companyId != null) {
+    if (query.companyId) {
       let buf = 0;
 
-      this.items.filter(intership => intership.companyId == query.companyId).forEach(intership => {
-        buf += intership.rating;
+      this.items.filter(internship => internship.companyId == query.companyId).forEach(internship => {
+        buf += internship.rating;
       })
       return buf;
     }
-  }
-
-  getWithIntershipFilter(query) {
-    const { User } = require('../models');
-
-    return this.items.filter(
-      internship =>
-        (query.companyId == null || internship.companyId == query.companyId)
-        && (query.sector == null || User.items.find(student => student.id == internship.studentId).sector == query.sector)
-        && (query.specialty == null || User.items.find(student => student.id == internship.studentId).specialty == query.specialty)
-    );
   }
 
   getRating(companyId){
@@ -215,6 +229,27 @@ module.exports = class BaseModel {
     internships.forEach(internship => sum += internship.rating);
 
     return sum / internships.length;
+  }
+
+  getInternshipRequests(query){
+    let internships = this.items.filter(internship => internship.requestDate != "validate");
+    console.log(internships);
+
+    if (query.studentId){
+      internships = internships.find(internship => internship.studentId == query.studentId);
+    }
+
+    return internships;
+  }
+  
+  getCompanyRequests(query){
+    let companies = this.items.filter(company => company.requestDate != "validate");
+
+    if (query.studentId){
+      companies = companies.find(company => company.requestStudentId == query.studentId);
+    }
+
+    return companies;
   }
 
   /* User */
@@ -244,6 +279,7 @@ module.exports = class BaseModel {
 
     return users
   }
+
 
   /* partnerHousing */
 

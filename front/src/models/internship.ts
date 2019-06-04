@@ -13,4 +13,5 @@ export interface Internship {
   tuteur?: String;
   rating?: number;
   comment?: String;
+  requestDate?: String;
 }

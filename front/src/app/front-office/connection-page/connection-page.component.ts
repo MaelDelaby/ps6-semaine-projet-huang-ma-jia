@@ -38,7 +38,6 @@ export class ConnectionPageComponent implements OnInit {
   }
 
   connection(){
-    console.log(this.userArray);
     let user = this.userArray.find(user => user.id == this.connectionPageForm.getRawValue().userId);
 
     if (user == null){

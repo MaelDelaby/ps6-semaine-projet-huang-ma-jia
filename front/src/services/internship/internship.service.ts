@@ -39,7 +39,6 @@ export class InternshipService {
   }
 
   public addInternship(internship: Internship){
-    console.log(internship);
     this.http.post(this.internshipsUrl, internship, httpOptionsBase).subscribe(
       (_ticket) => {}
     );

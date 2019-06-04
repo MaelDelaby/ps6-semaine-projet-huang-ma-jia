@@ -5,6 +5,7 @@ const router = new Router();
 router.get('/', (req, res) => res.status(200).json(Internship.getWithInternshipFilter(req.query)));
 router.get('/nbIntership', (req, res) => res.status(200).json(Internship.getInternshipsNb(req.query)));
 router.get('/averageRatingIntership', (req, res) => res.status(200).json(Internship.getAverageRatingIntershipByCountryId(req.query)));
+router.get('/requests', (req, res) => res.status(200).json(Internship.getInternshipRequests(req.query)));
 
 router.post('/', (req, res) => {
     try {

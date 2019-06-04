@@ -1,12 +1,28 @@
 <html>
+  <body>
+    <app-admin-navigation-bar></app-admin-navigation-bar>
 
-<body>
-  <app-admin-navigation-bar></app-admin-navigation-bar>
+    <fieldset>
+      <legend>Entreprises en attente d'acceptation :</legend>
 
-  <div class="fatFooter">
-    <app-fat-footer></app-fat-footer>
-  </div>
-</body>
+      <div *ngFor="let company of companyArray">
+        <app-company-ticket [company]="company" [countryExist]=true (clickEvent)="companyClick($event)"></app-company-ticket>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Stages en attente d'acceptation :</legend>
+
+      <div *ngFor="let internship of internshipArray">
+        <app-internship-ticket [internship]="internship"></app-internship-ticket>
+      </div>
+    </fieldset>
+
+    <div class="fatFooter">
+      <app-fat-footer></app-fat-footer>
+    </div>
+    
+  </body>
 </html>
 
 

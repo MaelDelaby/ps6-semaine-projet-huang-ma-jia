@@ -12,4 +12,6 @@ export interface Company {
   internshipNb?: number;
   hiringOpportunities?: string;
   description?: string;
+  requestDate?: string;
+  requestStudentId?: number;
 }
