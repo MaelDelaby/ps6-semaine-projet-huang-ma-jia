@@ -29,30 +29,6 @@ public class SlotActivity extends AppCompatActivity {
     private ListView sessionsDisponibles;
     private Button swaper;
 
-    /*public List<Administrator> getAdministratorFreeList(){
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpGet httpget= new HttpGet(URL);
-
-        HttpResponse response = null;
-        try {
-            response = httpclient.execute(httpget);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if(response.getStatusLine().getStatusCode()==200){
-            String server_response = null;
-            try {
-                server_response = EntityUtils.toString(response.getEntity());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Log.i("Server response", server_response );
-        } else {
-            Log.i("Server response", "Failed to get server response" );
-        }
-    }*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

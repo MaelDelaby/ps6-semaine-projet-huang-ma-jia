@@ -7,15 +7,21 @@ public class Appointment {
     private int askerId;
     private int receiverId;
     private String resons;
+    private String room;
     private Date date;
     private int timeMins;
 
-    public Appointment(int askerId, int receiverId, String resons, Date date, int timeMins){
+    public Appointment(int askerId, int receiverId, String resons, String room, Date date, int timeMins){
         this.askerId = askerId;
         this.receiverId = receiverId;
         this.date = date;
+        this.room = room;
         this.timeMins = timeMins;
         this.resons = resons;
+    }
+
+    public String getRoom() {
+        return room;
     }
 
     public String getResons() {
@@ -32,5 +38,8 @@ public class Appointment {
 
     public int getReceiverId() {
         return receiverId;
+    }
+
+    public int getAskerId() { return askerId;
     }
 }
