@@ -4,6 +4,8 @@ const Country = require('./country.model.js');
 const PartnerHousing = require('./partnerHousing.model.js');
 const Internship = require('./internship.model.js');
 const Appointment = require('./appointment.model.js');
+const AvailabilityTimeSlot = require('./availabilityTimeSlot.model.js');
+
 module.exports = {
-  User, Company, Country, PartnerHousing, Internship, Appointment,
+  User, Company, Country, PartnerHousing, Internship, Appointment, AvailabilityTimeSlot
 };

@@ -369,9 +369,19 @@ module.exports = class BaseModel {
   }
 
   getByAskerId(askerId) {
-    console.log("askerId : " + askerId);
     const items = this.items.filter(appointment => appointment.askerId == askerId);
     if (!items) throw new NotFoundError('Cannot get : not found');
     return items;
+  }
+
+  /*AvailabilityTimeSlot*/
+  getAvailabilityTimeSlotByReceiverId(receiverId) {
+    const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.receiverId == receiverId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
+
+  getAvailabilityTimeSlot() {
+    return this.items;
   }
 };
