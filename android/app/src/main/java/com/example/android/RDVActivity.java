@@ -11,19 +11,17 @@ import android.widget.ListView;
 import com.example.android.adapters.AppointmentAdapter;
 import com.example.android.models.Appointment;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -35,13 +33,12 @@ public class RDVActivity extends AppCompatActivity {
 
     private ListView rdvList;
     private Button swaper;
-    private JSONObject jsonObject;
-    private List<Appointment> appointmentList;
+    private JSONArray jsonArray;
+    private List<String> nameList;
+    private List<JSONObject> jsonList;
 
-    public void getHttpResponse(String url) throws IOException {
-
+    public void getHttpResponse(String url) {
         OkHttpClient client = new OkHttpClient();
-
         Request request = new Request.Builder()
                 .url(url)
                 .header("Accept", "application/json")
@@ -61,15 +58,18 @@ public class RDVActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-
                 String mMessage = response.body().string();
                 try {
-                    Log.e("here", mMessage);
-                    jsonObject = new JSONObject(mMessage);
+                    jsonList = new ArrayList<>();
+                    jsonArray = new JSONArray(mMessage);
+                    for (int i=0; i < jsonArray.length(); i++){
+                        JSONObject oneObject = jsonArray.getJSONObject(i);
+                        jsonList.add(oneObject);
+                    }
+                    Log.e("success", jsonList.get(2).getString("reason"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("jsonArray", mMessage);
             }
         });
     }
@@ -83,6 +83,22 @@ public class RDVActivity extends AppCompatActivity {
         int duration = jsonObject.getInt("duration");
 
         return new Appointment(askerId, receiverId, reason, room, date, duration);
+    }
+
+    public List<Appointment> jsonListToAppointmentList(List<JSONObject> jsonList) throws JSONException, ParseException {
+        List<Appointment> appointments = new ArrayList<>();
+        for(int i = 0;i < jsonList.size(); i++){
+            JSONObject json = jsonList.get(i);
+            int askerId = json.getInt("askerId");
+            int receiverId = json.getInt("receiverId");
+            String room = json.getString("room");
+            String reason = json.getString("reason");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            Date date = formatter.parse(json.getString("beginningDate"));
+            int time = json.getInt("duration");
+            appointments.add(new Appointment(askerId, receiverId, reason, room, date, time));
+        }
+        return appointments;
     }
 
     @Override
@@ -101,36 +117,34 @@ public class RDVActivity extends AppCompatActivity {
             }
         });
 
-        appointmentList = new ArrayList<>();
-        appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-        appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-        appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-        appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-        rdvList = findViewById(R.id.list);
-        rdvList.setAdapter(new AppointmentAdapter(this, appointmentList));
+        getHttpResponse("http://"+R.string.local_ip+"/api/appointment/receiverId?receiverId=1");
 
-        /*try {
-            getHttpResponse("http://10.212.101.203:9428/api/appointment/askerId?askerId=1");
-            appointmentList = new ArrayList<>();
-            for(int i = 0; i < jsonObject.length(); i++){
-                appointmentList.add(jsonObjectToAppointment(jsonObject.ge));
+        while(true){
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            rdvList = findViewById(R.id.list);
-            rdvList.setAdapter(new AppointmentAdapter(this, appointmentList));
-        }catch(JSONException e){
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            rdvList = findViewById(R.id.list);
-            rdvList.setAdapter(new AppointmentAdapter(this, appointmentList));
-        } catch (IOException e){
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            appointmentList.add(new Appointment(0,1,"faute de temps", "0+307", new Date(),1200000));
-            rdvList = findViewById(R.id.list);
-            rdvList.setAdapter(new AppointmentAdapter(this, appointmentList));
-        }*/
+            if(jsonList != null){
+                rdvList = findViewById(R.id.list);
+                try {
+                    rdvList.setAdapter(new AppointmentAdapter(this, jsonListToAppointmentList(jsonList)));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            else{
+                getHttpResponse("http://"+R.string.local_ip+":9428/api/appointment/receiverId?receiverId=1");
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        rdvList.setAdapter(null);
     }
 }
