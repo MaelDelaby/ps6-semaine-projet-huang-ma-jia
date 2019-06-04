@@ -9,6 +9,7 @@ const SectorRouter = require('./sectors');
 const CompanySizeRouter = require('./companySizes');
 const ActivitySectorsRouter  = require('./activitySectors');
 const ContinentRouter  = require('./continents');
+const AppointmentRouter  = require('./appointment');
 
 const router = new Router();
 router.get('/status', (req, res) => res.status(200).json('ok'));
@@ -22,5 +23,6 @@ router.use('/sectors', SectorRouter);
 router.use('/companySizes', CompanySizeRouter);
 router.use('/activitySectors', ActivitySectorsRouter);
 router.use('/continents', ContinentRouter);
+router.use('/appointment', AppointmentRouter);
 
 module.exports = router;

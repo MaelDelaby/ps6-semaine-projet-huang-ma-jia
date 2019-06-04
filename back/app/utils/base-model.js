@@ -360,4 +360,18 @@ module.exports = class BaseModel {
     this.items = this.items.filter(item => item.id !== id);
     this.save();
   }
+
+  /*Appointment*/
+  getByReceiverId(receiverId) {
+    const items = this.items.filter(appointment => appointment.receiverId == receiverId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
+
+  getByAskerId(askerId) {
+    console.log("askerId : " + askerId);
+    const items = this.items.filter(appointment => appointment.askerId == askerId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
 };
