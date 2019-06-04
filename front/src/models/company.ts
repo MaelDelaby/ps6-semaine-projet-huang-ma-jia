@@ -1,4 +1,3 @@
-import {Country} from './country';
 export interface Company {
   id?: number;
   name?: string;
@@ -12,6 +11,4 @@ export interface Company {
   internshipNb?: number;
   hiringOpportunities?: string;
   description?: string;
-  requestDate?: string;
-  requestStudentId?: number;
 }

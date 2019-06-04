@@ -15,5 +15,4 @@ module.exports = new BaseModel('Internship', {
   rating: Joi.number().required(),
   tuteur: Joi.string().allow(''),
   comment: Joi.string().required(),
-  requestDate: Joi.string().required(),
 });

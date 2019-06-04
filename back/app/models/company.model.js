@@ -13,6 +13,4 @@ module.exports = new BaseModel('Company', {
   activitySector: Joi.string().allow(''),
   hiringOpportunities: Joi.string().allow(''),
   description: Joi.string().allow(''),
-  requestDate: Joi.string().required(),
-  requestStudentId: Joi.number().required()
 });

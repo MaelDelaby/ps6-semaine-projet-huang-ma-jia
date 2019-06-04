@@ -20,7 +20,7 @@ module.exports = class BaseModel {
     this.filePath = `${__dirname}/../../mocks/${this.name.toLowerCase()}.mocks.json`;
     this.load();
   }
-
+  //new Date().toLocaleDateString();
   load() {
     try {
       this.items = JSON.parse(fs.readFileSync(this.filePath, 'utf8'));
@@ -64,7 +64,7 @@ module.exports = class BaseModel {
       const { Internship } = require('../models');
 
       companies = companies.filter(
-        company => Internship.getWithinternshipFilter({
+        company => Internship.getWithInternshipFilter({
               'companyId': company.id,
               'sector': query.sector,
               'specialty': query.specialty
@@ -97,11 +97,13 @@ module.exports = class BaseModel {
       companies = companies.filter(company => company.activitySector == query.activitySector);
     }
 
-        if (query.validate){
-      if (query.validate.equals("true")){
-        internships = internships.filter(internship => internship.requestDate == "validate")
+    if (query.validate){
+      const { Request } = require('../models');
+
+      if (query.validate == "true"){
+        companies = companies.filter(company => Request.items.find(request => request.companyId == company.id) == null);
       } else {
-        internships = internships.filter(internship => internship.requestDate != "validate")
+        companies = companies.filter(company => Request.items.find(request => request.companyId == company.id) != null);
       }
     }
 
@@ -127,7 +129,7 @@ module.exports = class BaseModel {
       internships = internships.filter(internship => User.items.find(student => student.id == internship.studentId).sector == query.sector);
     }
 
-    if (query.sector) {
+    if (query.specialty) {
       const { User } = require('../models');
       internships = internships.filter(internship => User.items.find(student => student.id == internship.studentId).specialty == query.specialty);
     }
@@ -145,10 +147,12 @@ module.exports = class BaseModel {
     }
 
     if (query.validate){
-      if (query.validate.equals("true")){
-        internships = internships.filter(internship => internship.requestDate == "validate")
+      const { Request } = require('../models');
+
+      if (query.validate == "true"){
+        internships = internships.filter(internship => Request.items.find(request => request.internshipId == internship.id) == null);
       } else {
-        internships = internships.filter(internship => internship.requestDate != "validate")
+        internships = internships.filter(internship => Request.items.find(request => request.internshipId == internship.id) != null);
       }
     }
 

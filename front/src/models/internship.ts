@@ -8,10 +8,8 @@ export interface Internship {
   period?: String;
   contractRenewed?: String;
   salary?: String;
-  residence?: String;
   hasCompanyCar?: Boolean;
   tuteur?: String;
   rating?: number;
   comment?: String;
-  requestDate?: String;
 }

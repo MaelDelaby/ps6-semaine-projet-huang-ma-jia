@@ -19,6 +19,7 @@ import {SpecialtyService} from '../services/specialty/specialty.service';
 import {OneUserService} from '../services/user/one-user.service';
 import {ContinentService} from '../services/continent/continent.service';
 import {UserService} from '../services/user/user.service';
+import {RequestService} from '../services/request/request.service';
 
 import {CompanyTicketComponent, 
   CompanyPageComponent,
@@ -42,7 +43,8 @@ import {AdminHomePageComponent,
   StudentNavigationBarComponent,
   AjouterEntreprisePageComponent, 
   AjouterPaysPageComponent,
-  AjouterStagePageComponent} from './back-office';
+  AjouterStagePageComponent,
+  RequestTicketComponent} from './back-office';
   
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import {AdminHomePageComponent,
     BottomArrowComponent,
     ConnectionPageComponent,
     StudentHomePageComponent,
-    StudentNavigationBarComponent
+    StudentNavigationBarComponent,
+    RequestTicketComponent
   ],
   imports: [
     HttpClientModule,
@@ -92,7 +95,8 @@ import {AdminHomePageComponent,
     SpecialtyService,
     OneUserService,
     ContinentService,
-    UserService
+    UserService,
+    RequestService
   ], // All the services need to be provided
   bootstrap: [AppComponent]
 })

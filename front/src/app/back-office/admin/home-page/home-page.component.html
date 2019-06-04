@@ -1,28 +1,73 @@
 <html>
+  <app-admin-navigation-bar></app-admin-navigation-bar>
   <body>
-    <app-admin-navigation-bar></app-admin-navigation-bar>
-
-    <fieldset>
-      <legend>Entreprises en attente d'acceptation :</legend>
-
-      <div *ngFor="let company of companyArray">
-        <app-company-ticket [company]="company" [countryExist]=true (clickEvent)="companyClick($event)"></app-company-ticket>
+    <div *ngIf="request">
+      <h1>Requete n°{{request.id}} du {{request.date}}</h1>
+      <div *ngIf="student">
+          <fieldset class="ticketContent">
+            <legend><h2>Etudiant</h2></legend>
+            <table>
+              <tr>
+                <td class="textData">
+                  <p>- Nom : {{student.firstName}} {{student.lastName}}</p>
+                  <p>- Numéro d'étudiant : {{student.id}}</p>
+                  <p>- Fillière : {{student.sector}} - {{student.specialty}}</p>
+                  <p>- Numéro de téléphone : {{student.phoneNb}}</p>
+                </td>
+                <td>
+                  <img src="{{student.profilePicture}}" class="iconImage">
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </div>
+      <div *ngIf="company">
+        <fieldset class="ticketContent">
+          <legend><h2>Entreprise</h2></legend>
+          <table>
+            <tr>
+              <td class="textData">
+                <p>- Entreprise : {{company.name}} - {{company.countryId}}</p>
+                <p>- Adresse : {{company.address}}</p>
+                <p>- Nombre d'employé : {{company.employeesNumber}}</p>
+                <p>- Date de création : {{company.creationDate}}</p>
+                <p>- Secteur d'activité : {{company.activitySector}}</p>
+                <p>- Site d'embauche : {{company.hiringOpportunities}}</p>
+                <p>- Description : {{company.description}}</p>
+              </td>
+              <td>
+                <img src="{{company.iconImage}}" class="iconImage">
+              </td>
+            </tr>
+          </table>
+        </fieldset>
       </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Stages en attente d'acceptation :</legend>
-
-      <div *ngFor="let internship of internshipArray">
-        <app-internship-ticket [internship]="internship"></app-internship-ticket>
+      <div *ngIf="internship">
+        <fieldset class="ticketContent">
+          <legend><h2>Stage</h2></legend>
+          <p>- Titre : {{internship.name}}</p>
+          <p>- Date de début : {{internship.startDate}}</p>
+          <p>- Date de fin : {{internship.endDate}}</p>
+          <p>- Période : {{internship.period}}</p>
+          <p>- Contrat renouvelé : {{internship.contractRenewed}}</p>
+          <p>- Salaire : {{internship.salary}}</p>
+          <p>- A eu une voiture de fonction : {{internship.hasCompanyCar}}</p>
+          <p>- Tuteur de stage : {{internship.tuteur}}</p>
+          <p>- Note :
+          <i *ngFor="let item of ratingFullStarsArray" class="fas fa-star" style="font-size: 1em;"></i>
+          <i *ngFor="let item of ratingEmptyStarsArray" class="far fa-star" style="font-size: 1em;"></i></p>
+          <p>- Avis : {{internship.comment}}</p>
+        </fieldset>
       </div>
-    </fieldset>
-
-    <div class="fatFooter">
-      <app-fat-footer></app-fat-footer>
     </div>
-    
+    <input type="submit" value="Accepter" (onClick)="pushButtonAccept()">
+    <input type="submit" value="Refuser" (onClick)="pushButtonReject()">
+    <input type="submit" value="Demander un rdv">
+    <input type="submit" value="Traiter plus tard">
   </body>
+  <div class="fatFooter">
+    <app-fat-footer></app-fat-footer>
+  </div>
 </html>
 
 

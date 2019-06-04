@@ -75,11 +75,7 @@ export class AjouterStagePageComponent implements OnInit {
         this.formError = true;
         return;
     }
-
-    let internship = this.addInternshipPageForm.getRawValue() as Internship;
     
-    internship.requestDate = new Date().toLocaleDateString();
-
-    this.internshipService.addInternship(internship);
+    this.internshipService.addInternship(this.addInternshipPageForm.getRawValue() as Internship);
   }
 }

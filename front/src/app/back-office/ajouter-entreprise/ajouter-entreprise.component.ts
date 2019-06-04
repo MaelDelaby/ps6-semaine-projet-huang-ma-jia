@@ -77,11 +77,7 @@ export class AjouterEntreprisePageComponent implements OnInit {
     this.formError = false;
     this.formSaved = true;
 
-    let company = this.addCompanyPageForm.getRawValue() as Company;
-    company.requestDate = new Date().toLocaleDateString();
-    company.requestStudentId = getUser().id;
-
-    this.companyService.addCompany(company);
+    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
     this.emptyCompanyPageForm();
   }
 
