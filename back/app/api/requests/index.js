@@ -7,6 +7,9 @@ router.put('/accept', (req, res) => {
     try {
         let request = Request.items[0];
         Request.items.splice(0,1);
+        
+        Request.save();
+        
         res.status(201).json(request);
     } catch (err) {
         if (err.name === 'ValidationError') {

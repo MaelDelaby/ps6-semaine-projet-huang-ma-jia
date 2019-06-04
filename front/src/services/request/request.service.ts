@@ -76,12 +76,15 @@ export class RequestService {
   }
 
   public reject(){
-    this.http.put<Request>(this.requestRejectUrl,"").subscribe(value => {});
-    this.getNext();
+    this.http.put<Request>(this.requestRejectUrl,"").subscribe(value => {
+      this.getNext();
+    });
   }
 
   public accept(){
-    this.http.put<Request>(this.requestAcceptUrl,"").subscribe(value => {});
-    this.getNext();
+    this.http.put<Request>(this.requestAcceptUrl,"").subscribe(value => {
+      this.getNext();
+    });
+
   }
 }
