@@ -192,8 +192,7 @@ module.exports = class BaseModel {
     }
   }
 
-  getAverageRatinginternshipByCountryId(query){
-
+  getAverageRatingIntershipByCountryId(query){
     if (query.countryId) {
       const { Company } = require('../models' );
 
