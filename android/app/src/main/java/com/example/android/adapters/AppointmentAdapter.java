@@ -8,12 +8,13 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.android.R;
-import com.example.android.models.Administrator;
 import com.example.android.models.Appointment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+
 
 public class AppointmentAdapter extends BaseAdapter {
 
@@ -53,6 +54,8 @@ public class AppointmentAdapter extends BaseAdapter {
         String room = appointment.getRoom();
 
         TextView textview = view.findViewById(R.id.text);
+        //String firstname = users.get(name).getFirstname();
+        //String lastname = users.get(name).getLastname();
         SimpleDateFormat formatter = new SimpleDateFormat("d MMMM yyyy à HH:mm");
         textview.setText(name+" vous attend le\n"+formatter.format(date)+"\nen salle "+room+" pour un entretien de "+ time/60000 +" minutes");
 

@@ -66,7 +66,6 @@ public class RDVActivity extends AppCompatActivity {
                         JSONObject oneObject = jsonArray.getJSONObject(i);
                         jsonList.add(oneObject);
                     }
-                    Log.e("success", jsonList.get(2).getString("reason"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
