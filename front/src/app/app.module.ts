@@ -20,9 +20,9 @@ import {OneUserService} from '../services/user/one-user.service';
 import {ContinentService} from '../services/continent/continent.service';
 import {UserService} from '../services/user/user.service';
 
-import {CompanyTicketComponent, 
+import {CompanyTicketComponent,
   CompanyPageComponent,
-  StudentTicketComponent, 
+  StudentTicketComponent,
   CountryPageComponent,
   InternshipTicketComponent,
   CompanySearchPageComponent,
@@ -36,14 +36,16 @@ import {CompanyTicketComponent,
   BottomArrowComponent,
   ConnectionPageComponent} from './front-office';
 import {FatFooterComponent} from './fat-footer';
-import {AdminHomePageComponent, 
-  AdminNavigationBarComponent, 
+import {AdminHomePageComponent,
+  AdminNavigationBarComponent,
   StudentHomePageComponent,
   StudentNavigationBarComponent,
-  AjouterEntreprisePageComponent, 
+  AjouterEntreprisePageComponent,
   AjouterPaysPageComponent,
-  AjouterStagePageComponent} from './back-office';
-  
+  AjouterStagePageComponent,
+  GestionAppointmentComponent,
+  CalendrierAppointmentComponent} from './back-office';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,9 @@ import {AdminHomePageComponent,
     BottomArrowComponent,
     ConnectionPageComponent,
     StudentHomePageComponent,
-    StudentNavigationBarComponent
+    StudentNavigationBarComponent,
+    GestionAppointmentComponent,
+    CalendrierAppointmentComponent
   ],
   imports: [
     HttpClientModule,
