@@ -21,12 +21,14 @@ export class RequestService {
   private student: User;
   private company: Company;
   private internship: Internship;
+  private requestNb: number;
 
   private requestUrl = 'http://localhost:9428/api/requests/';
   private requestNextUrl = this.requestUrl + 'next/';
   private requestRejectUrl = this.requestUrl + 'reject/';
   private requestAcceptUrl = this.requestUrl + 'accept/';
   private requestLateUrl = this.requestUrl + 'late/';
+  private requestNbUrl = this.requestUrl + 'nb/';
   private userUrl = 'http://localhost:9428/api/users/';
   private companyUrl = 'http://localhost:9428/api/companies/';
   private internshipUrl = 'http://localhost:9428/api/internships/';
@@ -40,6 +42,7 @@ export class RequestService {
   public student$: BehaviorSubject<User> = new BehaviorSubject(this.student);
   public company$: BehaviorSubject<Company> = new BehaviorSubject(this.company);
   public internship$: BehaviorSubject<Internship> = new BehaviorSubject(this.internship);
+  public requestNb$: BehaviorSubject<number> = new BehaviorSubject(this.requestNb);
 
   constructor(
     private http: HttpClient) {}
@@ -74,6 +77,11 @@ export class RequestService {
           this.internship = null;
           this.internship$.next(null);
         }
+
+        this.http.get<number>(this.requestNbUrl).subscribe(value2 => {
+          this.requestNb = value2;
+          this.requestNb$.next(value2);
+        });
       }
     });
   }

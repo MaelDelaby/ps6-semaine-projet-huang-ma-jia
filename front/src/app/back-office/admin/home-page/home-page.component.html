@@ -2,6 +2,7 @@
   <app-admin-navigation-bar></app-admin-navigation-bar>
   <body>
     <div *ngIf="request">
+      Nombre de requetes restantes : {{requestNb}}
       <h1>Requete n°{{request.id}} du {{request.date}}</h1>
       <div *ngIf="student">
           <fieldset class="ticketContent">
@@ -68,7 +69,7 @@
     </div>
 
     <div *ngIf="request == null">
-      <h1>Plus de demandes...</h1>
+      <h1>Pas de demandes...</h1>
     </div>
   </body>
   <div class="fatFooter">

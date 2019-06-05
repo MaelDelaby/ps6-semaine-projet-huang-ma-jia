@@ -3,6 +3,7 @@ const { Request } = require('../../models');
 
 const router = new Router();
 router.get('/next', (req, res) => res.status(200).json(Request.items[0]));
+router.get('/nb', (req, res) => res.status(200).json(Request.items.length));
 router.put('/accept', (req, res) => {
     try {
         let request = Request.items[0];

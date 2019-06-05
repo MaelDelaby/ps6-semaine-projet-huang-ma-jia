@@ -82,5 +82,17 @@
     "description": "Blizzard Entertainment est une société américaine de développement et d’édition de jeux vidéo siégeant à Irvine en Californie. La société a été fondée en 1991 par Allen Adham, Michael Morhaime et Frank Pearce sous le nom de Silicon & Synapse. Renommée Chaos Studios en 1994 puis Blizzard Entertainment la même année, elle est à l’origine des séries à succès Warcraft (et World of Warcraft), Diablo, StarCraft, et plus récemment Hearthstone, Heroes of the Storm et Overwatch.",
     "rating": null,
     "internshipNb": 0
+  },
+  {
+    "name": "caca3",
+    "iconImage": "",
+    "creationDate": "",
+    "employeesNumber": "",
+    "activitySector": "",
+    "countryId": "US",
+    "address": "",
+    "description": "",
+    "hiringOpportunities": "",
+    "id": 1559727618753
   }
 ]

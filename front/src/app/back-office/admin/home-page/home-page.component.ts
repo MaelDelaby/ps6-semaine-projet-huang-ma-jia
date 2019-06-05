@@ -22,6 +22,8 @@ export class AdminHomePageComponent implements OnInit {
   public countryNameForCompany: String;
   public companyNameForInternship: String;
 
+  public requestNb: number;
+
   public ratingFullStarsArray: any[]
   public ratingEmptyStarsArray: any[]
 
@@ -29,11 +31,9 @@ export class AdminHomePageComponent implements OnInit {
     public oneCountryService: OneCountryService,
     public oneCompanyService: OneCompanyService) {
 
-    this.requestService.student$.subscribe((value) => {
-      this.student = value;
-    });
+    this.requestService.student$.subscribe(value => this.student = value);
 
-    this.requestService.company$.subscribe((value) => {
+    this.requestService.company$.subscribe(value => {
       this.company = value;
       if (this.company){
         this.oneCountryService.setCountryId(this.company.countryId);
@@ -42,7 +42,7 @@ export class AdminHomePageComponent implements OnInit {
     
     this.oneCountryService.country$.subscribe(value => this.countryNameForCompany = value ? value.name : null);
 
-    this.requestService.internship$.subscribe((value) => {
+    this.requestService.internship$.subscribe(value => {
       this.internship = value;
       if (this.internship){
         this.ratingFullStarsArray = Array(Math.trunc(this.internship.rating));
@@ -53,9 +53,9 @@ export class AdminHomePageComponent implements OnInit {
 
     this.oneCompanyService.company$.subscribe(value => this.companyNameForInternship = value ? value.name : null);
 
-    this.requestService.request$.subscribe((value) => {
-      this.request = value;
-    });
+    this.requestService.request$.subscribe(value => this.request = value);
+
+    this.requestService.requestNb$.subscribe(value => this.requestNb = value);
     
     this.requestService.getNext();
   }
