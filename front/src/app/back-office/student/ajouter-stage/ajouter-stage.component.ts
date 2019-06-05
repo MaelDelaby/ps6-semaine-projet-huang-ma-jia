@@ -12,11 +12,12 @@ import { getUser } from 'src/app/cookies'
   styleUrls: ['../../styleForms.scss']})
 export class AjouterStageStudentPageComponent implements OnInit {
 
-  public addInternshipPageForm: FormGroup
+  public addInternshipPageForm: FormGroup;
 
-  public companyArray: Company[]
+  public companyArray: Company[];
 
-  public formError: boolean
+  public formError: boolean;
+  public formSaved: boolean;
 
   constructor(public formBuilder: FormBuilder,
     public internshipService: InternshipService,
@@ -41,21 +42,8 @@ export class AjouterStageStudentPageComponent implements OnInit {
       comment: [''],
     });
 
-    this.addInternshipPageForm.setValue({
-      studentId: getUser().id,
-      companyId: '',
-      name: '',
-      startDate: '',
-      endDate: '',
-      period: '',
-      salary: '',
-      contractRenewed: '',
-      tuteur: '',
-      hasCompanyCar: '',
-      rating: '1',
-      comment: ''
-    });
-
+    this.emptyInternshipPageForm();
+    this.formSaved = false;
     this.formError = false;
   }
 
@@ -73,9 +61,29 @@ export class AjouterStageStudentPageComponent implements OnInit {
       this.addInternshipPageForm.getRawValue().comment == "" ||
       this.addInternshipPageForm.getRawValue().companyId == ""){
         this.formError = true;
+        this.formSaved = false;
         return;
     }
-    
     this.internshipService.addInternship(this.addInternshipPageForm.getRawValue() as Internship);
+    this.formSaved = true;
+    this.formError = false;
+    this.emptyInternshipPageForm();
+  }
+
+  emptyInternshipPageForm(){
+    this.addInternshipPageForm.setValue({
+      studentId: getUser().id,
+      companyId: '',
+      name: '',
+      startDate: '',
+      endDate: '',
+      period: '',
+      salary: '',
+      contractRenewed: '',
+      tuteur: '',
+      hasCompanyCar: '',
+      rating: '1',
+      comment: ''
+    });
   }
 }

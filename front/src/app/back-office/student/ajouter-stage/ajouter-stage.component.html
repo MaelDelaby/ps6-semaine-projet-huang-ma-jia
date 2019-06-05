@@ -88,6 +88,7 @@
     </fieldset>
     <p>* champ obligatoire</p>
     <p style="color: darkred" *ngIf="formError == true">Veuillez remplir tout les champs obligatoires</p>
+    <p style="color: lightseagreen" *ngIf="formSaved == true">Le stage a bien été ajouté</p>
     <input type="submit" class="addButton" value="Ajouter le stage"  (click)="addInternship()"/>
   </form>
 </div>

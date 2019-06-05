@@ -4,7 +4,8 @@
     "askerId": 0,
     "receiverId": 1,
     "beginningDate": "2019-06-04 10:00",
-    "duration": "00:05",
+    "room": "O+308",
+    "duration": 13000,
     "reason": "raison"
   },
   {
@@ -12,7 +13,44 @@
     "askerId": 1,
     "receiverId": 0,
     "beginningDate": "2019-06-04 10:05",
-    "duration": "00:05",
+    "room": "O+308",
+    "duration": 5000,
+    "reason": "raison"
+  },
+  {
+    "id": 1,
+    "askerId": 1,
+    "receiverId": 0,
+    "beginningDate": "2019-06-04 10:05",
+    "room": "O+308",
+    "duration": 5000,
+    "reason": "raison"
+  },
+  {
+    "id": 3,
+    "askerId": 3,
+    "receiverId": 1,
+    "beginningDate": "2019-06-04 10:05",
+    "room": "O+308",
+    "duration": 5000,
+    "reason": "raison"
+  },
+  {
+    "id": 2,
+    "askerId": 2,
+    "receiverId": 1,
+    "beginningDate": "2019-06-04 10:05",
+    "room": "O+308",
+    "duration": 5000,
+    "reason": "Coooool"
+  },
+  {
+    "id": 2,
+    "askerId": 2,
+    "receiverId": 1,
+    "beginningDate": "2019-06-04 10:05",
+    "room": "O+308",
+    "duration": 123000,
     "reason": "raison"
   }
 ]
