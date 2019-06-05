@@ -8,7 +8,6 @@ import { CountryService } from 'src/services/country/country.service';
 import { CompanyService } from 'src/services/company/company.service';
 import { Company } from 'src/models/company';
 
-
 @Component({
   selector: 'app-ajouter-student-entreprise-page',
   templateUrl: './ajouter-entreprise.component.html',
@@ -69,15 +68,18 @@ export class AjouterEntrepriseStudentPageComponent implements OnInit {
 
   addCompany(){
     if (this.addCompanyPageForm.getRawValue().name == "" ||
-      this.addCompanyPageForm.getRawValue().country == ""){
+      this.addCompanyPageForm.getRawValue().countryId == ""){
         this.formError = true;
         this.formSaved = false;
         return;
     }
+
+    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company, true);
+
+
+      
     this.formError = false;
     this.formSaved = true;
-
-    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
     this.emptyCompanyPageForm();
   }
 

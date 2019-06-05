@@ -37,7 +37,7 @@ export class AdminHomePageComponent implements OnInit {
     this.requestService.request$.subscribe((value) => {
       this.request = value;
     });
-
+    this.requestService.getNext();
   }
 
   ngOnInit() {

@@ -4,6 +4,8 @@ import {BehaviorSubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { httpOptionsBase, serverUrl } from '../../configs/server.config';
+import { RequestService } from '../request/request.service';
+import { getUser } from 'src/app/cookies';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +14,10 @@ export class CompanyService {
   private companyList: Company[] = [];
   public companies$: BehaviorSubject<Company[]> = new BehaviorSubject(this.companyList);
   public countryId: number = null;
+  private companiesUrl = 'http://localhost:9428/api/companies/';
 
-  private companiesUrl = 'http://localhost:9428/api/companies/?validate=true';
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private requestService: RequestService) {
   }
 
   public setCountryId(id: number) {
@@ -24,14 +26,14 @@ export class CompanyService {
   }
 
   public getCompany(){
-    this.http.get<Company[]>(this.companiesUrl + (this.countryId != null ? '&countryId=' + this.countryId : '')).subscribe(companies => {
+    this.http.get<Company[]>(this.companiesUrl + '?validate=true' + (this.countryId != null ? '&countryId=' + this.countryId : '')).subscribe(companies => {
       this.companyList = companies;
       this.companies$.next(companies);
     });
   }
 
   public formChange(form: FormGroup) {
-    this.http.get<Company[]>(this.companiesUrl 
+    this.http.get<Company[]>(this.companiesUrl +'?validate=true'
       + (this.countryId != null ? '&countryId=' + this.countryId : '')
       + (form.getRawValue().sector != '- Filière -' ? ('&sector=' + form.getRawValue().sector) : '')
       + (form.getRawValue().specialty != '- Spécialité -' ? ('&specialty=' + form.getRawValue().specialty) : '')
@@ -48,10 +50,18 @@ export class CompanyService {
     });
   }
 
-  public addCompany(company: Company){
+  public addCompany(company: Company, createRequest: Boolean){
     this.http.post(this.companiesUrl, company, httpOptionsBase).subscribe(
-      (_ticket) => {
-        this.getCompany();
+      (companyAdded) => {
+        if (createRequest){
+          this.requestService.addRequest(Object.assign(
+            {
+              companyId: Object.assign(companyAdded).id,
+              internshipId: 0,
+              studentId: getUser().id,
+              date: "000"
+            }));
+        }
       }
     );
   }

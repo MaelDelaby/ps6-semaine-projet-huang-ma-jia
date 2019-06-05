@@ -59,34 +59,9 @@ export class CompanyPageComponent implements OnInit {
         this.internshipList = internships;
         this.internshipListSort();
     });
-
-    //Form
-
-    this.companyPageForm = this.formBuilder.group({
-      sector: [''],
-      specialty: [''],
-      activitySector: [''],
-      size1: [''],
-      size2: [''],
-      size3: ['']
-    });
-
-
-    this.companyPageForm.setValue({
-      sector: '- Filière -',
-      specialty: '- Spécialité -',
-      activitySector: '- Secteur d\'activité -',
-      size1: true,
-      size2: true,
-      size3: true
-    });
   }
 
   ngOnInit() {
-  }
-
-  formChange(){
-    this.internshipService.formChange(this.companyPageForm);
   }
 
   internshipListSortChange(value){

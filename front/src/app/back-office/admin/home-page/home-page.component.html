@@ -60,11 +60,15 @@
           <p>- Avis : {{internship.comment}}</p>
         </fieldset>
       </div>
+      <input type="submit" value="Accepter" (click)="pushButtonAccept()">
+      <input type="submit" value="Refuser" (click)="pushButtonReject()">
+      <input type="submit" value="Demander un rdv">
+      <input type="submit" value="Traiter plus tard">
     </div>
-    <input type="submit" value="Accepter" (click)="pushButtonAccept()">
-    <input type="submit" value="Refuser" (click)="pushButtonReject()">
-    <input type="submit" value="Demander un rdv">
-    <input type="submit" value="Traiter plus tard">
+
+    <div *ngIf="request == null">
+      <h1>Plus de demandes...</h1>
+    </div>
   </body>
   <div class="fatFooter">
     <app-fat-footer></app-fat-footer>

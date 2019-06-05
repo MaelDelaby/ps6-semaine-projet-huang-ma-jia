@@ -76,7 +76,8 @@ export class AjouterEntrepriseAdminPageComponent implements OnInit {
     this.formError = false;
     this.formSaved = true;
 
-    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company);
+    this.companyService.addCompany(this.addCompanyPageForm.getRawValue() as Company, false);
+    
     this.emptyCompanyPageForm();
   }
 

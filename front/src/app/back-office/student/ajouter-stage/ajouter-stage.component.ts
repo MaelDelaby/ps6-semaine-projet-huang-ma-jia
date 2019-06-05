@@ -64,7 +64,9 @@ export class AjouterStageStudentPageComponent implements OnInit {
         this.formSaved = false;
         return;
     }
-    this.internshipService.addInternship(this.addInternshipPageForm.getRawValue() as Internship);
+
+    this.internshipService.addInternship(this.addInternshipPageForm.getRawValue() as Internship, true);
+
     this.formSaved = true;
     this.formError = false;
     this.emptyInternshipPageForm();

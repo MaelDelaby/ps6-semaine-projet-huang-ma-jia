@@ -76,6 +76,6 @@ export class AjouterStageAdminPageComponent implements OnInit {
         return;
     }
     
-    this.internshipService.addInternship(this.addInternshipPageForm.getRawValue() as Internship);
+    this.internshipService.addInternship(this.addInternshipPageForm.getRawValue() as Internship, false);
   }
 }

@@ -28,20 +28,5 @@
     "rating": 4,
     "tuteur": "Jiazen Liu",
     "comment": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam vel dignissim magna. Cras fringilla felis quis ornare hendrerit. Sed tempus blandit congue. Suspendisse augue erat, congue et tellus nec, elementum lobortis mauris. Etiam eget elementum risus. Aliquam dignissim volutpat bibendum. Nunc nec ullamcorper turpis, in hendrerit est. Aliquam faucibus odio vel elit condimentum pharetra. Nunc gravida vehicula tellus quis egestas. Sed dictum magna rhoncus, interdum est eu, malesuada ante. Vivamus nec bibendum velit. Donec mattis aliquam varius. Donec cursus a nibh in luctus. Vestibulum aliquam congue maximus."
-  },
-  {
-    "studentId": 1,
-    "companyId": "1559578907117",
-    "name": "Etudiant",
-    "startDate": "2019-06-03",
-    "endDate": "2019-06-10",
-    "period": "1 semaine",
-    "salary": "",
-    "contractRenewed": "Non",
-    "tuteur": "",
-    "hasCompanyCar": "false",
-    "rating": "1",
-    "comment": "C'était trop bien !",
-    "id": 1559578941076
   }
 ]
