@@ -28,7 +28,7 @@ export class PartnerHousingService {
     private http: HttpClient) {
     }
 
-    public setCountryId(id : number) {
+    public setCountryId(id : string) {
         this.http.get<PartnerHousing[]>(this.partnersHousingsUrl + "?countryId=" + id).subscribe(value => {
             this.partnerHousingList = value;
             this.partnersHousings$.next(value);

@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
 export class UserService {
   private userList: User[] = [];
   public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.userList);
-  public countryId: number = null;
+  public countryId: string = null;
 
   private usersUrl = 'http://localhost:9428/api/users/';
 
@@ -21,7 +21,7 @@ export class UserService {
     });
   }
 
-  public setCountryId(id: number) {
+  public setCountryId(id: string) {
     this.countryId = id;
     this.http.get<User[]>(this.usersUrl + '?countryId=' + id).subscribe(users => {
       this.userList = users;

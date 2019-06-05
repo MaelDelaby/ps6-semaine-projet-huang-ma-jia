@@ -27,7 +27,8 @@
           <table>
             <tr>
               <td class="textData">
-                <p>- Entreprise : {{company.name}} - {{company.countryId}}</p>
+                <p>- Entreprise : {{company.name}}</p>
+                <p>- Pays : {{countryNameForCompany}}</p>
                 <p>- Adresse : {{company.address}}</p>
                 <p>- Nombre d'employé : {{company.employeesNumber}}</p>
                 <p>- Date de création : {{company.creationDate}}</p>
@@ -46,7 +47,7 @@
         <fieldset class="ticketContent">
           <legend><h2>Stage</h2></legend>
           <p>- Titre : {{internship.name}}</p>
-          <p>- Entreprise id : {{internship.companyId}}</p>
+          <p>- Entreprise : {{companyNameForInternship}}</p>
           <p>- Date de début : {{internship.startDate}}</p>
           <p>- Date de fin : {{internship.endDate}}</p>
           <p>- Période : {{internship.period}}</p>
@@ -63,7 +64,7 @@
       <input type="submit" value="Accepter" (click)="pushButtonAccept()">
       <input type="submit" value="Refuser" (click)="pushButtonReject()">
       <input type="submit" value="Demander un rdv">
-      <input type="submit" value="Traiter plus tard">
+      <input type="submit" value="Traiter plus tard" (click)="pushButtonLate()">
     </div>
 
     <div *ngIf="request == null">

@@ -62,10 +62,13 @@ router.put('/reject', (req, res) => {
     }
 });
 
-router.put('/moveEnd', (req, res) => {
+router.put('/late', (req, res) => {
     try {
-        const partnerHousing = PartnerHousing.create(req.body);
-        res.status(201).json(partnerHousing);
+        let request = Request.items[0];
+        Request.items.push(request);
+        Request.items.splice(0,1);
+        Request.save();
+        res.status(201).json(request);
     } catch (err) {
         if (err.name === 'ValidationError') {
             res.status(400).json(err.extra);

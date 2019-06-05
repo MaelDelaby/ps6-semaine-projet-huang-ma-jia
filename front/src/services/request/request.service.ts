@@ -26,6 +26,7 @@ export class RequestService {
   private requestNextUrl = this.requestUrl + 'next/';
   private requestRejectUrl = this.requestUrl + 'reject/';
   private requestAcceptUrl = this.requestUrl + 'accept/';
+  private requestLateUrl = this.requestUrl + 'late/';
   private userUrl = 'http://localhost:9428/api/users/';
   private companyUrl = 'http://localhost:9428/api/companies/';
   private internshipUrl = 'http://localhost:9428/api/internships/';
@@ -85,6 +86,12 @@ export class RequestService {
 
   public accept(){
     this.http.put<Request>(this.requestAcceptUrl,"").subscribe(value => {
+      this.getNext();
+    });
+  }
+
+  public late(){
+    this.http.put<Request>(this.requestLateUrl,"").subscribe(value => {
       this.getNext();
     });
   }

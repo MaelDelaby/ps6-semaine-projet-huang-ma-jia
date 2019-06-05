@@ -27,7 +27,7 @@ export class OneCountryService {
     private http: HttpClient) {
      }
 
-  public setCountryId(id : number) {
+  public setCountryId(id : string) {
     this.http.get<Country>(this.countriesUrl+id).subscribe(value => {
       this.country = value;
       this.country$.next(value);

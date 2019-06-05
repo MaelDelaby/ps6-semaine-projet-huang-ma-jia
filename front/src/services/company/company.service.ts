@@ -13,14 +13,14 @@ import { getUser } from 'src/app/cookies';
 export class CompanyService {
   private companyList: Company[] = [];
   public companies$: BehaviorSubject<Company[]> = new BehaviorSubject(this.companyList);
-  public countryId: number = null;
+  public countryId: string = null;
   private companiesUrl = 'http://localhost:9428/api/companies/';
 
   constructor(private http: HttpClient,
     private requestService: RequestService) {
   }
 
-  public setCountryId(id: number) {
+  public setCountryId(id: string) {
     this.countryId = id;
     this.getCompany();
   }
