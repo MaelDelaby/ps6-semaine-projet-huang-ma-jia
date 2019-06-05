@@ -25,7 +25,6 @@ export class CountryTicketComponent implements OnInit {
   public existHalfStar: boolean
 
   constructor() {
-
   }
 
   ngOnInit() {

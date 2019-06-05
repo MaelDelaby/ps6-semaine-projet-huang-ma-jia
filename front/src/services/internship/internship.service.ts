@@ -48,4 +48,10 @@ export class InternshipService {
       }
     );
   }
+
+  public deleteInternship(id: number){
+    this.http.delete<Internship>(this.internshipsUrl + id, httpOptionsBase).subscribe(
+      (internshipDeleted) => this.getInternship()
+    );
+  }
 }

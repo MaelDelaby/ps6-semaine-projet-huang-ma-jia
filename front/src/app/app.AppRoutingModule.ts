@@ -13,7 +13,8 @@ import {AdminHomePageComponent,
   AjouterEntrepriseStudentPageComponent,
   AjouterPaysPageComponent,
   AjouterStageStudentPageComponent,
-  GestionAppointmentComponent} from './back-office';
+  GestionAppointmentComponent,
+  RequestModifierPageComponent } from './back-office';
 
 // import {UserListComponent} from './users/user-list/user-list.component';
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: 'ajouterAdminEntreprise', component: AjouterEntrepriseAdminPageComponent},
   {path: 'ajouterAdminStage', component: AjouterStageAdminPageComponent},
   {path: 'gestionRendezVous', component: GestionAppointmentComponent},
+  {path: 'modifierRequete', component: RequestModifierPageComponent},
   
   {path: 'studentHomePage', component: StudentHomePageComponent},
   {path: 'ajouterStudentEntreprise', component: AjouterEntrepriseStudentPageComponent},

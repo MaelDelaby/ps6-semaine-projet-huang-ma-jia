@@ -65,4 +65,10 @@ export class CompanyService {
       }
     );
   }
+
+  public deleteCompany(id: number){
+    this.http.delete<Company>(this.companiesUrl + id, httpOptionsBase).subscribe(
+      (companyDeleted) => this.getCompany()
+    );
+  }
 }

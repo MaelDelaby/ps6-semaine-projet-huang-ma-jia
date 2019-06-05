@@ -36,7 +36,9 @@ import {CompanyTicketComponent,
   NavigationBarComponent,
   BottomArrowComponent,
   ConnectionPageComponent} from './front-office';
+
 import {FatFooterComponent} from './fat-footer';
+
 import {AdminHomePageComponent,
   AdminNavigationBarComponent,
   StudentHomePageComponent,
@@ -46,9 +48,11 @@ import {AdminHomePageComponent,
   AjouterEntrepriseStudentPageComponent,
   AjouterPaysPageComponent,
   AjouterStageStudentPageComponent,
-  RequestTicketComponent,
   GestionAppointmentComponent,
-  CalendrierAppointmentComponent} from './back-office';
+  CalendrierAppointmentComponent,
+  RequestModifierPageComponent,
+  InternshipFormComponent,
+  CompanyFormComponent } from './back-office';
 
 @NgModule({
   declarations: [
@@ -78,9 +82,11 @@ import {AdminHomePageComponent,
     ConnectionPageComponent,
     StudentHomePageComponent,
     StudentNavigationBarComponent,
-    RequestTicketComponent,
     GestionAppointmentComponent,
-    CalendrierAppointmentComponent
+    CalendrierAppointmentComponent,
+    RequestModifierPageComponent,
+    InternshipFormComponent,
+    CompanyFormComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,19 +1,39 @@
-.form-style-5{
-  max-width: 600px;
-  padding: 10px 20px;
-  background: #ffffff;
-  margin: 10px auto;
-  padding: 20px;
-  border-radius: 8px;
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+body {
+  height: 100%;
+  margin: 0;
+  margin-left: 15%;
+  margin-right: 15%;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-.form-style-5 fieldset{
-  border: none;
+
+.legend {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 25px;
 }
-.form-style-5 legend {
-  font-size: 1.4em;
-  margin-bottom: 10px;
+
+fieldset {
+  border-color: #3c3c3c;
+  background-color: white;
+  border-width: 2.5px;
+  border-radius: 5px;
+  margin: 50px;
 }
+
+.ticketContent {
+  margin: 10px;
+}
+
+.iconImage {
+  width: 200px;
+  vertical-align: top;
+}
+
+.textData{
+  width: 100%;
+}
+
 .form-style-5 label {
   display: block;
   margin-bottom: 8px;
@@ -98,70 +118,4 @@
 {
   background: #000000;
   cursor: pointer;
-}
-
-.rating {
-  display: inline-block;
-  position: relative;
-  height: 50px;
-  line-height: 50px;
-  font-size: 50px;
-}
-
-.rating label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  cursor: pointer;
-}
-
-.rating label:last-child {
-  position: static;
-}
-
-.rating label:nth-child(1) {
-  z-index: 5;
-}
-
-.rating label:nth-child(2) {
-  z-index: 4;
-}
-
-.rating label:nth-child(3) {
-  z-index: 3;
-}
-
-.rating label:nth-child(4) {
-  z-index: 2;
-}
-
-.rating label:nth-child(5) {
-  z-index: 1;
-}
-
-.rating label input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.rating label .icon {
-  float: left;
-  color: transparent;
-}
-
-.rating label:last-child .icon {
-  color: #c7c7c7;
-}
-
-.rating:not(:hover) label input:checked ~ .icon,
-.rating:hover label:hover input ~ .icon {
-  color: #3c3c3c;
-}
-
-.rating label input:focus:not(:checked) ~ .icon:last-child {
-  color: #c7c7c7;
-  text-shadow: 0 0 5px #3c3c3c;
 }

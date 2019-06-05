@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestTicketComponent } from './request-ticket.component';
+import { InternshipFormComponent } from './internship-form.component';
 import {describe, expect} from '@angular/core/testing/src/testing_internal';
 
-describe('RequestTicketComponent', () => {
-  let component: RequestTicketComponent;
-  let fixture: ComponentFixture<RequestTicketComponent>;
+describe('AjouterStageStudentPageComponent', () => {
+  let component: InternshipFormComponent;
+  let fixture: ComponentFixture<InternshipFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestTicketComponent ]
+      declarations: [ InternshipFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestTicketComponent);
+    fixture = TestBed.createComponent(InternshipFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

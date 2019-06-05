@@ -4,18 +4,16 @@
 
     <app-navigation-bar></app-navigation-bar>
 
-    <div class="form-style-5">
-      <form [formGroup]="connectionPageForm" >
-        <fieldset>
-          <legend>Connexion</legend>
-          <label for="userId">Votre identifiant :</label>
-          <input type="text" name="userId" [formControlName]="'userId'">
-          
-          <p style="color: darkred" *ngIf="formError == true">Identifiant inconnu</p>
-          <input type="submit" class="addButton" value="Connexion"  (click)="connection()"/>
-        </fieldset>
-      </form>
-    </div>
+    <form [formGroup]="connectionPageForm" class="form-style-5">
+      <fieldset>
+        <legend>Connexion</legend>
+        <label for="userId">Votre identifiant :</label>
+        <input type="text" name="userId" [formControlName]="'userId'">
+        
+        <p style="color: darkred" *ngIf="formError == true">Identifiant inconnu</p>
+        <input type="submit" value="Connexion"  (click)="connection()"/>
+      </fieldset>
+    </form>
 
     <div class="fatFooter">
       <app-fat-footer></app-fat-footer>

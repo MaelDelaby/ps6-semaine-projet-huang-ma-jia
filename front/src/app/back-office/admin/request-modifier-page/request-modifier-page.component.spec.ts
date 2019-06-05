@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StudentHomePageComponent } from './home-page.component';
+import { RequestModifierPageComponent } from './request-modifier-page.component';
 import {describe, expect} from '@angular/core/testing/src/testing_internal';
 
-describe('StudentHomePageComponent', () => {
-  let component: StudentHomePageComponent;
-  let fixture: ComponentFixture<StudentHomePageComponent>;
+describe('RequestModifierPageComponent', () => {
+  let component: RequestModifierPageComponent;
+  let fixture: ComponentFixture<RequestModifierPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentHomePageComponent ]
+      declarations: [ RequestModifierPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StudentHomePageComponent);
+    fixture = TestBed.createComponent(RequestModifierPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

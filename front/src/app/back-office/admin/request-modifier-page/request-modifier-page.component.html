@@ -1,0 +1,49 @@
+<html>
+  <app-admin-navigation-bar></app-admin-navigation-bar>
+  <body>
+    <div *ngIf="request" class="form-style-5">
+      <h1>Requete n°{{request.id}} du {{request.date}}</h1>
+      <div *ngIf="student">
+          <fieldset class="ticketContent">
+            <legend><h2>Etudiant</h2></legend>
+            <table>
+              <tr>
+                <td class="textData">
+                  <p>- Nom : {{student.firstName}} {{student.lastName}}</p>
+                  <p>- Numéro d'étudiant : {{student.id}}</p>
+                  <p>- Fillière : {{student.sector}} - {{student.specialty}}</p>
+                  <p>- Numéro de téléphone : {{student.phoneNb}}</p>
+                </td>
+                <td>
+                  <img src="{{student.profilePicture}}" class="iconImage">
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </div>
+
+      <div *ngIf="company">
+        <fieldset class="ticketContent">
+          <legend><h2>Entreprise</h2></legend>
+          <app-company-form [company]="company"></app-company-form>
+        </fieldset>
+      </div>
+
+      <div *ngIf="internship">
+        <fieldset class="ticketContent">
+          <legend><h2>Stage</h2></legend>
+          <app-internship-form [internship]="internship"></app-internship-form>
+        </fieldset>
+      </div>
+      
+      <input type="submit" value="Accepter" (click)="pushButtonAccept()">
+      <input type="submit" value="Refuser" (click)="pushButtonReject()">
+    </div>
+  </body>
+  <div class="fatFooter">
+    <app-fat-footer></app-fat-footer>
+  </div>
+</html>
+
+
+

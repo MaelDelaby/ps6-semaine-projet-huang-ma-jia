@@ -7,7 +7,7 @@ router.get('/:countryId', (req, res) => res.status(200).json(Country.getById(req
 
 router.put('/', (req, res) => {
     try {
-        const country = Country.createCountry(req.body);
+        const country = Country.create(req.body);
         res.status(201).json(country);
     } catch (err) {
         if (err.name === 'ValidationError') {

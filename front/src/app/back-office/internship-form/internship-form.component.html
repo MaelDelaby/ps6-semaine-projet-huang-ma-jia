@@ -1,0 +1,92 @@
+<form [formGroup]="internshipForm" class="form-style-5">
+  <fieldset>
+    <legend><span class="number">1</span> Information générale du stage</legend>
+    <label for="studentId">* Identifiant de l'étudiant :</label>
+    <input type="text" name="studentId" value="studentId" [formControlName]="'studentId'" disabled *ngIf="!user.isAdmin">
+    <input type="text" name="studentId" value="studentId" [formControlName]="'studentId'" *ngIf="user.isAdmin">
+    <label for="name">* Titre :</label>
+    <input type="text" name="name" placeholder="Titre du stage" [formControlName]="'name'">
+    <label for="startDate">* Date début stage :</label>
+    <input type="date" name="startDate" placeholder="" [formControlName]="'startDate'">
+    <label for="endDate">* Date fin stage :</label>
+    <input type="date" name="endDate" placeholder="" [formControlName]="'endDate'">
+    <label for="period">* Durée :</label>
+    <input type="text" name="period" placeholder="Durée sous forme de mots" [formControlName]="'period'">
+
+    <!--<label for="remunerationStage">Rémunaration pendant le stage :</label>
+    <input type="radio" name="remunerationStage" value="oui" /> Oui
+    <input type="radio" name="remunerationStage" value="non" /> Non-->
+
+    <label for="salary">Si rémunéré montant rémunération :</label>
+    <input type="number" name="salary" placeholder="" [formControlName]="'salary'">
+
+    <label for="contractRenewed">* Contrat renouvelé :</label>
+    <select name="contractRenewed" [formControlName]="'contractRenewed'">
+      <option value="Non">Non</option>
+      <option value="CDI">CDI</option>
+      <option value="CDD">CDD</option>
+    </select>
+
+    <legend><span class="number">2</span> Entreprise stage</legend>
+    <label for="companyId">* Entreprise :</label>
+    <select id="companyId" [formControlName]="'companyId'">
+      <option *ngFor="let company of companyArray" value="{{company.id}}">
+              {{company.name}}
+      </option>
+    </select>
+    <label for="tuteur">Tuteur :</label>
+    <input type="text" name="tuteur" placeholder="Nom du tuteur" [formControlName]="'tuteur'">
+    <label for="hasCompanyCar">* Voiture de fonction pendant le stage :</label>
+    <input type="radio" name="hasCompanyCar" value="true" [formControlName]="'hasCompanyCar'"/> Oui
+    <input type="radio" name="hasCompanyCar" value="false" [formControlName]="'hasCompanyCar'"/> Non<br>
+
+    <legend><span class="number">3</span> Avis : </legend>
+
+    <label for="rating">* Note :</label>
+    <form class="rating" name="rating">
+      <label>
+        <input type="radio" name="stars" value="1" />
+        <span class="icon">★</span>
+      </label>
+      <label>
+        <input type="radio" name="stars" value="2" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+      </label>
+      <label>
+        <input type="radio" name="stars" value="3" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+      </label>
+      <label>
+        <input type="radio" name="stars" value="4" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+      </label>
+      <label>
+        <input type="radio" name="stars" value="5" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+      </label>
+    </form>
+    <label for="comment">* Avis :</label>
+    <textarea name="comment" placeholder="Votre avis" [formControlName]="'comment'"></textarea>
+  </fieldset>
+  <p>* champ obligatoire</p>
+  <p style="color: darkred" *ngIf="formError == true">Veuillez remplir tout les champs obligatoires</p>
+  <div *ngIf="add">
+    <p style="color: lightseagreen" *ngIf="formSaved == true">Le stage a bien été ajouté</p>
+    <input type="submit" value="Ajouter le stage"  (click)="addInternship()"/>
+  </div>
+  <div *ngIf="!add">
+    <p style="color: lightseagreen" *ngIf="formSaved == true">Le stage a bien été modifié</p>
+    <input type="submit" value="Modifier le stage"  (click)="modifyInternship()"/>
+  </div>
+
+</form>

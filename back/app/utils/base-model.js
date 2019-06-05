@@ -339,21 +339,14 @@ module.exports = class BaseModel {
   }
 
   create(obj = {}) {
-    const item = Object.assign({}, obj, { id: Date.now() });
-    const { error } = Joi.validate(item, this.schema);
+    if (!obj.id){
+      obj.id = Date.now();
+    }
+    const { error } = Joi.validate(obj, this.schema);
     if (error) throw new ValidationError(`Create Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error);
-    this.items.push(item);
+    this.items.push(obj);
     this.save();
-    return item;
-  }
-
-  createCountry(obj = {}) {
-    const item = obj;
-    const { error } = Joi.validate(item, this.schema);
-    if (error) throw new ValidationError(`Create Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error);
-    this.items.push(item);
-    this.save();
-    return item;
+    return obj;
   }
 
   update(id, obj) {

@@ -7,6 +7,19 @@ router.get('/nbIntership', (req, res) => res.status(200).json(Internship.getInte
 router.get('/averageRatingIntership', (req, res) => res.status(200).json(Internship.getAverageRatingIntershipByCountryId(req.query)));
 router.get('/:internshipId', (req, res) => res.status(200).json(Internship.getById(req.params.internshipId)));
 
+router.delete('/:internshipId', (req, res) => {
+    try {
+        Internship.delete(req.params.internshipId);
+        res.status(204).end();
+    } catch (err) {
+        if (err.name === 'NotFoundError') {
+            res.status(404).end();
+        } else {
+            res.status(500).json(err);
+        }
+    }
+});
+
 router.post('/', (req, res) => {
     try {
         const internship = Internship.create(req.body);
