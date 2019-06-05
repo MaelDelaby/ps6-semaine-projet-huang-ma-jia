@@ -1,35 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "UX Designer",
-    "studentId": 1,
-    "companyId": 1,
-    "startDate": "2019-4-1",
-    "endDate": "2019-4-5",
-    "period": "5 jours",
-    "contractRenewed": "CDI",
-    "salary": "Haut",
-    "hasCompanyCar": true,
-    "rating": 1,
-    "tuteur": "Jean MEDECIN",
-    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia metus consectetur ipsum ultricies sollicitudin. Aliquam erat volutpat. Donec sodales lectus vel suscipit sagittis. Proin rutrum tortor elit, ut lacinia turpis bibendum sed. Nunc ac tempor turpis. Curabitur non purus nibh. Etiam in risus malesuada, molestie sem consectetur, sodales orci. Cras dignissim tincidunt libero, sit amet ornare velit congue in. In vitae bibendum tellus. Donec eleifend ipsum vel diam rutrum, id congue arcu ultricies. Duis nec erat rhoncus, dapibus felis quis, malesuada quam."
-  },
-  {
-    "id": 2,
-    "name": "Back-end Designer",
-    "studentId": 2,
-    "companyId": 1,
-    "startDate": "2019-6-1",
-    "endDate": "2019-6-7",
-    "period": "7 jours",
-    "contractRenewed": "CDD",
-    "salary": "Moyenne",
-    "hasCompanyCar": false,
-    "rating": 2,
-    "tuteur": "Jiazen Liu",
-    "comment": "Vestibulum scelerisque nec lorem vitae volutpat. Ut eu dui lectus. Mauris faucibus bibendum vestibulum. Nunc ac augue eros. Duis fermentum pharetra rutrum. Etiam rutrum metus et lectus tincidunt tincidunt. Praesent dolor dui, tempus a nunc ac, suscipit pulvinar leo. Donec semper congue diam. Vivamus vel velit mattis, tincidunt erat eu, efficitur urna. Sed lorem nibh, varius quis porta bibendum, vulputate at magna. Sed orci justo, tristique id tempor et, condimentum ac orci. Donec sed auctor urna, eu tempus neque. Vestibulum id accumsan arcu. Vestibulum placerat magna et odio dignissim porttitor."
-  },
-  {
     "id": 3,
     "name": "Back-end Designer",
     "studentId": 1,
