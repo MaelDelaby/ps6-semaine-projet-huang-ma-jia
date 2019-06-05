@@ -7,10 +7,10 @@ import { CompanyService } from 'src/services/company/company.service';
 import { getUser } from 'src/app/cookies'
 
 @Component({
-  selector: 'app-ajouter-stage-page',
+  selector: 'app-ajouter-Admin-stage-page',
   templateUrl: './ajouter-stage.component.html',
-  styleUrls: ['../styleForms.scss']})
-export class AjouterStagePageComponent implements OnInit {
+  styleUrls: ['../../styleForms.scss']})
+export class AjouterStageAdminPageComponent implements OnInit {
 
   public addInternshipPageForm: FormGroup
 
@@ -42,7 +42,7 @@ export class AjouterStagePageComponent implements OnInit {
     });
 
     this.addInternshipPageForm.setValue({
-      studentId: getUser().id,
+      studentId: '',
       companyId: '',
       name: '',
       startDate: '',

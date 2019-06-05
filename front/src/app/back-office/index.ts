@@ -1,4 +1,12 @@
-export { AdminHomePageComponent, AdminNavigationBarComponent, AjouterPaysPageComponent, RequestTicketComponent, GestionAppointmentComponent, CalendrierAppointmentComponent } from './admin';
-export { StudentHomePageComponent, StudentNavigationBarComponent } from './student';
-export { AjouterStagePageComponent } from './ajouter-stage';
-export { AjouterEntreprisePageComponent } from './ajouter-entreprise';
+export { AdminHomePageComponent, 
+    AdminNavigationBarComponent, 
+    AjouterPaysPageComponent, 
+    RequestTicketComponent, 
+    GestionAppointmentComponent, 
+    CalendrierAppointmentComponent,
+    AjouterStageAdminPageComponent, 
+    AjouterEntrepriseAdminPageComponent} from './admin';
+export { StudentHomePageComponent, 
+    StudentNavigationBarComponent,
+    AjouterStageStudentPageComponent, 
+    AjouterEntrepriseStudentPageComponent } from './student';

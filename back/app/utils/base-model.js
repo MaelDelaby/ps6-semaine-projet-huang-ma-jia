@@ -192,7 +192,10 @@ module.exports = class BaseModel {
     }
 
     if (query.companyId) {
-      return this.items.filter(internship => internship.companyId == query.companyId).length;
+      const { Request } = require('../models');
+      return this.items.filter(internship => internship.companyId == query.companyId)
+      .filter(internship => Request.items.find(request => request.internshipId == internship.id) == null)
+      .length;
     }
   }
 
@@ -207,7 +210,9 @@ module.exports = class BaseModel {
         return 0;
       }
       else {
-        Company.items.filter(company => company.countryId == query.countryId).forEach(company => {
+        Company.items
+        .filter(company => company.countryId == query.countryId)
+        .forEach(company => {
           average += parseInt(this.getAverageRatingIntershipByCountryId({companyId: company.id}), 10);
       })
         return average/nbinternship;
@@ -215,9 +220,13 @@ module.exports = class BaseModel {
     }
 
     if (query.companyId) {
+      const { Request } = require('../models');
       let buf = 0;
 
-      this.items.filter(internship => internship.companyId == query.companyId).forEach(internship => {
+      this.items
+      .filter(internship => internship.companyId == query.companyId)
+      .filter(internship => Request.items.find(request => request.internshipId == internship.id) == null)
+      .forEach(internship => {
         buf += internship.rating;
       })
       return buf;
@@ -225,9 +234,12 @@ module.exports = class BaseModel {
   }
 
   getRating(companyId){
+    const { Request } = require('../models');
     let sum = 0;
 
-    let internships = this.items.filter(internship => internship.companyId == companyId);
+    let internships = this.items
+    .filter(internship => internship.companyId == companyId)
+    .filter(internship => Request.items.find(request => request.internshipId == internship.id) == null);
 
     internships.forEach(internship => sum += internship.rating);
 

@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AjouterEntreprisePageComponent } from './ajouter-entreprise.component';
+import { AjouterStageStudentPageComponent } from './ajouter-stage.component';
 import {describe, expect} from '@angular/core/testing/src/testing_internal';
 
-describe('AjouterEntreprisePageComponent', () => {
-  let component: AjouterEntreprisePageComponent;
-  let fixture: ComponentFixture<AjouterEntreprisePageComponent>;
+describe('AjouterStageStudentPageComponent', () => {
+  let component: AjouterStageStudentPageComponent;
+  let fixture: ComponentFixture<AjouterStageStudentPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AjouterEntreprisePageComponent ]
+      declarations: [ AjouterStageStudentPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AjouterEntreprisePageComponent);
+    fixture = TestBed.createComponent(AjouterStageStudentPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

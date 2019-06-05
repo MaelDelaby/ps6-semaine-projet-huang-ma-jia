@@ -8,9 +8,11 @@ import {HomePageComponent,
   ConnectionPageComponent} from './front-office';
 import {AdminHomePageComponent,
   StudentHomePageComponent,
-  AjouterEntreprisePageComponent,
+  AjouterEntrepriseAdminPageComponent,
+  AjouterStageAdminPageComponent,
+  AjouterEntrepriseStudentPageComponent,
   AjouterPaysPageComponent,
-  AjouterStagePageComponent,
+  AjouterStageStudentPageComponent,
   GestionAppointmentComponent} from './back-office';
 
 // import {UserListComponent} from './users/user-list/user-list.component';
@@ -26,11 +28,14 @@ const routes: Routes = [
   {path: 'connection', component: ConnectionPageComponent},
 
   {path: 'adminHomePage', component: AdminHomePageComponent},
-  {path: 'studentHomePage', component: StudentHomePageComponent},
   {path: 'ajouterPays', component: AjouterPaysPageComponent},
-  {path: 'ajouterEntreprise', component: AjouterEntreprisePageComponent},
-  {path: 'ajouterStage', component: AjouterStagePageComponent},
-  {path: 'gestionRendezVous', component: GestionAppointmentComponent}
+  {path: 'ajouterAdminEntreprise', component: AjouterEntrepriseAdminPageComponent},
+  {path: 'ajouterAdminStage', component: AjouterStageAdminPageComponent},
+  {path: 'gestionRendezVous', component: GestionAppointmentComponent},
+  
+  {path: 'studentHomePage', component: StudentHomePageComponent},
+  {path: 'ajouterStudentEntreprise', component: AjouterEntrepriseStudentPageComponent},
+  {path: 'ajouterStudentStage', component: AjouterStageStudentPageComponent}
     // {path: 'users', component: UserListComponent}
 ];
 @NgModule({

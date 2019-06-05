@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { getUser } from 'src/app/cookies'
 
-import { ActivitySectorService } from '../../../services/activitySector/activitySector.service';
+import { ActivitySectorService } from 'src/services/activitySector/activitySector.service';
 import { ContinentService } from 'src/services/continent/continent.service';
 import { CountryService } from 'src/services/country/country.service';
 import { CompanyService } from 'src/services/company/company.service';
@@ -10,11 +9,11 @@ import { Company } from 'src/models/company';
 
 
 @Component({
-  selector: 'app-ajouter-entreprise-page',
+  selector: 'app-ajouter-entreprise-admin-page',
   templateUrl: './ajouter-entreprise.component.html',
-  styleUrls: ['../styleForms.scss']
+  styleUrls: ['../../styleForms.scss']
 })
-export class AjouterEntreprisePageComponent implements OnInit {
+export class AjouterEntrepriseAdminPageComponent implements OnInit {
 
   public addCompanyPageForm: FormGroup;
 

@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { User } from 'src/models/user';
+import { getUser } from 'src/app/cookies'
 
 
 @Component({
@@ -8,8 +10,17 @@ import { Component, OnInit} from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
-  constructor() {
+  public user: User;
 
+  constructor() {
+    this.user = getUser();
+    if (this.user != null){
+      if (this.user.isAdmin == true) {
+        window.location.href = 'http://localhost:4200/adminHomePage';
+      } else {
+        window.location.href = 'http://localhost:4200/studentHomePage';
+      }
+    }
   }
 
   ngOnInit() {

@@ -1,15 +1,1 @@
-[
-    {
-        "id": 1,
-        "studentId": 1,
-        "companyId": 1,
-        "internshipId": 1,
-        "date": "03/06/2019"
-    },{
-        "id": 2,
-        "studentId": 2,
-        "companyId": 0,
-        "internshipId": 2,
-        "date": "03/06/2019"
-    }
-]
+[]
