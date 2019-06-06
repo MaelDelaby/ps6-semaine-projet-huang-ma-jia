@@ -377,6 +377,13 @@ module.exports = class BaseModel {
     return items;
   }
 
+  getNumberAppointementByReceiverId(receiverId) {
+    const items = this.items.filter(appointment => appointment.receiverId == receiverId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items.length;
+  }
+
+
   getByAskerId(askerId) {
     const items = this.items.filter(appointment => appointment.askerId == askerId);
     if (!items) throw new NotFoundError('Cannot get : not found');
