@@ -1,0 +1,17 @@
+<div class="availabilityTimeSlot-list">
+
+  <h1 align="center">Mes créneaux de disponibilité</h1>
+
+  <div class="form-style-5">
+    <fieldset>
+      <label>Date :</label>
+
+      <input class="research" type="date" id="date" (change)="researchChange($event.target.value)" placeholder="Rechercher">
+
+      <div class="availabilityTimeSlotTicket" *ngFor="let availabilityTimeSlot of availabilityTimeSlotListVisible">
+        <app-card-AvailabilityTimeSlot [availabilityTimeSlotTicket]="availabilityTimeSlot"></app-card-AvailabilityTimeSlot>
+      </div>
+    </fieldset>
+
+  </div>
+</div>

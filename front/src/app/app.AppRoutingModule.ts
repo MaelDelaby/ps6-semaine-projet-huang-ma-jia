@@ -13,8 +13,8 @@ import {AdminHomePageComponent,
   AjouterEntrepriseStudentPageComponent,
   AjouterPaysPageComponent,
   AjouterStageStudentPageComponent,
-  GestionAppointmentComponent,
-  RequestModifierPageComponent } from './back-office';
+  GestionAvailabilityTimeSlotComponent,
+  RequestModifierPageComponent} from './back-office';
 
 // import {UserListComponent} from './users/user-list/user-list.component';
 
@@ -32,13 +32,13 @@ const routes: Routes = [
   {path: 'ajouterPays', component: AjouterPaysPageComponent},
   {path: 'ajouterAdminEntreprise', component: AjouterEntrepriseAdminPageComponent},
   {path: 'ajouterAdminStage', component: AjouterStageAdminPageComponent},
-  {path: 'gestionRendezVous', component: GestionAppointmentComponent},
+  {path: 'gestionDisponibilites', component: GestionAvailabilityTimeSlotComponent},
   {path: 'modifierRequete', component: RequestModifierPageComponent},
-  
+
   {path: 'studentHomePage', component: StudentHomePageComponent},
   {path: 'ajouterStudentEntreprise', component: AjouterEntrepriseStudentPageComponent},
   {path: 'ajouterStudentStage', component: AjouterStageStudentPageComponent}
-    // {path: 'users', component: UserListComponent}
+  // {path: 'users', component: UserListComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

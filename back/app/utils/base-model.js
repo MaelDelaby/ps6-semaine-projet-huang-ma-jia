@@ -390,6 +390,11 @@ module.exports = class BaseModel {
     return items;
   }
 
+  getAvailabilityTimeSlotByReceiverIdAndDate(query) {
+    const items = this.getAvailabilityTimeSlotByReceiverId(query.receiverId).filter(availabilityTimeSlot => availabilityTimeSlot.date == query.date);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
   getAvailabilityTimeSlot() {
     return this.items;
   }

@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CalendrierAppointmentComponent } from './calendrier-appointment.component';
+import { AvailibilityFormComponent } from './availibilityTimeSlot-form.component';
 import {describe, expect} from '@angular/core/testing/src/testing_internal';
 
-describe('AdminHomePageComponent', () => {
-  let component: CalendrierAppointmentComponent;
-  let fixture: ComponentFixture<CalendrierAppointmentComponent>;
+describe('AvailibilityFormComponent', () => {
+  let component: AvailibilityFormComponent;
+  let fixture: ComponentFixture<AvailibilityFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CalendrierAppointmentComponent ]
+      declarations: [ AvailibilityFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CalendrierAppointmentComponent);
+    fixture = TestBed.createComponent(AvailibilityFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
