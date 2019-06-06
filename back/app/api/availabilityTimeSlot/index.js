@@ -3,6 +3,7 @@ const { AvailabilityTimeSlot } = require('../../models');
 
 const router = new Router();
 router.get('/findByDateAndReceiverId', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlotByReceiverIdAndDate(req.query)));
+router.get('/findByDateAndHour', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlotByHourAndDate(req.query)));
 router.get('/:receiverId', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlotByReceiverId(req.params.receiverId)));
 router.get('/', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlot()));
 router.post('/', (req, res) => {
