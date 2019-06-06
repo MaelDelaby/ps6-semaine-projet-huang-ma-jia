@@ -33,7 +33,7 @@ const routes: Routes = [
   {path: 'ajouterAdminEntreprise', component: AjouterEntrepriseAdminPageComponent},
   {path: 'ajouterAdminStage', component: AjouterStageAdminPageComponent},
   {path: 'gestionDisponibilites', component: GestionAvailabilityTimeSlotComponent},
-  {path: 'modifierRequete', component: RequestModifierPageComponent},
+  {path: 'attenteEntretient', component: RequestModifierPageComponent},
 
   {path: 'studentHomePage', component: StudentHomePageComponent},
   {path: 'ajouterStudentEntreprise', component: AjouterEntrepriseStudentPageComponent},

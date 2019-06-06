@@ -4,6 +4,7 @@ const { Appointment } = require('../../models');
 const router = new Router();
 router.get('/receiverId', (req, res) => res.status(200).json(Appointment.getByReceiverId(req.query.receiverId)));
 router.get('/askerId', (req, res) => res.status(200).json(Appointment.getByAskerId(req.query.askerId)));
+router.get('/next', (req, res) => res.status(200).json(Appointment.items.find(appointment => appointment.receverId == req.query.receverId)));
 
 router.post('/', (req, res) => {
   try {

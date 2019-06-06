@@ -4,7 +4,13 @@
   <app-student-navigation-bar></app-student-navigation-bar>
 
   <div *ngIf="user != null">
-    Rdv avec {{user.firstName}}
+    Veuillez prendre rendez vous avec {{user.firstName}} {{user.lastName}}
+    <div *ngIf="request.companyId != 0">
+      a propos de votre demande d'ajout d'entreprise
+    </div>
+    <div *ngIf="request.internshipId != 0">
+      a propos de votre demande d'ajout de stage
+    </div>
   </div>
 
   <div class="fatFooter">

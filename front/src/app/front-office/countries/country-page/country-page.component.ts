@@ -146,6 +146,7 @@ export class CountryPageComponent implements OnInit {
         this.studentList = users;
         this.studentFilterWithResearch();
     });
+    this.userService.getUser();
 
     //Form
     this.sectorService.sectors$.subscribe((sectors) => {

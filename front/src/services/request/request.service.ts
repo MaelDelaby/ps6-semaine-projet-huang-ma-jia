@@ -115,6 +115,33 @@ export class RequestService {
     this.http.get<Request>(this.requestUrl + "?studentId=" + id).subscribe(value => {
       this.request = value;
       this.request$.next(value);
+
+      if (this.request){
+        this.http.get<User>(this.userUrl + this.request.studentId).subscribe(value2 => {
+          this.student = value2;
+          this.student$.next(value2);
+        });
+        
+        if (this.request.companyId != 0){
+          this.http.get<Company>(this.companyUrl + this.request.companyId).subscribe(value2 => {
+            this.company = value2;
+            this.company$.next(value2);
+          });
+        } else {
+          this.company = null;
+          this.company$.next(null);
+        }
+        
+        if (this.request.internshipId != 0){
+          this.http.get<Internship>(this.internshipUrl + this.request.internshipId).subscribe(value2 => {
+            this.internship = value2;
+            this.internship$.next(value2);
+          });
+        } else {
+          this.internship = null;
+          this.internship$.next(null);
+        }
+      }
     });
   }
 

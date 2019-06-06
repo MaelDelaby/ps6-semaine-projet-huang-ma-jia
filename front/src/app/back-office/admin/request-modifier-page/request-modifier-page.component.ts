@@ -6,6 +6,8 @@ import { Internship } from 'src/models/internship';
 import { Request } from 'src/models/request';
 import { OneCountryService } from 'src/services/country/one-country.service';
 import { OneCompanyService } from 'src/services/company/one-company.service';
+import { AppointmentService } from 'src/services/appointment/apointment.service';
+import { getUser } from 'src/app/cookies';
 
 @Component({
   selector: 'app-request-modifier-page',
@@ -27,7 +29,8 @@ export class RequestModifierPageComponent implements OnInit {
 
   constructor(public requestService: RequestService,
     public oneCountryService: OneCountryService,
-    public oneCompanyService: OneCompanyService) {
+    public oneCompanyService: OneCompanyService,
+    public appointmentService: AppointmentService) {
 
     this.requestService.student$.subscribe(value => this.student = value);
 
@@ -51,9 +54,16 @@ export class RequestModifierPageComponent implements OnInit {
 
     this.oneCompanyService.company$.subscribe(value => this.companyNameForInternship = value ? value.name : null);
 
-    this.requestService.request$.subscribe(value => this.request = value);
+    this.requestService.request$.subscribe(value => {
+      this.request = value
+    });
     
-    this.requestService.getNext();
+    this.appointmentService.next(getUser().id);
+    this.appointmentService.nextStudentId$.subscribe(value =>{
+      if (value){
+        this.requestService.setStudentId(value);
+      }
+    });
   }
 
   ngOnInit() {

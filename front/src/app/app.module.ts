@@ -20,6 +20,7 @@ import {OneUserService} from '../services/user/one-user.service';
 import {ContinentService} from '../services/continent/continent.service';
 import {UserService} from '../services/user/user.service';
 import {RequestService} from '../services/request/request.service';
+import {AppointmentService} from '../services/appointment/apointment.service';
 
 import {CompanyTicketComponent,
   CompanyPageComponent,
@@ -116,7 +117,8 @@ import {AdminHomePageComponent,
     OneUserService,
     ContinentService,
     UserService,
-    RequestService
+    RequestService,
+    AppointmentService
   ], // All the services need to be provided
   bootstrap: [AppComponent]
 })

@@ -22,6 +22,7 @@ export class ConnectionPageComponent implements OnInit {
     this.userService.users$.subscribe((users) => {
       this.userArray = users;
     });
+    this.userService.getUser();
 
     this.connectionPageForm = this.formBuilder.group({
       userId: ['']
