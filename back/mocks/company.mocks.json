@@ -93,7 +93,9 @@
     "address": "",
     "description": "",
     "hiringOpportunities": "",
-    "id": 1559756926580
+    "id": 1559756926580,
+    "rating": null,
+    "internshipNb": 0
   },
   {
     "name": "entr1",
@@ -105,6 +107,20 @@
     "address": "polytech",
     "description": "",
     "hiringOpportunities": "",
-    "id": 1559756916841
+    "id": 1559756916841,
+    "rating": null,
+    "internshipNb": 0
+  },
+  {
+    "name": "DELABY",
+    "iconImage": "",
+    "creationDate": "",
+    "employeesNumber": "",
+    "activitySector": "",
+    "countryId": "CN",
+    "address": "",
+    "description": "",
+    "hiringOpportunities": "",
+    "id": 1559823612281
   }
 ]
