@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {AvailabilityTimeSlot} from "../../../../../models/availabilityTimeSlot";
 
 @Component({
@@ -6,7 +6,7 @@ import {AvailabilityTimeSlot} from "../../../../../models/availabilityTimeSlot";
   templateUrl: './list-availabilityTimeSlot.component.html',
   styleUrls: ['./list-availabilityTimeSlot.component.scss', '../../../styleForms.scss']
 })
-export class ListAvailabilityTimeSlotComponent implements OnInit {
+export class ListAvailabilityTimeSlotComponent implements OnChanges {
 
   @Input() availabilityTimeSlotList: AvailabilityTimeSlot[];
   @Input() availabilityTimeSlotListVisible: AvailabilityTimeSlot[];
@@ -16,8 +16,10 @@ export class ListAvailabilityTimeSlotComponent implements OnInit {
   constructor() {
   };
 
-  ngOnInit() {
-
+  ngOnChanges() {
+    console.log("dddd");
+    this.researchDate = document.getElementById('date').value;
+    this.filterWithResearch();
   }
 
   researchChange(value) {
