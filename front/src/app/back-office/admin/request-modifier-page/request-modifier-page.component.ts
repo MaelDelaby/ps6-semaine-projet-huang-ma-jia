@@ -22,8 +22,6 @@ export class RequestModifierPageComponent implements OnInit {
   public countryNameForCompany: String;
   public companyNameForInternship: String;
 
-  public requestNb: number;
-
   public ratingFullStarsArray: any[]
   public ratingEmptyStarsArray: any[]
 
@@ -54,8 +52,6 @@ export class RequestModifierPageComponent implements OnInit {
     this.oneCompanyService.company$.subscribe(value => this.companyNameForInternship = value ? value.name : null);
 
     this.requestService.request$.subscribe(value => this.request = value);
-
-    this.requestService.requestNb$.subscribe(value => this.requestNb = value);
     
     this.requestService.getNext();
   }
