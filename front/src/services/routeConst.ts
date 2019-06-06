@@ -1,1 +1,0 @@
-export const route = "http://172.20.10.4:1880";

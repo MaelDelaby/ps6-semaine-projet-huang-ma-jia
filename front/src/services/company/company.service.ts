@@ -59,7 +59,8 @@ export class CompanyService {
               companyId: Object.assign(companyAdded).id,
               internshipId: 0,
               studentId: getUser().id,
-              date: "000"
+              date: "000",
+              waitAppointment: false
             }));
         }
       }

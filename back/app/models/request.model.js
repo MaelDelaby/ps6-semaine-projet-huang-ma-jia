@@ -7,4 +7,5 @@ module.exports = new BaseModel('Request', {
   companyId: Joi.number().required(),
   internshipId: Joi.number().required(),
   date: Joi.string().required(),
+  waitAppointment: Joi.boolean().allow(false)
 });

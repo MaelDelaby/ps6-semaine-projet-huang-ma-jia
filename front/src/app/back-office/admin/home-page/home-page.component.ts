@@ -65,14 +65,18 @@ export class AdminHomePageComponent implements OnInit {
   }
 
   public pushButtonAccept(){
-    this.requestService.accept();
+    this.requestService.accept(this.request.id);
   }
 
   public pushButtonReject(){
-    this.requestService.reject();
+    this.requestService.reject(this.request.id);
   }
 
   public pushButtonLate(){
-    this.requestService.late();
+    this.requestService.late(this.request.id);
+  }
+
+  public pushButtonAppointment(){
+    this.requestService.appointment(this.request.id);
   }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs/index';
 import {HttpClient} from '@angular/common/http';
-import { route } from '../routeConst';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ export class SectorService {
   //private countryList: Country[] = []; A remettre quand le back marche
   private sectorList: String[];
 
-  private sectorsUrl = route + '/sectors/';
+  private sectorsUrl = 'http://localhost:9428/api/sectors/';
 
   /**
    * Observable which contains the list of the country.

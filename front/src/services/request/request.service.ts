@@ -28,6 +28,7 @@ export class RequestService {
   private requestRejectUrl = this.requestUrl + 'reject/';
   private requestAcceptUrl = this.requestUrl + 'accept/';
   private requestLateUrl = this.requestUrl + 'late/';
+  private requestAppointmentUrl = this.requestUrl + 'appointment/';
   private requestNbUrl = this.requestUrl + 'nb/';
   private userUrl = 'http://localhost:9428/api/users/';
   private companyUrl = 'http://localhost:9428/api/companies/';
@@ -86,21 +87,34 @@ export class RequestService {
     });
   }
 
-  public reject(){
-    this.http.put<Request>(this.requestRejectUrl,"").subscribe(value => {
+  public reject(id: number){
+    this.http.put<Request>(this.requestRejectUrl + id, "").subscribe(value => {
       this.getNext();
     });
   }
 
-  public accept(){
-    this.http.put<Request>(this.requestAcceptUrl,"").subscribe(value => {
+  public accept(id: number){
+    this.http.put<Request>(this.requestAcceptUrl + id, "").subscribe(value => {
       this.getNext();
     });
   }
 
-  public late(){
-    this.http.put<Request>(this.requestLateUrl,"").subscribe(value => {
+  public late(id: number){
+    this.http.put<Request>(this.requestLateUrl + id, "").subscribe(value => {
       this.getNext();
+    });
+  }
+
+  public appointment(id: number){
+    this.http.put<Request>(this.requestAppointmentUrl + id, "").subscribe(value => {
+      this.getNext();
+    });
+  }
+
+  public setStudentId(id: number){
+    this.http.get<Request>(this.requestUrl + "?studentId=" + id).subscribe(value => {
+      this.request = value;
+      this.request$.next(value);
     });
   }
 

@@ -2,12 +2,13 @@ const { Router } = require('express');
 const { Request } = require('../../models');
 
 const router = new Router();
-router.get('/next', (req, res) => res.status(200).json(Request.items[0]));
-router.get('/nb', (req, res) => res.status(200).json(Request.items.length));
-router.put('/accept', (req, res) => {
+router.get('/', (req, res) => res.status(200).json(Request.items.find(request => request.studentId == req.query.studentId)));
+router.get('/next', (req, res) => res.status(200).json(Request.items.filter(request => request.waitAppointment == false)[0]));
+router.get('/nb', (req, res) => res.status(200).json(Request.items.filter(request => request.waitAppointment == false).length));
+router.put('/accept/:id', (req, res) => {
     try {
-        let request = Request.items[0];
-        Request.items.splice(0,1);
+        let request = Request.items.find(request => request.id == req.params.id);
+        Request.items.splice(Request.items.findIndex(request => request.id == req.params.id), 1);
         
         Request.save();
 
@@ -21,10 +22,10 @@ router.put('/accept', (req, res) => {
     }
 });
 
-router.put('/reject', (req, res) => {
+router.put('/reject/:id', (req, res) => {
     try {
-        let request = Request.items[0];
-        Request.items.splice(0,1);
+        let request = Request.items.find(request => request.id == req.params.id);
+        Request.items.splice(Request.items.findIndex(request => request.id == req.params.id), 1);
 
         Request.save();
 
@@ -63,11 +64,28 @@ router.put('/reject', (req, res) => {
     }
 });
 
-router.put('/late', (req, res) => {
+router.put('/late/:id', (req, res) => {
     try {
-        let request = Request.items[0];
+        let request = Request.items.find(request => request.id == req.params.id);
         Request.items.push(request);
-        Request.items.splice(0,1);
+        Request.items.splice(Request.items.findIndex(request2 => request2.id == req.params.id), 1);
+        Request.save();
+        res.status(201).json(request);
+    } catch (err) {
+        if (err.name === 'ValidationError') {
+            res.status(400).json(err.extra);
+        } else {
+            res.status(500).json(err);
+        }
+    }
+});
+
+router.put('/appointment/:id', (req, res) => {
+    try {
+        let request = Request.items.find(request => request.id == req.params.id);
+        request.waitAppointment = true;
+        Request.items.push(request);
+        Request.items.splice(Request.items.findIndex(request => request.id == req.params.id), 1);
         Request.save();
         res.status(201).json(request);
     } catch (err) {

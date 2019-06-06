@@ -42,7 +42,8 @@ export class InternshipService {
               companyId:  0,
               internshipId: Object.assign(internshipAdded).id,
               studentId: getUser().id,
-              date: "000"
+              date: "000",
+              waitAppointment: false
             }));
         }
       }

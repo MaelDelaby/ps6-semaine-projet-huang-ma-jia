@@ -15,6 +15,10 @@ export class UserService {
   private usersUrl = 'http://localhost:9428/api/users/';
 
   constructor(private http: HttpClient) {
+
+  }
+
+  public getUser(){
     this.http.get<User[]>(this.usersUrl).subscribe( users => {
       this.userList = users;
       this.users$.next(users);

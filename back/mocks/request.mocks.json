@@ -1,9 +1,10 @@
 [
   {
-    "companyId": 1559823612281,
+    "companyId": 1559838374160,
     "internshipId": 0,
     "studentId": 1,
     "date": "000",
-    "id": 1559823614032
+    "waitAppointment": true,
+    "id": 1559838374176
   }
 ]

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs/index';
 import {HttpClient} from '@angular/common/http';
-import { route } from '../routeConst';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import { route } from '../routeConst';
 export class SpecialtyService {
   private specialtyList: String[];
 
-  private specialtiesUrl = route + '/specialties/';
+  private specialtiesUrl = 'http://localhost:9428/api/specialties/';
 
   public specialties$: BehaviorSubject<String[]> = new BehaviorSubject(this.specialtyList);
 
