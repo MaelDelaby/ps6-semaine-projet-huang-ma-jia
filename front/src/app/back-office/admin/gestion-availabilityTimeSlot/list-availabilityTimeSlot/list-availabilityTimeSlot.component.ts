@@ -17,8 +17,7 @@ export class ListAvailabilityTimeSlotComponent implements OnChanges {
   };
 
   ngOnChanges() {
-    console.log("dddd");
-    this.researchDate = document.getElementById('date').value;
+    this.researchDate = (<HTMLInputElement>document.getElementById('date')).value;
     this.filterWithResearch();
   }
 
