@@ -25,17 +25,17 @@
       <div *ngIf="company">
         <fieldset class="ticketContent">
           <legend><h2>Entreprise</h2></legend>
-          <app-company-form [company]="company"></app-company-form>
+          <app-company-form [company]="company" [add]="false"></app-company-form>
         </fieldset>
       </div>
 
       <div *ngIf="internship">
         <fieldset class="ticketContent">
           <legend><h2>Stage</h2></legend>
-          <app-internship-form [internship]="internship"></app-internship-form>
+          <app-internship-form [internship]="internship" [add]="false"></app-internship-form>
         </fieldset>
       </div>
-      
+
       <input type="submit" value="Accepter" (click)="pushButtonAccept()">
       <input type="submit" value="Refuser" (click)="pushButtonReject()">
     </div>

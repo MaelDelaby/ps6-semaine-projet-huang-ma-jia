@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "companyId": 1559838374160,
+    "internshipId": 0,
+    "studentId": 1,
+    "date": "000",
+    "waitAppointment": true,
+    "id": 1559838374176
+  }
+]

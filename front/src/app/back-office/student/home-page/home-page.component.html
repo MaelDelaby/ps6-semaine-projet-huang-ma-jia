@@ -3,6 +3,10 @@
 <body>
   <app-student-navigation-bar></app-student-navigation-bar>
 
+  <div *ngIf="user != null">
+    Rdv avec {{user.firstName}}
+  </div>
+
   <div class="fatFooter">
     <app-fat-footer></app-fat-footer>
   </div>
