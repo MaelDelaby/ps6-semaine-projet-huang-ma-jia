@@ -48,11 +48,14 @@ import {AdminHomePageComponent,
   AjouterEntrepriseStudentPageComponent,
   AjouterPaysPageComponent,
   AjouterStageStudentPageComponent,
-  GestionAppointmentComponent,
-  CalendrierAppointmentComponent,
+  GestionAvailabilityTimeSlotComponent,
+  CalendrierAvailabilityTimeSlotComponent,
+  ListAvailabilityTimeSlotComponent,
+  CardAvailabilityTimeSlotComponent,
   RequestModifierPageComponent,
   InternshipFormComponent,
-  CompanyFormComponent } from './back-office';
+  CompanyFormComponent,
+  AvailibilityFormComponent} from './back-office';
 
 @NgModule({
   declarations: [
@@ -82,11 +85,14 @@ import {AdminHomePageComponent,
     ConnectionPageComponent,
     StudentHomePageComponent,
     StudentNavigationBarComponent,
-    GestionAppointmentComponent,
-    CalendrierAppointmentComponent,
+    GestionAvailabilityTimeSlotComponent,
+    CalendrierAvailabilityTimeSlotComponent,
+    ListAvailabilityTimeSlotComponent,
+    CardAvailabilityTimeSlotComponent,
     RequestModifierPageComponent,
     InternshipFormComponent,
-    CompanyFormComponent
+    CompanyFormComponent,
+    AvailibilityFormComponent,
   ],
   imports: [
     HttpClientModule,

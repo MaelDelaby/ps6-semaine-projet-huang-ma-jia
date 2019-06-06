@@ -2,9 +2,9 @@ const { Router } = require('express');
 const { AvailabilityTimeSlot } = require('../../models');
 
 const router = new Router();
-router.get('/receiverId', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlotByReceiverId(req.query.receiverId)));
+router.get('/findByDateAndReceiverId', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlotByReceiverIdAndDate(req.query)));
+router.get('/:receiverId', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlotByReceiverId(req.params.receiverId)));
 router.get('/', (req, res) => res.status(200).json(AvailabilityTimeSlot.getAvailabilityTimeSlot()));
-
 router.post('/', (req, res) => {
   try {
     const availabilityTimeSlot = AvailabilityTimeSlot.create(req.body);

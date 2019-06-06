@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GestionAppointmentComponent } from './gestion-appointment.component';
+import { CardAvailabilityTimeSlotComponent } from './card-availabilityTimeSlot.component';
 import {describe, expect} from '@angular/core/testing/src/testing_internal';
 
-describe('GestionAppointmentComponent', () => {
-  let component: GestionAppointmentComponent;
-  let fixture: ComponentFixture<GestionAppointmentComponent>;
+describe('CardAvailabilityTimeSlotComponent', () => {
+  let component: CardAvailabilityTimeSlotComponent;
+  let fixture: ComponentFixture<CardAvailabilityTimeSlotComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GestionAppointmentComponent ]
+      declarations: [ CardAvailabilityTimeSlotComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GestionAppointmentComponent);
+    fixture = TestBed.createComponent(CardAvailabilityTimeSlotComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
