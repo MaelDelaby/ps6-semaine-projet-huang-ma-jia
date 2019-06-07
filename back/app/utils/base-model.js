@@ -390,6 +390,20 @@ module.exports = class BaseModel {
     return items;
   }
 
+  getPositionByReceiverIdAndAskerId(receiverId, askerId){
+    const items = this.items.filter(appointment => appointment.receiverId == receiverId);
+    const myAppointement = this.getByAskerId(askerId);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    var position = 0;
+    for(var i= 0; i < items.length; i++)
+    {
+      if (items[i].id < myAppointement[0].id){
+        position +=1;
+      }
+    }
+    return position;
+  }
+
   /*AvailabilityTimeSlot*/
   getAvailabilityTimeSlotByReceiverId(receiverId) {
     const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.receiverId == receiverId);
