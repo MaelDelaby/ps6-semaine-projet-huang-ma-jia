@@ -1,44 +1,9 @@
 [
   {
-    "id": 3,
-    "receiverId": 10,
     "date": "2019-06-07",
-    "beginningHour": "10:30",
-    "endingHour": "10:45"
-  },
-  {
-    "date": "19019-10-20",
-    "beginningHour": "12:12",
-    "endingHour": "23:53",
+    "beginningHour": "13:00",
+    "endingHour": "16:00",
     "receiverId": 10,
-    "id": 1559894940430
-  },
-  {
-    "date": "2018-01-20",
-    "beginningHour": "00:00",
-    "endingHour": "10:00",
-    "receiverId": 10,
-    "id": 1559895639429
-  },
-  {
-    "date": "2019-06-07",
-    "beginningHour": "10:00",
-    "endingHour": "12:00",
-    "receiverId": 10,
-    "id": 1559895669156
-  },
-  {
-    "date": "2019-06-07",
-    "beginningHour": "10:00",
-    "endingHour": "20:00",
-    "receiverId": 10,
-    "id": 1559895741660
-  },
-  {
-    "date": "2019-06-07",
-    "beginningHour": "00:00",
-    "endingHour": "23:00",
-    "receiverId": 10,
-    "id": 1559895766251
+    "id": 1559913176045
   }
 ]
