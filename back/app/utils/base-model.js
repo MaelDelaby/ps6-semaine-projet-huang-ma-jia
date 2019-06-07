@@ -387,6 +387,18 @@ module.exports = class BaseModel {
     return items;
   }
 
+  getLastAppointmentByAskerId(askerId){
+    const items = this.getByAskerId(askerId);
+    var idDelete = 0;
+    for(var i= 0; i < items.length; i++)
+    {
+      if (items[i].id > idDelete){
+        idDelete = items[i].id;
+      }
+    }
+    return idDelete;
+  }
+
   getPositionByReceiverIdAndAskerId(receiverId, askerId){
     const items = this.items.filter(appointment => appointment.receiverId == receiverId);
     const myAppointement = this.getByAskerId(askerId);
