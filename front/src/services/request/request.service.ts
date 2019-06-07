@@ -6,6 +6,7 @@ import {User} from '../../models/user';
 import {Company} from '../../models/company';
 import {Internship} from '../../models/internship';
 import { httpOptionsBase, serverUrl } from '../../configs/server.config';
+import { getUser } from 'src/app/cookies';
 
 @Injectable({
   providedIn: 'root'
@@ -106,7 +107,7 @@ export class RequestService {
   }
 
   public appointment(id: number){
-    this.http.put<Request>(this.requestAppointmentUrl + id, "").subscribe(value => {
+    this.http.put<Request>(this.requestAppointmentUrl + "?requestId=" + id + "&adminId=" + getUser().id, "").subscribe(value => {
       this.getNext();
     });
   }

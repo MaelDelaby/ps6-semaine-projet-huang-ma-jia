@@ -25,7 +25,7 @@ export class StudentHomePageComponent implements OnInit {
       if (this.request){
         this.userService.getUser();
         this.userService.users$.subscribe(value => {
-          this.user = value.find(user => user.id == this.request.studentId);
+          this.user = value.find(user => user.id == this.request.waitAppointment);
         });
       }
     });
