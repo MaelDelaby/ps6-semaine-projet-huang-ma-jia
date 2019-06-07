@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">POLYSTAGE</string>
+    <string name="tab_text_1">Sessions</string>
+    <string name="tab_text_2">File d\'attente</string>
+</resources>

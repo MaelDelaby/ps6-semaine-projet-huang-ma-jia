@@ -403,6 +403,18 @@ module.exports = class BaseModel {
     return items;
   }
 
+  getAvailableTimeSlot(){
+    var date = new Date();
+    var day = ((date.getDate()+'o').length == 2)? '-0'+date.getDate():'-'+date.getDate();
+    var mon = (((date.getMonth()+1)+'o').length == 2)? '-0'+(date.getMonth()+1):'-'+(date.getMonth()+1);
+    var hou = ((date.getHours()+'o').length == 2)? '0'+date.getHours():''+date.getHours();
+    var min = ((date.getMinutes()+'o').length == 2)? '0'+date.getMinutes():''+date.getMinutes();
+    console.log(parseInt('20'+'13'));
+    const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.date == (date.getFullYear()+mon+day) && parseInt(availabilityTimeSlot.beginningHour.substr(0,2)+availabilityTimeSlot.beginningHour.substr(3,2)) <= parseInt(hou+min) && parseInt(availabilityTimeSlot.endingHour.substr(0,2)+availabilityTimeSlot.endingHour.substr(3,2)) > parseInt(hou+min));
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
+
   getAvailabilityTimeSlotByReceiverIdAndDate(query) {
     const items = this.getAvailabilityTimeSlotByReceiverId(query.receiverId).filter(availabilityTimeSlot => availabilityTimeSlot.date == query.date);
     if (!items) throw new NotFoundError('Cannot get : not found');
