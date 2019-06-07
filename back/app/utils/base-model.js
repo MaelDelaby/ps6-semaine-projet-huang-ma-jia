@@ -397,12 +397,6 @@ module.exports = class BaseModel {
     return items;
   }
 
-  getAvailabilityTimeSlotByHourAndDate(query) {
-    const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.date == query.date && availabilityTimeSlot.beginningHour <= query.hour && availabilityTimeSlot.endingHour > query.hour);
-    if (!items) throw new NotFoundError('Cannot get : not found');
-    return items;
-  }
-
   getAvailableTimeSlot(){
     var date = new Date();
     var day = ((date.getDate()+'o').length == 2)? '-0'+date.getDate():'-'+date.getDate();

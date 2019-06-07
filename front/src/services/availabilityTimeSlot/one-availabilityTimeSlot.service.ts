@@ -19,6 +19,7 @@ export class OneAvailabilityTimeSlotService {
   private availabilityTimeSlot: AvailabilityTimeSlot[] = [];
 
   private availabilityTimeSlotsUrl = 'http://localhost:9428/api/availabilityTimeSlot/';
+  private modifyAvailabilityTimeSlotsUrl = 'http://172.20.10.2:1880/modifyAvailabilityTimeSlot/';
 
   private receiverId: number;
   private date: string;
@@ -54,6 +55,7 @@ export class OneAvailabilityTimeSlotService {
   public deleteAvailabilityTimeSlot(id: number){
     this.http.delete<AvailabilityTimeSlot[]>(this.availabilityTimeSlotsUrl + id).subscribe(value => {
       this.getAvailabilityTimeSlotByReceiverId();
+      this.modifyAvailabilityTimeSlot();
     });
   }
 
@@ -64,6 +66,14 @@ export class OneAvailabilityTimeSlotService {
     this.http.post(this.availabilityTimeSlotsUrl, availabilityTimeSlot, httpOptionsBase).subscribe(
       (availabilityTimeSlotAdded) => {
         this.getAvailabilityTimeSlotByReceiverId();
+        this.modifyAvailabilityTimeSlot();
+      }
+    );
+  }
+
+  private modifyAvailabilityTimeSlot(){
+    this.http.put(this.modifyAvailabilityTimeSlotsUrl, "", httpOptionsBase).subscribe(
+      (availabilityTimeSlotAdded) => {
       }
     );
   }
