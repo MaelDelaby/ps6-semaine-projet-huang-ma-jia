@@ -99,7 +99,6 @@ router.put('/appointment/', (req, res) => {
 
 router.post('/', (req, res) => {
     try {
-        console.log(req.body);
         const request = Request.create(req.body);
         res.status(201).json(request);
     } catch (err) {

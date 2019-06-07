@@ -34,6 +34,7 @@ export class InternshipService {
   }
 
   public addInternship(internship: Internship, createRequest: boolean){
+    internship.rating = 0;
     this.http.post(this.internshipsUrl, internship, httpOptionsBase).subscribe(
       (internshipAdded) => {
         if (createRequest){
@@ -43,7 +44,7 @@ export class InternshipService {
               internshipId: Object.assign(internshipAdded).id,
               studentId: getUser().id,
               date: "000",
-              waitAppointment: false
+              waitAppointment: 0
             }));
         }
       }

@@ -48,7 +48,7 @@ export class InternshipFormComponent implements OnInit {
       contractRenewed: [''],
       tuteur: [''],
       hasCompanyCar: [''],
-      rating: [''],
+      //rating: [''],
       comment: [''],
     });
 
@@ -67,7 +67,7 @@ export class InternshipFormComponent implements OnInit {
       this.internshipForm.getRawValue().period == "" ||
       this.internshipForm.getRawValue().contractRenewed == "" ||
       this.internshipForm.getRawValue().hasCompanyCar == "" ||
-      this.internshipForm.getRawValue().rating == "" ||
+      //this.internshipForm.getRawValue().rating == "" ||
       this.internshipForm.getRawValue().comment == "" ||
       this.internshipForm.getRawValue().companyId == ""){
         this.formError = true;
@@ -88,7 +88,7 @@ export class InternshipFormComponent implements OnInit {
       this.internshipForm.getRawValue().period == "" ||
       this.internshipForm.getRawValue().contractRenewed == "" ||
       this.internshipForm.getRawValue().hasCompanyCar == "" ||
-      this.internshipForm.getRawValue().rating == "" ||
+      //this.internshipForm.getRawValue().rating == "" ||
       this.internshipForm.getRawValue().comment == "" ||
       this.internshipForm.getRawValue().companyId == ""){
         this.formError = true;
@@ -116,7 +116,7 @@ export class InternshipFormComponent implements OnInit {
         contractRenewed: this.internship.contractRenewed,
         tuteur: this.internship.tuteur,
         hasCompanyCar: this.internship.hasCompanyCar,
-        rating: this.internship.rating,
+        //rating: this.internship.rating,
         comment: this.internship.comment
       });
     } else {
@@ -131,7 +131,7 @@ export class InternshipFormComponent implements OnInit {
         contractRenewed: '',
         tuteur: '',
         hasCompanyCar: '',
-        rating: '',
+        //rating: 0,
         comment: ''
       });
       if (!this.user.isAdmin){

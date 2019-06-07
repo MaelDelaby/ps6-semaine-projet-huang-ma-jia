@@ -60,7 +60,7 @@ export class CompanyService {
               internshipId: 0,
               studentId: getUser().id,
               date: "000",
-              waitAppointment: false
+              waitAppointment: 0
             }));
         }
       }

@@ -248,7 +248,6 @@ module.exports = class BaseModel {
 
   getInternshipRequests(query){
     let internships = this.items.filter(internship => internship.requestDate != "validate");
-    console.log(internships);
 
     if (query.studentId){
       internships = internships.find(internship => internship.studentId == query.studentId);
@@ -331,7 +330,6 @@ module.exports = class BaseModel {
 
   filterCountry(continent) {
     if (continent === 'all') {
-      console.log('continent = all');
       return this.items;
     }
     const countries = this.items.filter(i => (i.continent === continent));
@@ -353,7 +351,6 @@ module.exports = class BaseModel {
     if (typeof id === 'string') id = parseInt(id, 10);
     const prevObjIndex = this.items.findIndex(item => item.id === id);
     if (prevObjIndex === -1) throw new NotFoundError(`Cannot update ${this.name} id=${id} : not found`);
-    console.log(this.items[prevObjIndex]);
     const updatedItem = Object.assign({}, this.items[prevObjIndex], obj);
     const { error } = Joi.validate(updatedItem, this.schema);
     if (error) throw new ValidationError(`Update Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error);
@@ -410,7 +407,7 @@ module.exports = class BaseModel {
     if (!items) throw new NotFoundError('Cannot get : not found');
     return items;
   }
-  
+
   getAvailabilityTimeSlotByHourAndDate(query) {
     const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.date == query.date && availabilityTimeSlot.beginningHour <= query.hour && availabilityTimeSlot.endingHour > query.hour);
     if (!items) throw new NotFoundError('Cannot get : not found');
@@ -423,7 +420,6 @@ module.exports = class BaseModel {
     var mon = (((date.getMonth()+1)+'o').length == 2)? '-0'+(date.getMonth()+1):'-'+(date.getMonth()+1);
     var hou = ((date.getHours()+'o').length == 2)? '0'+date.getHours():''+date.getHours();
     var min = ((date.getMinutes()+'o').length == 2)? '0'+date.getMinutes():''+date.getMinutes();
-    console.log(parseInt('20'+'13'));
     const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.date == (date.getFullYear()+mon+day) && parseInt(availabilityTimeSlot.beginningHour.substr(0,2)+availabilityTimeSlot.beginningHour.substr(3,2)) <= parseInt(hou+min) && parseInt(availabilityTimeSlot.endingHour.substr(0,2)+availabilityTimeSlot.endingHour.substr(3,2)) > parseInt(hou+min));
     if (!items) throw new NotFoundError('Cannot get : not found');
     return items;
