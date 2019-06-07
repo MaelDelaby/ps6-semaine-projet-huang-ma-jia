@@ -6,5 +6,12 @@
     "date": "000",
     "waitAppointment": true,
     "id": 1559838374176
+  },{
+    "companyId": 0,
+    "internshipId": 4,
+    "studentId": 2,
+    "date": "000",
+    "waitAppointment": true,
+    "id": 1559838374176
   }
 ]
