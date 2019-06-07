@@ -396,6 +396,12 @@ module.exports = class BaseModel {
     if (!items) throw new NotFoundError('Cannot get : not found');
     return items;
   }
+  
+  getAvailabilityTimeSlotByHourAndDate(query) {
+    const items = this.items.filter(availabilityTimeSlot => availabilityTimeSlot.date == query.date && availabilityTimeSlot.beginningHour <= query.hour && availabilityTimeSlot.endingHour > query.hour);
+    if (!items) throw new NotFoundError('Cannot get : not found');
+    return items;
+  }
 
   getAvailableTimeSlot(){
     var date = new Date();
