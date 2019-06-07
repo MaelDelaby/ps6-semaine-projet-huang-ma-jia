@@ -7,8 +7,7 @@ export { AdminHomePageComponent,
   ListAvailabilityTimeSlotComponent,
   AjouterStageAdminPageComponent,
   AjouterEntrepriseAdminPageComponent,
-  RequestModifierPageComponent,
-  AvailibilityFormComponent} from './admin';
+  RequestModifierPageComponent} from './admin';
 
 export { StudentHomePageComponent,
   StudentNavigationBarComponent,

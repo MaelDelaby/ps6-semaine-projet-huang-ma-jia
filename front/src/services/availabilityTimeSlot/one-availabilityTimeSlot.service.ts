@@ -44,13 +44,6 @@ export class OneAvailabilityTimeSlotService {
     this.getAvailabilityTimeSlotByReceiverId();
   }
 
-  public getAvailabilityTimeSlotByReceiverIdAndDate(){
-    this.http.get<AvailabilityTimeSlot[]>(this.availabilityTimeSlotsUrl + "findByDateAndReceiverId/?" + this.receiverId + "&" + this.date).subscribe(value => {
-      this.availabilityTimeSlot = value;
-      this.availabilityTimeSlot$.next(value);
-    });
-  }
-
   public getAvailabilityTimeSlotByReceiverId(){
     this.http.get<AvailabilityTimeSlot[]>(this.availabilityTimeSlotsUrl + this.receiverId).subscribe(value => {
       this.availabilityTimeSlot = value;
@@ -66,17 +59,11 @@ export class OneAvailabilityTimeSlotService {
 
   public addAvailabilityTimeSlot(availabilityTimeSlot: AvailabilityTimeSlot){
 
+    availabilityTimeSlot.receiverId = getUser().id;
+
     this.http.post(this.availabilityTimeSlotsUrl, availabilityTimeSlot, httpOptionsBase).subscribe(
       (availabilityTimeSlotAdded) => {
-        this.requestService.addRequest(Object.assign(
-          {
-            id: Object.assign(availabilityTimeSlotAdded).id,
-            receiverId: getUser().id,
-            date: "22-03-2019",
-            beginningHour: "10:30",
-            endingHour: "10:45"
-          }));
-
+        this.getAvailabilityTimeSlotByReceiverId();
       }
     );
   }

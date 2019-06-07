@@ -38,7 +38,7 @@ export class AppointmentService {
     }
 
     public next(id: number){
-      this.http.get<Appointment>(this.appointmentUrl+"next?receverId=" + id).subscribe(value => {
+      this.http.get<Appointment>(this.appointmentUrl+"next?receiverId=" + id).subscribe(value => {
         if (value){
           this.nextStudentId = value.askerId;
           this.nextStudentId$.next(value.askerId);

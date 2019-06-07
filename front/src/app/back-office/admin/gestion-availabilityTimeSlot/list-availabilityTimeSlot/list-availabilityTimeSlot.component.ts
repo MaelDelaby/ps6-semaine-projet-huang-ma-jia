@@ -27,7 +27,6 @@ export class ListAvailabilityTimeSlotComponent implements OnChanges {
   }
 
   filterWithResearch() {
-    console.log(this.researchDate);
     this.availabilityTimeSlotListVisible = this.availabilityTimeSlotList.filter(availabilityTimeSlot => {
       return availabilityTimeSlot.date.includes(this.researchDate);
     });

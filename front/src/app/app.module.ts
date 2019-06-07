@@ -55,8 +55,7 @@ import {AdminHomePageComponent,
   CardAvailabilityTimeSlotComponent,
   RequestModifierPageComponent,
   InternshipFormComponent,
-  CompanyFormComponent,
-  AvailibilityFormComponent} from './back-office';
+  CompanyFormComponent} from './back-office';
 
 @NgModule({
   declarations: [
@@ -93,7 +92,6 @@ import {AdminHomePageComponent,
     RequestModifierPageComponent,
     InternshipFormComponent,
     CompanyFormComponent,
-    AvailibilityFormComponent,
   ],
   imports: [
     HttpClientModule,

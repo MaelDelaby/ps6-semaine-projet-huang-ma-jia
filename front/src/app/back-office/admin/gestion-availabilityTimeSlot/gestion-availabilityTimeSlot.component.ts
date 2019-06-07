@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import {AvailabilityTimeSlot} from "../../../../models/availabilityTimeSlot";
 import {OneAvailabilityTimeSlotService} from "../../../../services/availabilityTimeSlot/one-availabilityTimeSlot.service";
 import { getUser } from 'src/app/cookies'
@@ -11,14 +12,42 @@ import { getUser } from 'src/app/cookies'
 export class GestionAvailabilityTimeSlotComponent implements OnInit {
 
   public availabilityTimeSlotTicketList: AvailabilityTimeSlot[] = [];
+  
+  public availabilityTimeSlotForm: FormGroup;
 
-  constructor(public oneAvailabilityTimeSlotService: OneAvailabilityTimeSlotService) {
-  }
+  constructor(public formBuilder: FormBuilder,
+    public oneAvailabilityTimeSlotService: OneAvailabilityTimeSlotService) {
 
-  ngOnInit() {
     this.oneAvailabilityTimeSlotService.setReceiverId(getUser().id);
     this.oneAvailabilityTimeSlotService.availabilityTimeSlot$.subscribe((availabilityTimeSlot) => {
       this.availabilityTimeSlotTicketList = availabilityTimeSlot;
+    });
+
+    this.availabilityTimeSlotForm = this.formBuilder.group({
+      date: [''],
+      beginningHour: [''],
+      endingHour: [''],
+    });
+  }
+
+  ngOnInit() {
+  }
+
+  addAvailabilityTimeSlot(){
+    if (this.availabilityTimeSlotForm.getRawValue().date == "" ||
+      this.availabilityTimeSlotForm.getRawValue().beginningHour == "" ||
+      this.availabilityTimeSlotForm.getRawValue().endingHour == ""){
+    }
+    this.oneAvailabilityTimeSlotService.addAvailabilityTimeSlot(this.availabilityTimeSlotForm.getRawValue() as AvailabilityTimeSlot);
+    this.oneAvailabilityTimeSlotService.getAvailabilityTimeSlotByReceiverId();
+    this.fillForm();
+  }
+
+  fillForm(){
+    this.availabilityTimeSlotForm.setValue({
+    date: '',
+    beginningHour: '',
+    endingHour: '',
     });
   }
 }

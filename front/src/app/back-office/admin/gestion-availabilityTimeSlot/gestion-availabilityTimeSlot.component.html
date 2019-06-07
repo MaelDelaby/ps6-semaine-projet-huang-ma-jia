@@ -8,7 +8,22 @@
 
 <app-list-AvailabilityTimeSlot [availabilityTimeSlotList]="this.availabilityTimeSlotTicketList" [availabilityTimeSlotListVisible]="this.availabilityTimeSlotTicketList"></app-list-AvailabilityTimeSlot>
 
-<app-availibilityTimeSlot-form></app-availibilityTimeSlot-form>
+  <h1 align="center">Ajouter un nouveau créneau</h1>
+
+  <form [formGroup]="availabilityTimeSlotForm" class="form-style-5">
+    <fieldset>
+      <label for="date">Date :</label>
+      <input type="date" id="date" placeholder="Date du créneau" [formControlName]="'date'">
+      <label for="beginningHour">Heure de debut :</label>
+      <input type="time" id="beginningHour" placeholder="Heure de debut" [formControlName]="'beginningHour'">
+      <label for="endingHour">Heure de fin :</label>
+      <input type="time" id="endingHour" placeholder="Heure de fin" [formControlName]="'endingHour'">
+
+    </fieldset>
+    <input type="submit" value="Ajouter le créneaux" (click)="addAvailabilityTimeSlot()" />
+  </form>
+
+
 
 <div class="fatFooter">
   <app-fat-footer></app-fat-footer>

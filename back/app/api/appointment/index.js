@@ -6,7 +6,7 @@ router.get('/receiverId', (req, res) => res.status(200).json(Appointment.getByRe
 router.get('/askerId', (req, res) => res.status(200).json(Appointment.getByAskerId(req.query.askerId)));
 router.get('/numberAppointementByReceiverId', (req, res) => res.status(200).json(Appointment.getNumberAppointementByReceiverId(req.query.receiverId)));
 
-router.get('/next', (req, res) => res.status(200).json(Appointment.items.find(appointment => appointment.receverId == req.query.receverId)));
+router.get('/next', (req, res) => res.status(200).json(Appointment.items.find(appointment => appointment.receiverId == req.query.receiverId)));
 
 router.post('/', (req, res) => {
   try {
