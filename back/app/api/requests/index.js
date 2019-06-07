@@ -3,8 +3,8 @@ const { Request } = require('../../models');
 
 const router = new Router();
 router.get('/', (req, res) => res.status(200).json(Request.items.find(request => request.studentId == req.query.studentId)));
-router.get('/next', (req, res) => res.status(200).json(Request.items.filter(request => request.waitAppointment == false)[0]));
-router.get('/nb', (req, res) => res.status(200).json(Request.items.filter(request => request.waitAppointment == false).length));
+router.get('/next', (req, res) => res.status(200).json(Request.items.filter(request => request.waitAppointment == 0)[0]));
+router.get('/nb', (req, res) => res.status(200).json(Request.items.filter(request => request.waitAppointment == 0).length));
 router.put('/accept/:id', (req, res) => {
     try {
         let request = Request.items.find(request => request.id == req.params.id);
@@ -80,12 +80,12 @@ router.put('/late/:id', (req, res) => {
     }
 });
 
-router.put('/appointment/:id', (req, res) => {
+router.put('/appointment/', (req, res) => {
     try {
-        let request = Request.items.find(request => request.id == req.params.id);
-        request.waitAppointment = true;
+        let request = Request.items.find(request => request.id == req.query.requestId);
+        request.waitAppointment = req.query.adminId;
         Request.items.push(request);
-        Request.items.splice(Request.items.findIndex(request => request.id == req.params.id), 1);
+        Request.items.splice(Request.items.findIndex(request => request.id == req.query.requestId), 1);
         Request.save();
         res.status(201).json(request);
     } catch (err) {

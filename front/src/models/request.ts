@@ -4,5 +4,6 @@ export interface Request {
     internshipId?: number;
     studentId?: number;
     date?: String;
+    waitAppointment?: number;
   }
   

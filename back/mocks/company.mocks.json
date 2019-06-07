@@ -24,8 +24,8 @@
     "activitySector": "Services technologiques",
     "hiringOpportunities": "https://careers.google.com/jobs/",
     "description": "Google LLC [ˈguːgəl]9 est une entreprise américaine de services technologiques fondée en 1998 dans la Silicon Valley, en Californie, par Larry Page et Sergey Brin, créateurs du moteur de recherche Google.",
-    "rating": 3.5,
-    "internshipNb": 2
+    "rating": 3,
+    "internshipNb": 1
   },
   {
     "id": 4,
@@ -121,7 +121,9 @@
     "address": "",
     "description": "",
     "hiringOpportunities": "",
-    "id": 1559835824432
+    "id": 1559835824432,
+    "rating": null,
+    "internshipNb": 0
   },
   {
     "name": "LARROYE",
@@ -133,7 +135,9 @@
     "address": "",
     "description": "",
     "hiringOpportunities": "",
-    "id": 1559836231787
+    "id": 1559836231787,
+    "rating": null,
+    "internshipNb": 0
   },
   {
     "name": "LARROYE2",
@@ -145,7 +149,9 @@
     "address": "",
     "description": "",
     "hiringOpportunities": "",
-    "id": 1559836290884
+    "id": 1559836290884,
+    "rating": null,
+    "internshipNb": 0
   },
   {
     "name": "chien",
@@ -157,6 +163,20 @@
     "address": "",
     "description": "",
     "hiringOpportunities": "",
-    "id": 1559838374160
+    "id": 1559838374160,
+    "rating": null,
+    "internshipNb": 0
+  },
+  {
+    "name": "Polytech",
+    "iconImage": "",
+    "creationDate": "",
+    "employeesNumber": "",
+    "activitySector": "",
+    "countryId": "CN",
+    "address": "",
+    "description": "",
+    "hiringOpportunities": "",
+    "id": 1559899410115
   }
 ]
