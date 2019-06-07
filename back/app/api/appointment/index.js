@@ -35,4 +35,17 @@ router.delete('/:appointmentId', (req, res) => {
   }
 });
 
+router.delete('/lastAppointmentByAskerId/:askerId', (req, res) => {
+  try {
+    Appointment.delete(Appointment.getLastAppointmentByAskerId(req.params.askerId));
+res.status(204).end();
+} catch (err) {
+  if (err.name === 'NotFoundError') {
+    res.status(404).end();
+  } else {
+    res.status(500).json(err);
+  }
+}
+});
+
 module.exports = router;
