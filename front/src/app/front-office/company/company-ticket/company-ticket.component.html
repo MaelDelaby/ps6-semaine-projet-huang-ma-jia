@@ -1,35 +1,31 @@
 <div class="company" (click)="mouseClick(company.id)">
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
 
-  
+
   <table class="table">
     <tr>
       <th rowspan="2" class="icon" >
           <img class="icon" *ngIf="company.iconImage === ''" src="https://cdn0.iconfinder.com/data/icons/pinpoint-notifocation/48/none-512.png">
           <img class="icon" *ngIf="company.iconImage !== ''" [src]="company.iconImage">
       </th>
-      <td class="name">
+
+      <td class="address" rowspan="2">
+        <h1 class="name">
           <div *ngIf="countryExist == true">
-            {{company.name}} - {{company.countryId}}
+          {{company.name}} - {{company.countryId}}
           </div>
           <div *ngIf="countryExist == false">
             {{company.name}}
-          </div>
-      </td>
-      <td class="address" rowspan="2">
+          </div></h1>
+
+        <h2 class="secteur">
+          {{company.activitySector}}
+        </h2>
         Adresse : {{company.address}}
-      </td>
-      <td class="note">
-        <i *ngFor="let item of ratingFullStarsArray" class="fas fa-star" style="font-size: 2em;"></i>
-        <i *ngIf="existHalfStar === true" class="fas fa-star-half-alt" style="font-size: 2em;"></i>
-        <i *ngFor="let item of ratingEmptyStarsArray" class="far fa-star" style="font-size: 2em;"></i>
-      </td>
-    </tr>
-    <tr>
-      <td class="secteur">
-        {{company.activitySector}}
-      </td>
-      <td class="nbStage">
+        <br>
+        <i *ngFor="let item of ratingFullStarsArray" class="fas fa-star" style="font-size: 1.2em;"></i>
+        <i *ngIf="existHalfStar === true" class="fas fa-star-half-alt" style="font-size: 1.2em;"></i>
+        <i *ngFor="let item of ratingEmptyStarsArray" class="far fa-star" style="font-size: 1.2em;"></i>
         {{company.internshipNb}} stages
       </td>
     </tr>

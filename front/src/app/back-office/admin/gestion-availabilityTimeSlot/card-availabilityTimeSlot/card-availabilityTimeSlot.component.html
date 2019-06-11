@@ -1,8 +1,18 @@
-<div class="moreInformation">
-
-  Le {{availabilityTimeSlotTicket.date}} : entre {{availabilityTimeSlotTicket.beginningHour}} et {{availabilityTimeSlotTicket.endingHour}}
-
-  <button type="button" (click)="delete(availabilityTimeSlotTicket.id)">
-    supprimer
-  </button>
+<div class="blog-card">
+  <div class="meta">
+    <div class="photo" ></div>
+    <time class="date-as-calendar position-em size1x">
+      <span class="weekday">{{this.dayNames[this.numDay]}}</span>
+      <span class="day">{{this.day}}</span>
+      <span class="month">{{this.monthNames[this.month]}}</span>
+      <span class="year">{{this.year}}</span>
+    </time>
+  </div>
+  <div class="description">
+    <h1> Entre {{availabilityTimeSlotTicket.beginningHour}} et {{availabilityTimeSlotTicket.endingHour}}     <button type="button" (click)="delete(availabilityTimeSlotTicket.id)">
+      <i class="fa fa-trash"></i> Supprimer
+    </button></h1>
+  </div>
 </div>
+
+
