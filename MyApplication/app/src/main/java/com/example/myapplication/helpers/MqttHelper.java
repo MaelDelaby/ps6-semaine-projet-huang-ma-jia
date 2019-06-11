@@ -17,11 +17,12 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
+import static com.example.myapplication.activity.MainActivity.myId;
 import static org.eclipse.paho.client.mqttv3.MqttAsyncClient.generateClientId;
 
 public class MqttHelper {
     public MqttAndroidClient mqttAndroidClient;
-    public int idOfLastPublish;
+    private int idOfLastPublish;
 
     final String serverUri = "tcp://localhost:1883";
 
@@ -33,28 +34,6 @@ public class MqttHelper {
 
     public MqttHelper(Context context){
         mqttAndroidClient = new MqttAndroidClient(context, serverUri, clientId);
-        idOfLastPublish = -3;
-        mqttAndroidClient.setCallback(new MqttCallbackExtended() {
-            @Override
-            public void connectComplete(boolean b, String s) {
-                Log.w("mqtt", s);
-            }
-
-            @Override
-            public void connectionLost(Throwable throwable) {
-
-            }
-
-            @Override
-            public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-                Log.w("Mqtt", mqttMessage.toString());
-            }
-
-            @Override
-            public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
-
-            }
-        });
         connect();
     }
 
@@ -107,22 +86,17 @@ public class MqttHelper {
     }
 
     public void deleteLastAppointment() throws MqttException, UnsupportedEncodingException {
-        if(idOfLastPublish != -3) {
-            publishMessage(String.valueOf(idOfLastPublish), "delAppointment/");
-        }
+        publishMessage(String.valueOf(myId), "delAppointment");
     }
 
     public void publishMessage(@NonNull String msg, @NonNull String topic) throws MqttException, UnsupportedEncodingException {
-        Random r = new Random();
-        int k = r.nextInt(100);
-        idOfLastPublish = k;
         byte[] encodedPayload = new byte[0];
         encodedPayload = msg.getBytes("UTF-8");
         MqttMessage message = new MqttMessage(encodedPayload);
         mqttAndroidClient.publish(topic, message);
     }
 
-    private void subscribeToTopic(String topic) {
+    public void subscribeToTopic(String topic) {
         try {
             mqttAndroidClient.subscribe(topic, 0, null, new IMqttActionListener() {
                 @Override

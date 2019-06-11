@@ -46,7 +46,7 @@ public class JSONFormatter {
             String hour = json.getString("endingHour");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             Date date = sdf.parse(json.getString("date")+" "+hour);
-            sessions.add(new Session(receiverId, "Anne-Marie", "Pina", date,"O+308" ));
+            sessions.add(new Session(receiverId, "", "", date,"O+308" ));
         }
         return sessions;
     }

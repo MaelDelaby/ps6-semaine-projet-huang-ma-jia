@@ -1,5 +1,6 @@
 package com.example.myapplication.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,20 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-/*
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        tabs.setTabTextColors(Color.parseColor("#72b200"),Color.parseColor("#82cc00"));
     }
 
     private void setupViewPager(){
         sectionsPagerAdapter.addFragment(new SessionsFragment(), "Sessions");
-        sectionsPagerAdapter.addFragment(new TestFragment(), "Test");
+        sectionsPagerAdapter.addFragment(new TestFragment(), "RDV");
         viewPager.setAdapter(sectionsPagerAdapter);
     }
 }
