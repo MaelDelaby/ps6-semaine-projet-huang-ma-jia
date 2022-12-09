@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/delmotte/back-end-starter-3a-pns-2019#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
-    "express": "4.16.4",
+    "express": "4.18.2",
     "joi": "14.3.1",
     "morgan": "1.9.1"
   },
